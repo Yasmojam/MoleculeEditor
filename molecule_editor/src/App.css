@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container {
+    background: lightgray;
+    width: 100%;
+    height: 100%;
+}
+
+.toolIcon {
+    width: 25px;
+    height: 25px
+}
+
+.ui.icon.button {
+    background: white;
+    border: 2px solid #e0e1e2;
+    margin: 2px
+}
+
+.ui.icon.button:hover {
+    background: #e0e1e2 none;
+}
+
+.toolWinContainer {
+    width: 200px;
+    height: 100%;
+    padding: 5px;
+    margin: 10px;
+}
