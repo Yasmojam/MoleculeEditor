@@ -1,7 +1,17 @@
-.container {
+body{
     background: lightgray;
-    width: 100%;
-    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    overflow: hidden;
+
+}
+.container {
+}
+
+.App {
 }
 
 .toolIcon {
@@ -19,7 +29,9 @@
     background: #e0e1e2 none;
 }
 
-.toolWinContainer {
+.toolLeftWinContainer {
+    display: flex;
+    flex-direction: column-reverse;
     width: 200px;
     height: 100%;
     padding: 5px;

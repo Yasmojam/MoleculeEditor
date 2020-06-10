@@ -5,7 +5,7 @@ import Double from "../../assets/double bond.png";
 
 const Header = (props) => {
     return (
-        <div className='container'>
+        <div className='container' style={{display:"0 0 flex"}}>
         <div style={headerStyle} className="ui header">
             <div className="content" style={{width:"100%",height:"100%", wordWrap:"break-word", wordBreak:"break-all",}}>
                 <div style={{margin:"10px", width:"150px", float: "left"}}>Molecule editor.</div>

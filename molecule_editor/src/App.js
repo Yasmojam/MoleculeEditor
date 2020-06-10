@@ -36,6 +36,7 @@ import Equilibruim from "./assets/eqilibriumb56ca2df.png"
 import FullCurlyArrow from "./assets/halfCurlyArrow631179fe.png"
 import HalfCurlyArrow from "./assets/halfCurlyArrow.png"
 import RetroArrow from "./assets/retroArrow.png"
+import Canvas from "./components/Canvas";
 
 
 class App extends Component {
@@ -44,7 +45,8 @@ class App extends Component {
             <div className='App'>
                 <div className='container'>
                     <Header/>
-                    <div className="toolWinContainer">
+                    <div className="allPanels">
+                    <div className="toolLeftWinContainer">
                         <ToolWindow heading="Bonds">
                             <ToolButtons>
                                 <img className="toolIcon" src={Single} alt=""/>
@@ -75,7 +77,7 @@ class App extends Component {
                             </ ToolButtons>
                         </ToolWindow>
                     </div>
-                    <div className="toolWinContainer">
+                    <div className="toolLeftWinContainer">
                         <ToolWindow heading="Ring Structures">
                             <ToolButtons>
                                 <img className="toolIcon" src={Benzene} alt=""/>
@@ -97,7 +99,7 @@ class App extends Component {
                             </ToolButtons>
                         </ToolWindow>
                     </div>
-                    <div className="toolWinContainer">
+                    <div className="toolLeftWinContainer">
                         <ToolWindow heading="Charge">
                             <ToolButtons>
                                 <img className="toolIcon" src={Radical} alt=""/>
@@ -119,7 +121,7 @@ class App extends Component {
                             </ToolButtons>
                         </ToolWindow>
                     </div>
-                    <div className="toolWinContainer">
+                    <div className="toolLeftWinContainer">
                         <ToolWindow heading="Reaction Arrows">
                             <ToolButtons>
                                 <img className="toolIcon" src={ReactionArrow} alt=""/>
@@ -141,18 +143,12 @@ class App extends Component {
                             </ToolButtons>
                         </ToolWindow>
                     </div>
-
+                        <Canvas/>
+                </div>
                 </div>
             </div>
         )
     }
-}
-
-const textStyle = {
-    display:"inlineBlock",
-    width:"25px",
-    height:"25px",
-    textAlign:"center"
 }
 
 export default App;
