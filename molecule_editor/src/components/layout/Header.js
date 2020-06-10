@@ -7,8 +7,8 @@ const Header = (props) => {
     return (
         <div className='container'>
         <div style={headerStyle} className="ui header">
-            <div style={{width:"100%",height:"100%", wordWrap:"break-word", wordBreak:"break-all",}}>
-                <div style={{padding:"5px", width:"150px", float: "left"}}>Molecule editor.</div>
+            <div className="content" style={{width:"100%",height:"100%", wordWrap:"break-word", wordBreak:"break-all",}}>
+                <div style={{margin:"10px", width:"150px", float: "left"}}>Molecule editor.</div>
                 <button className="ui icon button" style={headerButtonStyle}>
                     Export
                 </button>
@@ -42,7 +42,7 @@ const Header = (props) => {
 
 const headerStyle = {
     background: '#ffffff',
-    padding: '12px'
+    padding: '10px'
 }
 
 const headerButtonStyle = {
@@ -59,5 +59,7 @@ const iconStyle = {
     width: "16px",
     height: "16px"
 }
+
+
 
 export default Header;

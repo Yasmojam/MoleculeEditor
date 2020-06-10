@@ -20,6 +20,23 @@ import Benzene from "./assets/benzene31dcf2c1.png"
 import Cyclohexane from "./assets/cyclohexane.png"
 import Cyclobutane from "./assets/cyclobutane.png"
 import Cyclopropane from "./assets/cyclopropane.png"
+import Cyclopentane from "./assets/cyclopentane.png"
+import Cyclooctane from "./assets/cyclooctane.png"
+// Charges
+import Radical from "./assets/radical.png"
+import Minus from "./assets/minus.png"
+import Plus from "./assets/plus.png"
+import NegDipole from "./assets/neg dipole.png"
+import PosDipole from "./assets/pos dipole.png"
+import Dipole from "./assets/dipoleArrow.png"
+// Reaction Arrows
+import ReactionArrow from "./assets/reactionArrow.png"
+import EquilibriumHalf from "./assets/eqilibrium.png"
+import Equilibruim from "./assets/eqilibriumb56ca2df.png"
+import FullCurlyArrow from "./assets/halfCurlyArrow631179fe.png"
+import HalfCurlyArrow from "./assets/halfCurlyArrow.png"
+import RetroArrow from "./assets/retroArrow.png"
+
 
 class App extends Component {
     render() {
@@ -64,31 +81,78 @@ class App extends Component {
                                 <img className="toolIcon" src={Benzene} alt=""/>
                             </ToolButtons>
                             <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
+                                <img className="toolIcon" src={Cyclohexane} alt=""/>
                             </ToolButtons>
                             <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
+                                <img className="toolIcon" src={Cyclopropane} alt=""/>
                             </ToolButtons>
                             <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
+                                <img className="toolIcon" src={Cyclobutane} alt=""/>
                             </ToolButtons>
                             <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
+                                <img className="toolIcon" src={Cyclooctane} alt=""/>
                             </ToolButtons>
                             <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
+                                <img className="toolIcon" src={Cyclopentane} alt=""/>
                             </ToolButtons>
                         </ToolWindow>
                     </div>
+                    <div className="toolWinContainer">
+                        <ToolWindow heading="Charge">
+                            <ToolButtons>
+                                <img className="toolIcon" src={Radical} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={Minus} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={Plus} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={NegDipole} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={PosDipole} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={Dipole} alt=""/>
+                            </ToolButtons>
+                        </ToolWindow>
+                    </div>
+                    <div className="toolWinContainer">
+                        <ToolWindow heading="Reaction Arrows">
+                            <ToolButtons>
+                                <img className="toolIcon" src={ReactionArrow} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={EquilibriumHalf} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={Equilibruim} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={FullCurlyArrow} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={HalfCurlyArrow} alt=""/>
+                            </ToolButtons>
+                            <ToolButtons>
+                                <img className="toolIcon" src={RetroArrow} alt=""/>
+                            </ToolButtons>
+                        </ToolWindow>
+                    </div>
+
                 </div>
             </div>
         )
     }
 }
 
-const iconStyle = {
-    width: "25px",
-    height: "25px"
+const textStyle = {
+    display:"inlineBlock",
+    width:"25px",
+    height:"25px",
+    textAlign:"center"
 }
 
 export default App;
