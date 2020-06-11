@@ -1,4 +1,7 @@
-body{
+html, body{
+    margin: 0px;
+    height: 100%;
+
     background: lightgray;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -7,6 +10,11 @@ body{
 
     overflow: hidden;
 
+}
+
+body{
+    display: flex;
+    flex-direction: column;
 }
 .container {
 }
@@ -29,11 +37,17 @@ body{
     background: #e0e1e2 none;
 }
 
-.toolLeftWinContainer {
+.allPanels {
     display: flex;
-    flex-direction: column-reverse;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
     width: 200px;
     height: 100%;
-    padding: 5px;
-    margin: 5px;
+    margin: 15px;
+}
+
+.panelContainer {
+    margin-bottom:10px;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const ToolWindow = (props) => {
+const LongToolWindow = (props) => {
     return (
-        <div className='ui card' style={{height:"100%", width:"100%"}}>
+        <div className='ui card' style={{width:"640px", margin:"10px"}}>
             <div className='content' style={{padding: "12px"}}>
                 <div className='header'>{props.heading}</div>
             </div>
@@ -18,4 +18,4 @@ const ToolWindow = (props) => {
     )
 }
 
-export default ToolWindow;
+export default LongToolWindow;

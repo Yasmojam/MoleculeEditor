@@ -37,6 +37,7 @@ import FullCurlyArrow from "./assets/halfCurlyArrow631179fe.png"
 import HalfCurlyArrow from "./assets/halfCurlyArrow.png"
 import RetroArrow from "./assets/retroArrow.png"
 import Canvas from "./components/Canvas";
+import LongToolWindow from "./components/LongToolWindow";
 
 
 class App extends Component {
@@ -45,106 +46,159 @@ class App extends Component {
             <div className='App'>
                 <div className='container'>
                     <Header/>
-                    <div className="allPanels">
-                    <div className="toolLeftWinContainer">
-                        <ToolWindow heading="Bonds">
-                            <ToolButtons>
-                                <img className="toolIcon" src={Single} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Double} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Triple} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Quadruple} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={ForwardPlane} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={BackwardPlane} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={UnspecifiedPlane} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Dative} alt=""/>
-                            </ ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Intermediate} alt=""/>
-                            </ ToolButtons>
-                        </ToolWindow>
+                    <div className="workspace" style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        // justifyContent: "center",
+                        // alignItems: "flex-start"
+                    }}>
+                        <div className="allPanels">
+                            <div className="panelContainer">
+                            <ToolWindow heading="Bonds">
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Single} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Double} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Triple} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Quadruple} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={ForwardPlane} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={BackwardPlane} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={UnspecifiedPlane} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Dative} alt=""/>
+                                </ ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Intermediate} alt=""/>
+                                </ ToolButtons>
+                            </ToolWindow>
+                        </div>
+                            <div className="panelContainer">
+                            <ToolWindow heading="Ring Structures">
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Benzene} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Cyclohexane} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Cyclopropane} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Cyclobutane} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Cyclooctane} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Cyclopentane} alt=""/>
+                                </ToolButtons>
+
+                            </ToolWindow>
+                            </div>
+                            <div className="panelContainer">
+                            <ToolWindow heading="Charge">
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Radical} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Minus} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Plus} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={NegDipole} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={PosDipole} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Dipole} alt=""/>
+                                </ToolButtons>
+                            </ToolWindow>
+                            </div>
+                    <div className="panelContainer">
+                            <ToolWindow heading="Reaction Arrows">
+                                <ToolButtons>
+                                    <img className="toolIcon" src={ReactionArrow} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={EquilibriumHalf} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={Equilibruim} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={FullCurlyArrow} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={HalfCurlyArrow} alt=""/>
+                                </ToolButtons>
+                                <ToolButtons>
+                                    <img className="toolIcon" src={RetroArrow} alt=""/>
+                                </ToolButtons>
+                            </ToolWindow>
+                        </div>
                     </div>
-                    <div className="toolLeftWinContainer">
-                        <ToolWindow heading="Ring Structures">
-                            <ToolButtons>
-                                <img className="toolIcon" src={Benzene} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Cyclohexane} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Cyclopropane} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Cyclobutane} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Cyclooctane} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Cyclopentane} alt=""/>
-                            </ToolButtons>
-                        </ToolWindow>
+                        <div className="canvasAndBonds" style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            flexWrap: "wrap",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            margin: "30px",
+                            padding: "30px"
+                        }}>
+                            <Canvas/>
+                                <LongToolWindow heading="Atoms">
+                                    <ToolButtons>
+                                        <text>H</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>C</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>O</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>N</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>P</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>S</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>F</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>Cl</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>B</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>I</text>
+                                    </ToolButtons>
+                                    <ToolButtons>
+                                        <text>...</text>
+                                    </ToolButtons>
+                                </LongToolWindow>
+                        </div>
                     </div>
-                    <div className="toolLeftWinContainer">
-                        <ToolWindow heading="Charge">
-                            <ToolButtons>
-                                <img className="toolIcon" src={Radical} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Minus} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Plus} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={NegDipole} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={PosDipole} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Dipole} alt=""/>
-                            </ToolButtons>
-                        </ToolWindow>
-                    </div>
-                    <div className="toolLeftWinContainer">
-                        <ToolWindow heading="Reaction Arrows">
-                            <ToolButtons>
-                                <img className="toolIcon" src={ReactionArrow} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={EquilibriumHalf} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={Equilibruim} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={FullCurlyArrow} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={HalfCurlyArrow} alt=""/>
-                            </ToolButtons>
-                            <ToolButtons>
-                                <img className="toolIcon" src={RetroArrow} alt=""/>
-                            </ToolButtons>
-                        </ToolWindow>
-                    </div>
-                        <Canvas/>
-                </div>
                 </div>
             </div>
         )
