@@ -1,14 +1,16 @@
 html, body{
-    margin: 0px;
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
 
     background: lightgray;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
-    overflow: hidden;
 
 }
 
@@ -17,9 +19,19 @@ body{
     flex-direction: column;
 }
 .container {
+    display: flex;
 }
 
 .App {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+}
+
+.appContainer {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
 }
 
 .toolIcon {
@@ -38,6 +50,7 @@ body{
 }
 
 .allPanels {
+    position: relative;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;

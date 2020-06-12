@@ -4,8 +4,7 @@ import Transform from "../../assets/transform.png"
 
 const Header = (props) => {
     return (
-        <div className='container' style={{flex: "stretch"}}>
-            <div style={headerStyle} className="ui header">
+            <div className="header container" style={headerStyle} className="ui header">
                 <div className="content" style={{
                     display: "flex",
                     flexWrap: "wrap",
@@ -17,10 +16,10 @@ const Header = (props) => {
                 }}>
                     <div style={{
                         display: "flex",
-                        flexWrap: "wrap",
+                        position:"relative",
                         margin: "10px",
-                        width: "150px",
-                        justifyContent: "flex-start"
+                        width: "10vw",
+                        justifyContent: "flex-start",
                     }}>Molecule editor.
                     </div>
                     <div className="content" style={{
@@ -56,7 +55,6 @@ const Header = (props) => {
                         </button>
 
 
-                    </div>
                 </div>
             </div>
         </div>
@@ -65,17 +63,24 @@ const Header = (props) => {
 
 const headerStyle = {
     background: '#ffffff',
-    padding: '10px'
+    padding: '10px',
+    borderBottom:"2px solid #707070"
 }
 
 const headerButtonStyle = {
-    // width:"60px",
+    display:"flex",
     height: "38px",
     fontSize: "15px",
     textAlign: "center",
     padding: "10px",
     margin: "2px",
-    float: "right"
+    float: "right",
+    position: "relative",
+
+
+    overflow:"auto",
+    justifyContent: "space-between",
+    alignItems: "center"
 }
 
 const iconStyle = {

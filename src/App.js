@@ -44,13 +44,11 @@ class App extends Component {
     render() {
         return (
             <div className='App'>
-                <div className='container'>
+                <div className='appContainer'>
                     <Header/>
                     <div className="workspace" style={{
                         display: "flex",
-                        flexDirection: "row",
-                        // justifyContent: "center",
-                        // alignItems: "flex-start"
+                        flexDirection: "row"
                     }}>
                         <div className="allPanels">
                             <div className="panelContainer">
@@ -154,14 +152,18 @@ class App extends Component {
                     </div>
                         <div className="canvasAndBonds" style={{
                             display: "flex",
+                            flex:"1",
+                            position:"relative",
+                            overflow:"auto",
                             flexDirection: "column",
                             flexWrap: "wrap",
                             justifyContent: "space-between",
-                            alignItems: "center",
-                            margin: "30px",
-                            padding: "30px"
+                            alignItems: "center"
                         }}>
+                            <div className="canvasArea" style={{display:"flex",padding:"3px"}}>
                             <Canvas/>
+                            </div>
+                            <div style={{position:"relative"}}>
                                 <LongToolWindow heading="Atoms">
                                     <ToolButtons>
                                         <text>H</text>
@@ -196,7 +198,9 @@ class App extends Component {
                                     <ToolButtons>
                                         <text>...</text>
                                     </ToolButtons>
+
                                 </LongToolWindow>
+                        </div>
                         </div>
                     </div>
                 </div>

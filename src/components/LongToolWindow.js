@@ -3,7 +3,7 @@ import React from 'react';
 
 const LongToolWindow = (props) => {
     return (
-        <div className='ui card' style={{width:"640px", margin:"10px"}}>
+        <div className='ui card' style={{width:"640px", margin:"10px", border:"2px solid #707070"}}>
             <div className='content' style={{padding: "12px"}}>
                 <div className='header'>{props.heading}</div>
             </div>

@@ -3,7 +3,7 @@ import React from 'react';
 
 const ToolWindow = (props) => {
     return (
-        <div className='ui card' style={{height:"100%", width:"100%"}}>
+        <div className='ui card' style={{height:"100%", width:"200px", border:"2px solid #707070"}}>
             <div className='content' style={{padding: "12px"}}>
                 <div className='header'>{props.heading}</div>
             </div>
