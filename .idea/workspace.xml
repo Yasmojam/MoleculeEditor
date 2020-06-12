@@ -20,54 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added flex boxes. Adjusted canvas. Added atom tool box.">
-      <change beforePath="$PROJECT_DIR$/molecule_editor/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/benzeneicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon_benzene.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/benzeneicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/molecule_editor/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/REACTREADME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/backward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/backward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/benzene31dcf2c1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/benzene31dcf2c1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/cyclobutane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/cyclobutane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/cyclohexane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/cyclohexane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/cyclooctane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/cyclooctane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/cyclopentane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/cyclopentane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/cyclopropane.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/cyclopropane.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/dative.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/dative.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/dipoleArrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/dipoleArrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/double bond.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/double bond.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/eqilibrium.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/eqilibrium.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/eqilibriumb56ca2df.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/eqilibriumb56ca2df.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/halfCurlyArrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/halfCurlyArrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/halfCurlyArrow631179fe.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/halfCurlyArrow631179fe.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/intermediate.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/intermediate.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/minus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/minus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/misc files/icons.afdesign" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc files/icons.afdesign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/neg dipole.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/neg dipole.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/planeNotSpecified.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/planeNotSpecified.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/plus.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/pos dipole.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/pos dipole.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/quadruple bond.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/quadruple bond.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/radical.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/radical.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/reactionArrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/reactionArrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/retroArrow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/retroArrow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/select.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/select.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/single.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/single.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/transform.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/transform.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/assets/triple bond.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/triple bond.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/components/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/components/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LongToolWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/components/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/molecule_editor/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/precache-manifest.5c195c28564b0ef0a142c4f0e478bd0e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/misc files/icons.afdesign" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc files/icons.afdesign" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,21 +77,25 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/molecule_editor/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yasmo\my repos\react\MoleculeEditor\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src\components" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src\components\layout" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -138,7 +111,8 @@
       <workItem from="1591696426039" duration="860000" />
       <workItem from="1591697321996" duration="25828000" />
       <workItem from="1591800764664" duration="17423000" />
-      <workItem from="1591880316956" duration="16182000" />
+      <workItem from="1591880316956" duration="16565000" />
+      <workItem from="1591961754924" duration="1583000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -199,10 +173,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591801436712" />
-    <state x="784" y="119" width="998" height="708" key="SettingsEditor" timestamp="1591800742805">
+    <state x="784" y="119" width="998" height="708" key="SettingsEditor" timestamp="1591961284450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="784" y="119" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591800742805" />
+    <state x="784" y="119" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591961284450" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591816750133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
