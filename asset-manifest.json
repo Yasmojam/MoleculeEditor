@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/MoleculeEditor/static/css/main.c5f240a7.chunk.css",
-    "main.js": "/MoleculeEditor/static/js/main.32c89d2c.chunk.js",
-    "main.js.map": "/MoleculeEditor/static/js/main.32c89d2c.chunk.js.map",
-    "runtime-main.js": "/MoleculeEditor/static/js/runtime-main.0924fdd0.js",
-    "runtime-main.js.map": "/MoleculeEditor/static/js/runtime-main.0924fdd0.js.map",
-    "static/js/2.bbfbc78c.chunk.js": "/MoleculeEditor/static/js/2.bbfbc78c.chunk.js",
-    "static/js/2.bbfbc78c.chunk.js.map": "/MoleculeEditor/static/js/2.bbfbc78c.chunk.js.map",
-    "index.html": "/MoleculeEditor/index.html",
-    "precache-manifest.5c195c28564b0ef0a142c4f0e478bd0e.js": "/MoleculeEditor/precache-manifest.5c195c28564b0ef0a142c4f0e478bd0e.js",
-    "service-worker.js": "/MoleculeEditor/service-worker.js",
-    "static/css/main.c5f240a7.chunk.css.map": "/MoleculeEditor/static/css/main.c5f240a7.chunk.css.map",
-    "static/js/2.bbfbc78c.chunk.js.LICENSE.txt": "/MoleculeEditor/static/js/2.bbfbc78c.chunk.js.LICENSE.txt"
+    "main.css": "/MoleculeEditor/src/static/css/main.c5f240a7.chunk.css",
+    "main.js": "/MoleculeEditor/src/static/js/main.32c89d2c.chunk.js",
+    "main.js.map": "/MoleculeEditor/src/static/js/main.32c89d2c.chunk.js.map",
+    "runtime-main.js": "/MoleculeEditor/src/static/js/runtime-main.b0c37f0b.js",
+    "runtime-main.js.map": "/MoleculeEditor/src/static/js/runtime-main.b0c37f0b.js.map",
+    "static/js/2.bbfbc78c.chunk.js": "/MoleculeEditor/src/static/js/2.bbfbc78c.chunk.js",
+    "static/js/2.bbfbc78c.chunk.js.map": "/MoleculeEditor/src/static/js/2.bbfbc78c.chunk.js.map",
+    "index.html": "/MoleculeEditor/src/index.html",
+    "precache-manifest.4e0b03f66527fbb882a70d4b4a5bfe61.js": "/MoleculeEditor/src/precache-manifest.4e0b03f66527fbb882a70d4b4a5bfe61.js",
+    "service-worker.js": "/MoleculeEditor/src/service-worker.js",
+    "static/css/main.c5f240a7.chunk.css.map": "/MoleculeEditor/src/static/css/main.c5f240a7.chunk.css.map",
+    "static/js/2.bbfbc78c.chunk.js.LICENSE.txt": "/MoleculeEditor/src/static/js/2.bbfbc78c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0924fdd0.js",
+    "static/js/runtime-main.b0c37f0b.js",
     "static/js/2.bbfbc78c.chunk.js",
     "static/css/main.c5f240a7.chunk.css",
     "static/js/main.32c89d2c.chunk.js"
