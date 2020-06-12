@@ -1,7 +1,6 @@
 import React from "react";
 import Selection from "../../assets/select.png"
 import Transform from "../../assets/transform.png"
-import Double from "../../assets/double bond.png";
 
 const Header = (props) => {
     return (
