@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "315bbdd82cfe6d21f24eb292bd99edb7",
+    "revision": "2960afae8bea2cd5173c528d473358d6",
     "url": "/MoleculeEditor/index.html"
   },
   {
-    "revision": "a38220fd07dd6df14900",
-    "url": "/MoleculeEditor/static/css/main.ccbb087e.chunk.css"
+    "revision": "ee133a6081a411948c9f",
+    "url": "/MoleculeEditor/static/css/main.35892e2c.chunk.css"
   },
   {
     "revision": "2d309d0e281b882dcbb3",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/MoleculeEditor/static/js/2.e7efcb95.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a38220fd07dd6df14900",
-    "url": "/MoleculeEditor/static/js/main.eaaead96.chunk.js"
+    "revision": "ee133a6081a411948c9f",
+    "url": "/MoleculeEditor/static/js/main.6acc8abe.chunk.js"
   },
   {
     "revision": "6dd87314851bb93a85f0",
