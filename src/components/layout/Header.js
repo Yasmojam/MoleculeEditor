@@ -14,14 +14,15 @@ const Header = (props) => {
                     wordBreak: "break-all",
                     justifyContent: "space-between"
                 }}>
-                    <div style={{
+                    <text style={{
                         display: "flex",
                         position:"relative",
                         margin: "10px",
-                        width: "10vw",
+                        maxHeight:"auto",
+                        minWidth:"65px",
                         justifyContent: "flex-start",
                     }}>Molecule editor.
-                    </div>
+                    </text>
                     <div className="content" style={{
                         display: "flex",
                         flexWrap: "wrap",
@@ -77,8 +78,6 @@ const headerButtonStyle = {
     float: "right",
     position: "relative",
 
-
-    overflow:"auto",
     justifyContent: "space-between",
     alignItems: "center"
 }

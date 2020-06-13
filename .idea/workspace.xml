@@ -19,13 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Changed web app description.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added a border to differentiate the panels and the header from the background.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LongToolWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,7 @@
       <workItem from="1591697321996" duration="25828000" />
       <workItem from="1591800764664" duration="17423000" />
       <workItem from="1591880316956" duration="16565000" />
-      <workItem from="1591961754924" duration="10580000" />
+      <workItem from="1591961754924" duration="15497000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -132,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591963819232</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added a border to differentiate the panels and the header from the background.">
+      <created>1592003126301</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592003126302</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +161,8 @@
     <MESSAGE value="Added all left hand side tool windows" />
     <MESSAGE value="Added flex boxes. Adjusted canvas. Added atom tool box." />
     <MESSAGE value="Changed web app description." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed web app description." />
+    <MESSAGE value="Added a border to differentiate the panels and the header from the background." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a border to differentiate the panels and the header from the background." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

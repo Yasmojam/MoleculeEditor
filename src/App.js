@@ -154,13 +154,12 @@ class App extends Component {
                             display: "flex",
                             flex:"1",
                             position:"relative",
-                            overflow:"auto",
                             flexDirection: "column",
                             flexWrap: "wrap",
-                            justifyContent: "space-between",
+                            justifyContent: "space-around",
                             alignItems: "center"
                         }}>
-                            <div className="canvasArea" style={{display:"flex",padding:"3px"}}>
+                            <div className="canvasArea" style={{height:"auto", width:"auto", display:"flex"}}>
                             <Canvas/>
                             </div>
                             <div style={{position:"relative"}}>
