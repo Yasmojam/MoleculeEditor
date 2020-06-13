@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MoleculeEditor/static/css/main.35892e2c.chunk.css",
-    "main.js": "/MoleculeEditor/static/js/main.6acc8abe.chunk.js",
-    "main.js.map": "/MoleculeEditor/static/js/main.6acc8abe.chunk.js.map",
+    "main.js": "/MoleculeEditor/static/js/main.afdcb91b.chunk.js",
+    "main.js.map": "/MoleculeEditor/static/js/main.afdcb91b.chunk.js.map",
     "runtime-main.js": "/MoleculeEditor/static/js/runtime-main.0924fdd0.js",
     "runtime-main.js.map": "/MoleculeEditor/static/js/runtime-main.0924fdd0.js.map",
     "static/js/2.e7efcb95.chunk.js": "/MoleculeEditor/static/js/2.e7efcb95.chunk.js",
     "static/js/2.e7efcb95.chunk.js.map": "/MoleculeEditor/static/js/2.e7efcb95.chunk.js.map",
     "index.html": "/MoleculeEditor/index.html",
-    "precache-manifest.b541d7aafc6de8ce0d28c2cb245511b3.js": "/MoleculeEditor/precache-manifest.b541d7aafc6de8ce0d28c2cb245511b3.js",
+    "precache-manifest.2eebba4465257cfd75c3b269b3fb672b.js": "/MoleculeEditor/precache-manifest.2eebba4465257cfd75c3b269b3fb672b.js",
     "service-worker.js": "/MoleculeEditor/service-worker.js",
     "static/css/main.35892e2c.chunk.css.map": "/MoleculeEditor/static/css/main.35892e2c.chunk.css.map",
     "static/js/2.e7efcb95.chunk.js.LICENSE.txt": "/MoleculeEditor/static/js/2.e7efcb95.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.0924fdd0.js",
     "static/js/2.e7efcb95.chunk.js",
     "static/css/main.35892e2c.chunk.css",
-    "static/js/main.6acc8abe.chunk.js"
+    "static/js/main.afdcb91b.chunk.js"
   ]
 }
