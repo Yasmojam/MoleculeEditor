@@ -1,6 +1,5 @@
 import React from "react";
-import Selection from "../../assets/select.png"
-import Transform from "../../assets/transform.png"
+import Vectors from "./assets/Vectors";
 
 const Header = (props) => {
     return (
@@ -43,10 +42,10 @@ const Header = (props) => {
                             clear
                         </button>
                         <button className="ui icon button" style={headerButtonStyle}>
-                            <img className="toolIcon" src={Transform} alt="" style={iconStyle}/>
+                            <img className="toolIcon" src={Vectors.transform} alt="" style={iconStyle}/>
                         </button>
                         <button className="ui icon button" style={headerButtonStyle}>
-                            <img className="toolIcon" src={Selection} alt="" style={iconStyle}/>
+                            <img className="toolIcon" src={Vectors.selection} alt="" style={iconStyle}/>
                         </button>
                         <button className="ui icon button" style={headerButtonStyle}>
                             T

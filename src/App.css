@@ -66,3 +66,19 @@ body{
 .panelContainer {
     margin-bottom:10px;
 }
+
+.canvasAndBonds {
+    display: flex;
+    flex: 1;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.canvasArea {
+    height: auto;
+    width: auto;
+    display: flex;
+}
