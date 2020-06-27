@@ -82,3 +82,12 @@ body{
     width: auto;
     display: flex;
 }
+
+.workspace {
+    display: flex;
+    flex-direction: row;
+}
+
+.atomWinContainer {
+    position: relative;
+}

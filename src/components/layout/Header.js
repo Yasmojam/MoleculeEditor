@@ -3,7 +3,7 @@ import Vectors from "./assets/Vectors";
 
 const Header = (props) => {
     return (
-            <div className="header container" style={headerStyle} className="ui header">
+            <div style={headerStyle} className="ui header">
                 <div className="content" style={{
                     display: "flex",
                     flexWrap: "wrap",
@@ -13,7 +13,7 @@ const Header = (props) => {
                     wordBreak: "break-all",
                     justifyContent: "space-between"
                 }}>
-                    <text style={{
+                    <div style={{
                         display: "flex",
                         position:"relative",
                         margin: "10px",
@@ -21,14 +21,14 @@ const Header = (props) => {
                         minWidth:"65px",
                         justifyContent: "flex-start",
                     }}>Molecule editor.
-                    </text>
+                    </div>
                     <div className="content" style={{
                         display: "flex",
                         flexWrap: "wrap",
                         justifyContent: "center",
                         alignItems:"center",
                     }}>
-                        <text style={headerButtonStyle}>Tools:</text>
+                        <div style={headerButtonStyle}>Tools:</div>
                         <button className="ui icon button" style={headerButtonStyle}>
                             undo
                         </button>

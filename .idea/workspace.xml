@@ -19,108 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Fixed overflow bug on buttons on chrome">
-      <change afterPath="$PROJECT_DIR$/src/assets/png/backward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/benzene31dcf2c1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/cyclobutane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/cyclohexane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/cyclooctane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/cyclopentane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/cyclopropane.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/dative.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/dipoleArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/double bond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/eqilibrium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/eqilibriumb56ca2df.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/forward.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/halfCurlyArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/halfCurlyArrow631179fe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/intermediate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/minus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/neg dipole.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/planeNotSpecified.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/pos dipole.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/quadruple bond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/radical.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/reactionArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/retroArrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/select.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/single.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/transform.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/png/triple bond.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/backwards.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/benzene.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/curly.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/cyclobutane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/cyclohexane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/cyclooctane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/cyclopentane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/cyclopropane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/dative.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/dipole.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/double.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/equilibrium.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/forward.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/half_curly.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/half_equilibrium.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/intermediate.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/minus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/neg_delta.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/no_plane.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/plus.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/pos_delta.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/quadruple.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/radical.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/reaction_arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/retro.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/selection.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/single.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/transform.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/svg/triple.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/BondWin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Lots of refactoring to tidy up App.js">
+      <change afterPath="$PROJECT_DIR$/src/components/Atom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cheminfo/element.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/backward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/benzene31dcf2c1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cyclobutane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cyclohexane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cyclooctane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cyclopentane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/cyclopropane.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/dative.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/dipoleArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/double bond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/eqilibrium.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/eqilibriumb56ca2df.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/forward.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/halfCurlyArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/halfCurlyArrow631179fe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/intermediate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/minus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/misc files/icons.afdesign" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/misc files/icons.afdesign" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/neg dipole.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/planeNotSpecified.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/plus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/pos dipole.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/quadruple bond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/radical.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/reactionArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/retroArrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/select.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/single.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/transform.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/triple bond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/svg/backwards.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/backwards.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/svg/forward.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/forward.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Canvas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +74,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pics" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -198,7 +110,8 @@
       <workItem from="1591800764664" duration="17423000" />
       <workItem from="1591880316956" duration="16565000" />
       <workItem from="1591961754924" duration="21514000" />
-      <workItem from="1592236844748" duration="815000" />
+      <workItem from="1592236844748" duration="4152000" />
+      <workItem from="1592923013861" duration="23576000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -242,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592084398683</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Lots of refactoring to tidy up App.js">
+      <created>1592237702919</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1592237702919</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +188,8 @@
     <MESSAGE value="Changed web app description." />
     <MESSAGE value="Added a border to differentiate the panels and the header from the background." />
     <MESSAGE value="Fixed overflow bug on buttons on chrome" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed overflow bug on buttons on chrome" />
+    <MESSAGE value="Lots of refactoring to tidy up App.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of refactoring to tidy up App.js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -279,14 +200,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="729" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592234565658" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592236908384">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593266884973">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592236908384" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593266884973" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1591801436712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591801436712" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593097139649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593097139649" />
     <state x="784" y="119" width="998" height="708" key="SettingsEditor" timestamp="1591961284450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -295,9 +220,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591969733884" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591816750133">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593266520632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591816750133" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593266520632" />
   </component>
 </project>

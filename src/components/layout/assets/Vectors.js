@@ -1,5 +1,3 @@
-import React from "react";
-
 const Vectors = {
     // Header
     transform: require('../../../assets/svg/transform.svg'),

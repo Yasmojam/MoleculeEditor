@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Header from "./components/layout/Header";
 import './App.css';
+import Canvas from "./components/layout/Canvas";
 import RingStructWin from "./components/layout/RingStructWin";
 import ReactionWin from "./components/layout/ReactionWin";
-import Canvas from "./components/layout/Canvas";
 import BondWin from "./components/layout/BondWin";
 import ChargeWin from "./components/layout/ChargeWin";
 import AtomsWin from "./components/layout/AtomsWin";
@@ -15,10 +15,7 @@ class App extends Component {
             <div className='App'>
                 <div className='appContainer'>
                     <Header/>
-                    <div className="workspace" style={{
-                        display: "flex",
-                        flexDirection: "row"
-                    }}>
+                    <div className="workspace">
                         <div className="allPanels">
                             <div className="panelContainer">
                                 <BondWin/>
@@ -37,7 +34,7 @@ class App extends Component {
                             <div className="canvasArea">
                                 <Canvas/>
                             </div>
-                            <div style={{position: "relative"}}>
+                            <div className="atomWinContainer">
                                 <AtomsWin/>
                             </div>
                         </div>

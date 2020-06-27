@@ -6,37 +6,37 @@ const AtomsWin = () => {
     return (
         <LongToolWindow heading="Atoms">
             <ToolButtons>
-                <text>H</text>
+                <div>H</div>
             </ToolButtons>
             <ToolButtons>
-                <text>C</text>
+                <div>C</div>
             </ToolButtons>
             <ToolButtons>
-                <text>O</text>
+                <div>O</div>
             </ToolButtons>
             <ToolButtons>
-                <text>N</text>
+                <div>N</div>
             </ToolButtons>
             <ToolButtons>
-                <text>P</text>
+                <div>P</div>
             </ToolButtons>
             <ToolButtons>
-                <text>S</text>
+                <div>S</div>
             </ToolButtons>
             <ToolButtons>
-                <text>F</text>
+                <div>F</div>
             </ToolButtons>
             <ToolButtons>
-                <text>Cl</text>
+                <div>Cl</div>
             </ToolButtons>
             <ToolButtons>
-                <text>B</text>
+                <div>B</div>
             </ToolButtons>
             <ToolButtons>
-                <text>I</text>
+                <div>I</div>
             </ToolButtons>
             <ToolButtons>
-                <text>...</text>
+                <div>...</div>
             </ToolButtons>
 
         </LongToolWindow>
