@@ -19,17 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Lots of refactoring to tidy up App.js">
-      <change afterPath="$PROJECT_DIR$/src/components/Atom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cheminfo/element.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Adding Konva to the Canvas component.">
+      <change afterPath="$PROJECT_DIR$/src/components/KonvaImage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/svg/backwards.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/backwards.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/svg/forward.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/forward.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/svg/half_equilibrium.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/half_equilibrium.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Canvas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" afterDir="false" />
@@ -80,7 +73,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yasmo\my repos\react\MoleculeEditor\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -111,7 +104,7 @@
       <workItem from="1591880316956" duration="16565000" />
       <workItem from="1591961754924" duration="21514000" />
       <workItem from="1592236844748" duration="4152000" />
-      <workItem from="1592923013861" duration="23576000" />
+      <workItem from="1592923013861" duration="34010000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -162,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592237702919</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Adding Konva to the Canvas component.">
+      <created>1593266985176</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593266985176</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +189,8 @@
     <MESSAGE value="Added a border to differentiate the panels and the header from the background." />
     <MESSAGE value="Fixed overflow bug on buttons on chrome" />
     <MESSAGE value="Lots of refactoring to tidy up App.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of refactoring to tidy up App.js" />
+    <MESSAGE value="Adding Konva to the Canvas component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Konva to the Canvas component." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -212,10 +213,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593097139649" />
-    <state x="784" y="119" width="998" height="708" key="SettingsEditor" timestamp="1591961284450">
+    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1593278692194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="784" y="119" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591961284450" />
+    <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593278692194" />
+    <state x="217" y="203" width="998" height="708" key="SettingsEditor" timestamp="1593271420901">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="217" y="203" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593271420901" />
+    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593278677154">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593278677154" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1591969733884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

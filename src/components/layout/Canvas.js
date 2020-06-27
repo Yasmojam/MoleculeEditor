@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { Stage, Layer, Circle, Text, Image} from "react-konva";
+import { Stage, Layer, Circle, Text,Image} from "react-konva";
+import useImage from "use-image";
 import Vectors from "./assets/Vectors";
-import Atom from "../Atom";
-import VaderImage from "../VaderImage";
+import KonvaImage from "../KonvaImage";
 
 class Canvas extends Component {
     onMouseClick = (event) => {
@@ -17,6 +17,11 @@ class Canvas extends Component {
         console.log("mouse moving")
     }
 
+    handleExportClick = () => {
+        console.log(this.stageRef.getStage().toDataURL());
+    }
+
+
 
     render() {
         return (
@@ -24,6 +29,8 @@ class Canvas extends Component {
 
                     width={842}
                     height={595}
+
+                    ref={node => { this.stageRef = node}}
 
                     onMouseDown={this.onMouseClick}
                     onMouseUp={this.onMouseUnclick}
@@ -41,7 +48,7 @@ class Canvas extends Component {
 
                      }}>
                     <Layer>
-                        {/*<Image image={Vectors.benzene} />*/}
+                        <KonvaImage url={Vectors.transform} height={500} width={500}/>
                         <Text text="Some text on canvas" fontSize={15} />
                         <Circle x={200} y={100} radius={50} fill="green" />
                     </Layer>
