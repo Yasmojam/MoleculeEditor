@@ -31,18 +31,18 @@ const DrawingArea = () => {
         console.log("click");
         const stage = stageRef.current;
         // Update coords
-        const currentCoord = stage.getStage().getPointerPosition();
+        const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
         setCoords([...coords, currentCoord]);
-        console.log(coords);
+        console.log(currentCoord);
 
         // todo: Have this be assignable for url, width, height, ect.
         const newKonvaImages = konvaImages.slice();
         newKonvaImages.push({
             key: newKonvaImages.length,
             url: Vectors.single,
-            x: event.evt.layerX - width/2,
-            y: event.evt.layerY - height/2,
+            x: (event.evt.layerX - width/2),
+            y: (event.evt.layerY - height/2),
             width: width,
             height: height
         });
@@ -77,11 +77,11 @@ const DrawingArea = () => {
            y: stage.getPointerPosition().y / previousScale - stage.y() / previousScale
        };
 
-       const newScale = event.evt.deltaY > 0 ? previousScale * scalingConst : previousScale / scalingConst;
+       const newScale = event.evt.deltaY > 0 ? (previousScale * scalingConst) : (previousScale / scalingConst);
 
        setStageScale(newScale);
-       setStageX(mousePointTo.x - stage.getPointerPosition().x / newScale);
-       setStageY(mousePointTo.y - stage.getPointerPosition().y / newScale);
+       setStageX((mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale);
+       setStageY((mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale);
    }
 
 
@@ -90,8 +90,8 @@ const DrawingArea = () => {
 
             ref={stageRef}
 
-            width={842}
-            height={595}
+            width={842 * stageScale}
+            height={595 * stageScale}
 
             scaleX={stageScale}
             scaleY={stageScale}
