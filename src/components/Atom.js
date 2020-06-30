@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Image} from "react-konva";
-import useImage from "use-image";
 import Vectors from "./layout/assets/Vectors";
+import KonvaImage from "./KonvaImage";
 
 const Atom = () => {
-    return <Image image={Vectors.benzene} />
+    return(<KonvaImage image={Vectors.benzene}/>)
 };
 
 export default Atom

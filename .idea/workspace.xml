@@ -19,13 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Adding Konva to the Canvas component.">
-      <change afterPath="$PROJECT_DIR$/src/components/KonvaImage.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/svg/half_equilibrium.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/svg/half_equilibrium.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Canvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Atom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Atom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cheminfo/element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cheminfo/chemElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/2.bbfbc78c.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/2.bbfbc78c.chunk.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pics" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hooks-simple" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -104,7 +105,7 @@
       <workItem from="1591880316956" duration="16565000" />
       <workItem from="1591961754924" duration="21514000" />
       <workItem from="1592236844748" duration="4152000" />
-      <workItem from="1592923013861" duration="34010000" />
+      <workItem from="1592923013861" duration="62909000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -162,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593266985176</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work.">
+      <created>1593280225794</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1593280225794</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +198,8 @@
     <MESSAGE value="Fixed overflow bug on buttons on chrome" />
     <MESSAGE value="Lots of refactoring to tidy up App.js" />
     <MESSAGE value="Adding Konva to the Canvas component." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Konva to the Canvas component." />
+    <MESSAGE value="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -201,18 +210,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="729" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592234565658" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593266884973">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593447780353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593266884973" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593447780353" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1591801436712">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591801436712" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593097139649">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593374577846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593097139649" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593374577846" />
     <state x="747" y="222" key="RollbackChangesDialog" timestamp="1593278692194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

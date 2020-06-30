@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from "./components/layout/Header";
 import './App.css';
-import Canvas from "./components/layout/Canvas";
+import DrawingArea from "./components/layout/DrawingArea";
 import RingStructWin from "./components/layout/RingStructWin";
 import ReactionWin from "./components/layout/ReactionWin";
 import BondWin from "./components/layout/BondWin";
@@ -32,7 +32,7 @@ class App extends Component {
                         </div>
                         <div className="canvasAndBonds">
                             <div className="canvasArea">
-                                <Canvas/>
+                                <DrawingArea/>
                             </div>
                             <div className="atomWinContainer">
                                 <AtomsWin/>

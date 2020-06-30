@@ -1,6 +1,6 @@
 import React from "react";
 import Vectors from "./assets/Vectors";
-import Canvas from "./Canvas";
+import DrawingArea from "./DrawingArea";
 
 const Header = (props) => {
     return (
@@ -51,7 +51,7 @@ const Header = (props) => {
                         <button className="ui icon button" style={headerButtonStyle}>
                             T
                         </button>
-                        <button className="ui icon button"  onClick={Canvas.handleExportClick} style={headerButtonStyle}>
+                        <button className="ui icon button" onClick={DrawingArea.handleExportClick} style={headerButtonStyle}>
                             Export
                         </button>
 
