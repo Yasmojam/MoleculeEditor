@@ -1,9 +1,23 @@
-import React from "react";
+import React, {useRef} from "react";
+import {useSelectedTool} from "../ToolContexProvider";
+
 
 
 const ToolButtons = (props) => {
+    const toolContext = useSelectedTool();
+
+    const clickHandler = async (tool) => {
+        await toolContext.setTool(tool);
+        setTimeout(() => {
+            console.log(toolContext.tool);
+        }, 1000)
+
+        console.log("selected tool:" + toolContext.tool);
+        console.log("button clicked")
+    }
+
     return (
-        <button className="ui icon button" style={{width:"50px", height: "50px"}}>
+        <button className="ui icon button" tool={props.tool} style={{width: "50px", height: "50px"}} onClick={() => {clickHandler(props.tool)}}>
             {props.children}
         </button>
     )

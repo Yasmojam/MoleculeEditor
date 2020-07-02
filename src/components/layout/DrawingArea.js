@@ -3,7 +3,7 @@ import { Stage, Layer} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 
-const DrawingArea = () => {
+const DrawingArea = (tool) => {
     // can use ref to store any object that must be preserved on rerender
     const stageRef = useRef(null)
     const [stageScale, setStageScale] = useState(1);
@@ -12,13 +12,12 @@ const DrawingArea = () => {
 
     const [coords, setCoords] = useState([]);
     const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
-    const [selectedTool, setSelectedTool] = useState(null);
+    const [selectedTool, setSelectedTool] = useState("");
 
     // For dimensions for centering konvaImages
     const width = 50;
     const height = 50;
     const hypotenuse = Math.sqrt(width**2 + height**2);
-
 
     // every time component rerenders this is recalled
     useEffect(() => {
@@ -29,7 +28,7 @@ const DrawingArea = () => {
     // Currently adds image to layer
     const onMouseClick = (event) => {
         console.log("click");
-        const stage = stageRef.current;
+        // const stage = stageRef.current;
         // Update coords
         const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
@@ -47,7 +46,7 @@ const DrawingArea = () => {
             height: height
         });
 
-        console.log(newKonvaImages);
+        // console.log(newKonvaImages);
 
         setKonvaImages(newKonvaImages);
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Header from "./components/layout/Header";
 import './App.css';
 import DrawingArea from "./components/layout/DrawingArea";
@@ -7,11 +7,26 @@ import ReactionWin from "./components/layout/ReactionWin";
 import BondWin from "./components/layout/BondWin";
 import ChargeWin from "./components/layout/ChargeWin";
 import AtomsWin from "./components/layout/AtomsWin";
+import {ToolContextProvider} from "./components/ToolContexProvider";
 
 
-class App extends Component {
-    render() {
-        return (
+const App = () => {
+        // const [selectedTool, setSelectedTool] = useState("");
+        //
+        // useEffect((tool) => {
+        //     setSelectedTool(tool)
+        //     // console.log(tool)
+        //     console.log("render tools")
+        //     console.log("")
+        // }, [selectedTool])
+        //
+        // const onButtonClick = (event) => {
+        //     console.log("tool click");
+        // }
+
+
+    return (
+        <ToolContextProvider>
             <div className='App'>
                 <div className='appContainer'>
                     <Header/>
@@ -32,7 +47,7 @@ class App extends Component {
                         </div>
                         <div className="canvasAndBonds">
                             <div className="canvasArea">
-                                <DrawingArea/>
+                                <DrawingArea />
                             </div>
                             <div className="atomWinContainer">
                                 <AtomsWin/>
@@ -41,8 +56,8 @@ class App extends Component {
                     </div>
                 </div>
             </div>
+        </ToolContextProvider>
         )
-    }
 }
 
 export default App;

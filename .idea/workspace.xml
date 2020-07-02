@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now add images to react-konva layer element with a click. Added a canvas zoom but it's currently broken.">
+      <change afterPath="$PROJECT_DIR$/src/components/ToolContexProvider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/BondWin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +69,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../hooks-simple" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\yasmo\my repos\react\MoleculeEditor\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
@@ -101,6 +108,8 @@
       <workItem from="1591961754924" duration="21514000" />
       <workItem from="1592236844748" duration="4152000" />
       <workItem from="1592923013861" duration="64322000" />
+      <workItem from="1593512982278" duration="16546000" />
+      <workItem from="1593620922436" duration="13908000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -210,6 +219,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Deployment/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591800827115" />
+    <state x="425" y="420" key="#ESLint" timestamp="1593513946619">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="425" y="420" key="#ESLint/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593513946619" />
     <state x="729" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592234565658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,10 +247,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="217" y="203" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593271420901" />
-    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593278677154">
+    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593648081916">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593278677154" />
+    <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593648081916" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1591969733884">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
