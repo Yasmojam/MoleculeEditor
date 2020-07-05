@@ -2,22 +2,8 @@ import React, {useState} from "react";
 import ToolWindow from "./ToolWindow";
 import ToolButtons from "./ToolButtons";
 import Vectors from "./assets/Vectors";
-import {useSelectedTool} from "../ToolContexProvider";
-
 
 const BondWin = () => {
-    // const [selectedTool, setSelectedTool] = useState("");
-    //
-    // const onButtonClick = (event) => {
-    //     const toolName=event.currentTarget.dataset.tool
-    //     setSelectedTool(toolName);
-    //
-    //     console.log(selectedTool);
-    // }
-
-
-
-
     return (
         <ToolWindow heading="Bonds">
             <ToolButtons tool="single">

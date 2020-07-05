@@ -6,22 +6,22 @@ import ToolWindow from "./ToolWindow";
 const RingStructWin = () => {
     return (
         <ToolWindow heading="Ring Structures">
-            <ToolButtons>
+            <ToolButtons tool="benzene">
                 <img className="toolIcon" src={Vectors.benzene} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="cyclohexane">
                 <img className="toolIcon" src={Vectors.cyclohexane} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="cyclopropane">
                 <img className="toolIcon" src={Vectors.cyclopropane} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="cyclobutane">
                 <img className="toolIcon" src={Vectors.cyclobutane} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="cyclooctane">
                 <img className="toolIcon" src={Vectors.cyclooctane} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="cyclopentane">
                 <img className="toolIcon" src={Vectors.cyclopentane} alt=""/>
             </ToolButtons>
         </ToolWindow>

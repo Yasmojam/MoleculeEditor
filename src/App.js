@@ -11,19 +11,6 @@ import {ToolContextProvider} from "./components/ToolContexProvider";
 
 
 const App = () => {
-        // const [selectedTool, setSelectedTool] = useState("");
-        //
-        // useEffect((tool) => {
-        //     setSelectedTool(tool)
-        //     // console.log(tool)
-        //     console.log("render tools")
-        //     console.log("")
-        // }, [selectedTool])
-        //
-        // const onButtonClick = (event) => {
-        //     console.log("tool click");
-        // }
-
 
     return (
         <ToolContextProvider>

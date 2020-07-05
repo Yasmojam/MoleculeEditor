@@ -1,20 +1,19 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
 import {useSelectedTool} from "../ToolContexProvider";
-
-
 
 const ToolButtons = (props) => {
     const toolContext = useSelectedTool();
 
-    const clickHandler = async (tool) => {
-        await toolContext.setTool(tool);
-        setTimeout(() => {
-            console.log(toolContext.tool);
-        }, 1000)
+    const clickHandler = (tool) => {
+        toolContext.setTool(tool);
 
-        console.log("selected tool:" + toolContext.tool);
         console.log("button clicked")
     }
+
+    useEffect(() =>{
+        console.log("selected tool:" + toolContext.tool);
+        },[toolContext.tool]
+    )
 
     return (
         <button className="ui icon button" tool={props.tool} style={{width: "50px", height: "50px"}} onClick={() => {clickHandler(props.tool)}}>

@@ -5,34 +5,34 @@ import LongToolWindow from "./LongToolWindow";
 const AtomsWin = () => {
     return (
         <LongToolWindow heading="Atoms">
-            <ToolButtons>
+            <ToolButtons tool="H">
                 <div>H</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="C">
                 <div>C</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="O">
                 <div>O</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="N">
                 <div>N</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="P">
                 <div>P</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="S">
                 <div>S</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="F">
                 <div>F</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="Cl">
                 <div>Cl</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="B">
                 <div>B</div>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="I">
                 <div>I</div>
             </ToolButtons>
             <ToolButtons>

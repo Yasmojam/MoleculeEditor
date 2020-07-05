@@ -1,8 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Vectors from "./assets/Vectors";
 import DrawingArea from "./DrawingArea";
+import {useSelectedTool} from "../ToolContexProvider";
+import HeaderButton, {headerButtonStyle} from "./HeaderButton";
 
 const Header = (props) => {
+    const toolContext = useSelectedTool();
+
+    const clickHandler = (tool) => {
+        toolContext.setTool(tool);
+
+        console.log("button clicked")
+    }
+
+    useEffect(() =>{
+            console.log("selected tool:" + toolContext.tool);
+        },[toolContext.tool]
+    )
+
+
+
     return (
             <div style={headerStyle} className="ui header">
                 <div className="content" style={{
@@ -30,30 +47,30 @@ const Header = (props) => {
                         alignItems:"center",
                     }}>
                         <div style={headerButtonStyle}>Tools:</div>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        <HeaderButton tool="undo">
                             undo
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="redo">
                             redo
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="erase">
                             erase
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="clear">
                             clear
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="transform">
                             <img className="toolIcon" src={Vectors.transform} alt="" style={iconStyle}/>
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="selection">
                             <img className="toolIcon" src={Vectors.selection} alt="" style={iconStyle}/>
-                        </button>
-                        <button className="ui icon button" style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="T">
                             T
-                        </button>
-                        <button className="ui icon button" onClick={DrawingArea.handleExportClick} style={headerButtonStyle}>
+                        </HeaderButton>
+                        <HeaderButton tool="export">
                             Export
-                        </button>
+                        </HeaderButton>
 
 
                 </div>
@@ -66,20 +83,6 @@ const headerStyle = {
     background: '#ffffff',
     padding: '10px',
     borderBottom:"2px solid #707070"
-}
-
-const headerButtonStyle = {
-    display:"flex",
-    height: "38px",
-    fontSize: "15px",
-    textAlign: "center",
-    padding: "10px",
-    margin: "2px",
-    float: "right",
-    position: "relative",
-
-    justifyContent: "space-between",
-    alignItems: "center"
 }
 
 const iconStyle = {

@@ -6,22 +6,22 @@ import React from "react";
 const ChargeWin = () => {
     return (
         <ToolWindow heading="Charge">
-            <ToolButtons>
+            <ToolButtons tool="radical">
                 <img className="toolIcon" src={Vectors.radical} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="minus">
                 <img className="toolIcon" src={Vectors.minus} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="plus">
                 <img className="toolIcon" src={Vectors.plus} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="neg_dipole">
                 <img className="toolIcon" src={Vectors.neg_dipole} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="pos_dipole">
                 <img className="toolIcon" src={Vectors.pos_dipole} alt=""/>
             </ToolButtons>
-            <ToolButtons>
+            <ToolButtons tool="dipole">
                 <img className="toolIcon" src={Vectors.dipole} alt=""/>
             </ToolButtons>
         </ToolWindow>
