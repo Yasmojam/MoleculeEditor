@@ -10,10 +10,11 @@ const HeaderButton = (props) => {
         console.log("button clicked")
     }
 
-    useEffect(() => {
-            console.log("selected tool:" + toolContext.tool);
-        }, [toolContext.tool]
-    )
+    //DEBUGGING
+    // useEffect(() => {
+    //         console.log("selected tool:" + toolContext.tool);
+    //     }, [toolContext.tool]
+    // )
 
     return (
         <button className="ui icon button" tool={props.tool} style={headerButtonStyle} onClick={() => {

@@ -13,13 +13,6 @@ const Header = (props) => {
         console.log("button clicked")
     }
 
-    useEffect(() =>{
-            console.log("selected tool:" + toolContext.tool);
-        },[toolContext.tool]
-    )
-
-
-
     return (
             <div style={headerStyle} className="ui header">
                 <div className="content" style={{

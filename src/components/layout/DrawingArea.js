@@ -1,8 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Layer, Stage} from "react-konva";
+import {Layer, Stage, Path} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
+import bond from "./bondpaths";
+
+
 
 const DrawingArea = (tool) => {
     // can use ref to store any object that must be preserved on rerender
@@ -11,8 +14,14 @@ const DrawingArea = (tool) => {
     const [stageX, setStageX] = useState(0);
     const [stageY, setStageY] = useState(0);
 
-    const [coords, setCoords] = useState([]);
+    // const [currentCoords, setCurrentCoords] = useState([]);
+    const [previousCoords, setPreviousCoords] = useState([])
+
     const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
+    const [bondRenders, setBondRenders] = useState([]); //bond specifications
+
+
+
 
     // For dimensions for centering konvaImages
     const width = 50;
@@ -26,10 +35,12 @@ const DrawingArea = (tool) => {
 
     const switchTool = (tool) => {
         switch(tool) {
+            default:
+                return 0;
             case "transform":
             case "selection":
             case "text":
-                return 0;
+                return 1;
 
             case "radical":
             case "minus":
@@ -37,19 +48,58 @@ const DrawingArea = (tool) => {
             case "neg_dipole":
             case "pos_dipole":
             case "dipole":
-                return 1;
-
-            default:
                 return 2;
+
+            case "single":
+                return 3;
+
+            case "double":
+                return 4;
         }
     }
 
     // every time component rerenders this is recalled
     useEffect(() => {
-        console.log("useEffectFire:");
-        console.log(konvaImages)
+        console.log(previousCoords)
 
+        const newBondRenders = bondRenders.slice()
+
+        // single
+        if (switchTool(selectedTool) === 3 && previousCoords.length%2 === 0 && previousCoords.length > 0) {
+            const startX = previousCoords[previousCoords.length - 2].x;
+            const startY = previousCoords[previousCoords.length - 2].y;
+            const endX = previousCoords[previousCoords.length - 1].x;
+            const endY = previousCoords[previousCoords.length - 1].y;
+            newBondRenders.push(
+                bond(startX, startY, endX, endY,"CH3", "CH3", 1)
+            )
+        }
+        // double
+        if (switchTool(selectedTool) === 4 && previousCoords.length%2 === 0 && previousCoords.length > 0) {
+            const startX = previousCoords[previousCoords.length - 2].x;
+            const startY = previousCoords[previousCoords.length - 2].y;
+            const endX = previousCoords[previousCoords.length - 1].x;
+            const endY = previousCoords[previousCoords.length - 1].y;
+            newBondRenders.push(
+                bond(startX, startY, endX, endY,"CH2", "CH2", 2)
+            )
+        }
+
+        setBondRenders(newBondRenders);
+
+    }, [previousCoords])
+
+    useEffect(() => {
+        console.log(konvaImages);
     }, [konvaImages])
+
+    useEffect(() => {
+        console.log("Selected tool:" + selectedTool);
+    }, [selectedTool])
+
+    useEffect(() => {
+        console.log(bondRenders)
+    }, [bondRenders])
 
 
     // Currently adds image to layer
@@ -57,20 +107,35 @@ const DrawingArea = (tool) => {
         console.log("click");
         // todo: Have this be assignable for url, width, height, ect.
 
+
         const newKonvaImages = konvaImages.slice()
 
+
+        // Store new current coord
         const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
-        setCoords([...coords, currentCoord]);
-        console.log(currentCoord);
+        // Add currentCoord to list of previous coord
+        setPreviousCoords([...previousCoords, currentCoord]);
+        console.log("Current coord: " + currentCoord);
+
+        if (switchTool(selectedTool) === 0) {
+            newKonvaImages.push({
+                key: newKonvaImages.length,
+                url: Vectors[selectedTool], // Dictionary accessor
+                x: (event.evt.layerX - width / 2),
+                y: (event.evt.layerY - height / 2),
+                width: width,
+                height: height
+            });
+        }
 
         // For not placable tools
-        if (switchTool(selectedTool) === 0) {
+        if (switchTool(selectedTool) === 1) {
 
         }
 
         // charges
-        if (switchTool(selectedTool) === 1) {
+        if (switchTool(selectedTool) === 2) {
             newKonvaImages.push({
                 key: newKonvaImages.length,
                 url: Vectors[selectedTool], // Dictionary accessor
@@ -81,16 +146,16 @@ const DrawingArea = (tool) => {
             })
         }
 
-        if (switchTool(selectedTool) === 2) {
-            newKonvaImages.push({
-                key: newKonvaImages.length,
-                url: Vectors[selectedTool], // Dictionary accessor
-                x: (event.evt.layerX - width / 2),
-                y: (event.evt.layerY - height / 2),
-                width: width,
-                height: height
-            });
-        }
+
+
+
+
+
+        // console.log(newKonvaImages);
+
+        setKonvaImages(newKonvaImages);
+
+
 
         // const newKonvaImages = konvaImages.slice()
         // // Update coords
@@ -123,9 +188,7 @@ const DrawingArea = (tool) => {
         //         })
         //     }
         //
-            console.log(newKonvaImages);
 
-            setKonvaImages(newKonvaImages);
         //
         // }
     }
@@ -203,6 +266,20 @@ const DrawingArea = (tool) => {
                         />
                     );
                 })}
+                {bondRenders.map(bond => {
+                    return(
+                        <Path
+                            key={bondRenders.indexOf(bond)}
+                            stroke="black"
+                            data={bond.path}
+                        />
+                    )
+                })}
+                <Path
+                    key={0}
+                    stroke="black"
+                    data="M50,100,264.285714285714d3L200,92.85714285714289L275,264.2857142857143L350,92.85714285714289L350,350L275,350L200,350L125,350L50,350Z"
+                />
                 {/*<Text text="Some text on canvas" fontSize={15} />*/}
                 {/*<Circle x={200} y={100} radius={50} fill="green" />*/}
             </Layer>
