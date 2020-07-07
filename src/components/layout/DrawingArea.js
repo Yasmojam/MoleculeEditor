@@ -6,7 +6,6 @@ import {useSelectedTool} from "../ToolContexProvider";
 import bond from "./bondpaths";
 
 
-
 const DrawingArea = (tool) => {
     // can use ref to store any object that must be preserved on rerender
     const stageRef = useRef(null)
@@ -55,6 +54,17 @@ const DrawingArea = (tool) => {
 
             case "double":
                 return 4;
+
+            case "triple":
+                return 5;
+        }
+    }
+
+    // check if list of previous coords is even and more than zero
+    const renderValid = () => {
+        if (previousCoords.length%2 === 0 &&
+            previousCoords.length > 0) {
+            return true;
         }
     }
 
@@ -65,7 +75,8 @@ const DrawingArea = (tool) => {
         const newBondRenders = bondRenders.slice()
 
         // single
-        if (switchTool(selectedTool) === 3 && previousCoords.length%2 === 0 && previousCoords.length > 0) {
+        if (switchTool(selectedTool) === 3 &&
+            renderValid()) {
             const startX = previousCoords[previousCoords.length - 2].x;
             const startY = previousCoords[previousCoords.length - 2].y;
             const endX = previousCoords[previousCoords.length - 1].x;
@@ -75,7 +86,8 @@ const DrawingArea = (tool) => {
             )
         }
         // double
-        if (switchTool(selectedTool) === 4 && previousCoords.length%2 === 0 && previousCoords.length > 0) {
+        if (switchTool(selectedTool) === 4 &&
+            renderValid()) {
             const startX = previousCoords[previousCoords.length - 2].x;
             const startY = previousCoords[previousCoords.length - 2].y;
             const endX = previousCoords[previousCoords.length - 1].x;
@@ -85,7 +97,21 @@ const DrawingArea = (tool) => {
             )
         }
 
+        if (switchTool(selectedTool) === 5 &&
+            renderValid()) {
+            const startX = previousCoords[previousCoords.length - 2].x;
+            const startY = previousCoords[previousCoords.length - 2].y;
+            const endX = previousCoords[previousCoords.length - 1].x;
+            const endY = previousCoords[previousCoords.length - 1].y;
+            newBondRenders.push(
+                bond(startX, startY, endX, endY,"CH", "CH", 3)
+            )
+        }
+
         setBondRenders(newBondRenders);
+
+
+
 
     }, [previousCoords])
 
@@ -99,6 +125,10 @@ const DrawingArea = (tool) => {
 
     useEffect(() => {
         console.log(bondRenders)
+        // log angles
+        if (bondRenders.length >= 1) {
+            console.log(bondRenders[bondRenders.length - 1].angle)
+        }
     }, [bondRenders])
 
 
@@ -275,11 +305,11 @@ const DrawingArea = (tool) => {
                         />
                     )
                 })}
-                <Path
-                    key={0}
-                    stroke="black"
-                    data="M50,100,264.285714285714d3L200,92.85714285714289L275,264.2857142857143L350,92.85714285714289L350,350L275,350L200,350L125,350L50,350Z"
-                />
+                {/*<Path*/}
+                {/*    key={0}*/}
+                {/*    stroke="black"*/}
+                {/*    data="M50,100,264.285714285714d3L200,92.85714285714289L275,264.2857142857143L350,92.85714285714289L350,350L275,350L200,350L125,350L50,350Z"*/}
+                {/*/>*/}
                 {/*<Text text="Some text on canvas" fontSize={15} />*/}
                 {/*<Circle x={200} y={100} radius={50} fill="green" />*/}
             </Layer>
