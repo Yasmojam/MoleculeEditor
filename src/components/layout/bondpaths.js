@@ -66,7 +66,7 @@ const bond = (startX, startY, endX, endY , startAtom="CH3", endAtom="CH3", bondO
     if (bondOrder === 2) {
         // HORIZONTAL DB
         if (isBondHorizontal(angle)){
-            path = ("M" + (startX) + "," + (startY-doubleBondOffset) + "L" + (endX) + "," + (endY-doubleBondOffset) +
+            path = ("M" + (startX) + "," + (startY) + "L" + (endX) + "," + (endY) +
                 "M" + (startX) + "," + (startY+doubleBondOffset) + "L" + (endX) + "," + (endY+doubleBondOffset))
         }
 
