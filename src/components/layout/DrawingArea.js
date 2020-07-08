@@ -24,7 +24,8 @@ const DrawingArea = () => {
     const [previewRender, setPreviewRenders] = useState({path:""});
     const [previewCoord, setPreviewCoord] = useState(null);
 
-    const [highlight, setHighlight] = useState({opacity: 0});
+    const [highlightOpacity, setHighlightOpacity] = useState(0);
+    const [highlightCoord, setHighlightCoord] = useState({x: 0, y: 0})
 
     // For dimensions for centering konvaImages
     const width = 50;
@@ -34,6 +35,8 @@ const DrawingArea = () => {
     const smallHeight = 25;
 
     const selectedTool = useSelectedTool().tool;
+
+    const snappableDistance = 15;
 
     /**
      * Function which returns a number based on the currently selected tool.
@@ -157,6 +160,21 @@ const DrawingArea = () => {
         }
     }, [previewCoord])
 
+    /**
+     * Highlight the closest clicked coord to preview coord
+     */
+    useEffect(() => {
+        if (isCoordSnappable(previewCoord)){
+            setHighlightCoord(
+                {x: snappableCoord(previewCoord).x,
+                    y: snappableCoord(previewCoord).y});
+            setHighlightOpacity(0.5);
+        }
+        else {
+            return;
+        }
+    }, [previewCoord])
+
     useEffect(() => {
         console.log(konvaImages);
     }, [konvaImages])
@@ -187,22 +205,47 @@ const DrawingArea = () => {
 
 
     /**
-     * Function which returns a coordinate object if parameter coordinate is within a snappable distance of it.
-     * Returns null if it is not within snappable distance of any coordinate.
+     * Returns true if tryCoord is within snappable distance of any start or end pair of coordinates listed in bond render.
      */
-    const snappableCoord = (tryCoord) => {
-        const snappableDistance = 5;
-        for (const [coord] of previousCoords){
-            // if within +- 5 of x and y coord
-            if ((coord.x-snappableDistance <= tryCoord.x  && tryCoord.x <= coord.x+snappableDistance ) &&
-                ((coord.y-snappableDistance <= tryCoord.y  && tryCoord.y <= coord.y+snappableDistance ))){
-                return coord;
-            }
-            else{
-                return null;
+    const isCoordSnappable = (tryCoord) => {
+        if (tryCoord !== null) {
+            for (let bond of bondRenders) {
+                // if within +- 5 of start/end x and start/end y coord
+                if ((bond.startX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.startX + snappableDistance) &&
+                    (bond.startY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.startY + snappableDistance)){
+                    return true;
+                }
+                if ((bond.endX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.endX + snappableDistance) &&
+                    (bond.endY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.endY + snappableDistance)) {
+                    return true;
+                }
             }
         }
+    }
+
+    /**
+     * Function which returns a coordinate object if parameter coordinate is within a snappable distance of it.
+     */
+    const snappableCoord = (tryCoord) => {
+        for (let bond of bondRenders) {
+            // if within +- 5 of x and y coord
+            // if ((coord.x - snappableDistance <= tryCoord.x && tryCoord.x <= coord.x + snappableDistance) &&
+            //     ((coord.y - snappableDistance <= tryCoord.y && tryCoord.y <= coord.y + snappableDistance))) {
+            //     return coord;
+            // }
+            if ((bond.startX-snappableDistance <= tryCoord.x && tryCoord.x <= bond.startX+snappableDistance) &&
+                (bond.startY-snappableDistance <= tryCoord.y && tryCoord.y <= bond.startY + snappableDistance)){
+                return {x: bond.startX, y: bond.startY};
             }
+            if ((bond.endX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.endX + snappableDistance) &&
+                (bond.endY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.endY + snappableDistance)) {
+                return {x: bond.endX, y: bond.endY};
+            }
+        }
+    }
+
+
+
 
     // Currently adds image to layer
     const onMouseClick = (event) => {
@@ -215,10 +258,19 @@ const DrawingArea = () => {
 
 
         // Store new current coord
-        const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
+        let currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
-        // Add currentCoord to list of previous coord
-        setPreviousCoords([...previousCoords, currentCoord]);
+        if (isCoordSnappable(currentCoord)){
+            currentCoord = snappableCoord(currentCoord)
+            // Add currentCoord to list of previous coord
+            setPreviousCoords([...previousCoords, currentCoord]);
+        }
+        else {
+            // Add currentCoord to list of previous coord
+            setPreviousCoords([...previousCoords, currentCoord]);
+        }
+
+
         console.log("Current coord: " + currentCoord);
 
         if (switchTool(selectedTool) === 0) {
@@ -344,7 +396,13 @@ const DrawingArea = () => {
                     stroke="black"
                     data={previewRender.path}
                 />
-                {/*<Circle x={200} y={100} radius={50} fill="yellow" opacity={0.5}/>*/}
+                <Circle
+                    x={highlightCoord.x}
+                    y={highlightCoord.y}
+                    radius={snappableDistance}
+                    fill="yellow"
+                    opacity={highlightOpacity}
+                />
             </Layer>
         </Stage>
     );

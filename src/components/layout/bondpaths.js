@@ -1,5 +1,5 @@
 const maxDistance = 50;
-const doubleBondOffset=10;
+const doubleBondOffset=5;
 
 const pathDistance = (startX, startY, endX, endY) => {
     let dx = endX - startX;
@@ -64,13 +64,13 @@ const bond = (startX, startY, endX, endY , startAtom="CH3", endAtom="CH3", bondO
     if (bondOrder === 2) {
         // HORIZONTAL DB
         if (isBondHorizontal(angle)){
-            path = ("M" + (startX) + "," + (startY) + "L" + (endX) + "," + (endY) +
+            path = ("M" + (startX) + "," + (startY-doubleBondOffset) + "L" + (endX) + "," + (endY-doubleBondOffset) +
                 "M" + (startX) + "," + (startY+doubleBondOffset) + "L" + (endX) + "," + (endY+doubleBondOffset))
         }
 
         // DIAGONAL OR VERTICAL DB
         else{
-        path = ("M" + (startX) + "," + startY + "L" + (endX) + "," + endY +
+        path = ("M" + (startX-doubleBondOffset) + "," + startY + "L" + (endX-doubleBondOffset) + "," + endY +
             "M" + (startX+doubleBondOffset) + "," + startY + "L" + (endX+doubleBondOffset) + "," + endY)
         }
     }
