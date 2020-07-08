@@ -1,18 +1,8 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Vectors from "./assets/Vectors";
-import DrawingArea from "./DrawingArea";
-import {useSelectedTool} from "../ToolContexProvider";
 import HeaderButton, {headerButtonStyle} from "./HeaderButton";
 
 const Header = (props) => {
-    const toolContext = useSelectedTool();
-
-    const clickHandler = (tool) => {
-        toolContext.setTool(tool);
-
-        console.log("button clicked")
-    }
-
     return (
             <div style={headerStyle} className="ui header">
                 <div className="content" style={{

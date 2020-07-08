@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useSelectedTool} from "../ToolContexProvider";
 
 const HeaderButton = (props) => {
@@ -9,12 +9,6 @@ const HeaderButton = (props) => {
 
         console.log("button clicked")
     }
-
-    //DEBUGGING
-    // useEffect(() => {
-    //         console.log("selected tool:" + toolContext.tool);
-    //     }, [toolContext.tool]
-    // )
 
     return (
         <button className="ui icon button" tool={props.tool} style={headerButtonStyle} onClick={() => {

@@ -1,12 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Layer, Stage, Path} from "react-konva";
+import {Layer, Stage, Path, Circle} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
 import bond from "./bondpaths";
 
-
-const DrawingArea = (tool) => {
+/**
+ * Functional component which represents the drawing canvas.
+ */
+const DrawingArea = () => {
     // can use ref to store any object that must be preserved on rerender
     const stageRef = useRef(null)
     const [stageScale, setStageScale] = useState(1);
@@ -19,19 +21,23 @@ const DrawingArea = (tool) => {
     const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
     const [bondRenders, setBondRenders] = useState([]); //bond specifications
 
+    const [previewRender, setPreviewRenders] = useState({path:""});
+    const [previewCoord, setPreviewCoord] = useState(null);
 
-
+    const [highlight, setHighlight] = useState({opacity: 0});
 
     // For dimensions for centering konvaImages
     const width = 50;
     const height = 50;
-    const hypotenuse = Math.sqrt(width ** 2 + height ** 2);
 
     const smallWidth = 25;
     const smallHeight = 25;
 
     const selectedTool = useSelectedTool().tool;
 
+    /**
+     * Function which returns a number based on the currently selected tool.
+     */
     const switchTool = (tool) => {
         switch(tool) {
             default:
@@ -60,15 +66,21 @@ const DrawingArea = (tool) => {
         }
     }
 
-    // check if list of previous coords is even and more than zero
-    const renderValid = () => {
+    /**
+     * Function which returns true if the length of list of previous coords is even and
+     * more than zero.
+     */
+    const isBondRenderValid = () => {
         if (previousCoords.length%2 === 0 &&
             previousCoords.length > 0) {
             return true;
         }
     }
 
-    // every time component rerenders this is recalled
+    /**
+     * Hook which updates list of bond objects for rendering to canvas.
+     * Triggers when list of previous coords is updated.
+     */
     useEffect(() => {
         console.log(previousCoords)
 
@@ -76,7 +88,7 @@ const DrawingArea = (tool) => {
 
         // single
         if (switchTool(selectedTool) === 3 &&
-            renderValid()) {
+            isBondRenderValid()) {
             const startX = previousCoords[previousCoords.length - 2].x;
             const startY = previousCoords[previousCoords.length - 2].y;
             const endX = previousCoords[previousCoords.length - 1].x;
@@ -87,7 +99,7 @@ const DrawingArea = (tool) => {
         }
         // double
         if (switchTool(selectedTool) === 4 &&
-            renderValid()) {
+            isBondRenderValid()) {
             const startX = previousCoords[previousCoords.length - 2].x;
             const startY = previousCoords[previousCoords.length - 2].y;
             const endX = previousCoords[previousCoords.length - 1].x;
@@ -98,7 +110,7 @@ const DrawingArea = (tool) => {
         }
 
         if (switchTool(selectedTool) === 5 &&
-            renderValid()) {
+            isBondRenderValid()) {
             const startX = previousCoords[previousCoords.length - 2].x;
             const startY = previousCoords[previousCoords.length - 2].y;
             const endX = previousCoords[previousCoords.length - 1].x;
@@ -109,18 +121,60 @@ const DrawingArea = (tool) => {
         }
 
         setBondRenders(newBondRenders);
-
-
-
-
     }, [previousCoords])
+
+    // DRAW PREVIEW BEFORE CLICK
+    /**
+     * Hook which updates the preview bond object for rendering a preview to canvas.
+     * Triggers when list of preview coords is updated.
+     */
+    useEffect(() => {
+        // Draw previews
+        // Check if odd number of clicks on canvas and clicks length is more than zero
+        if (previewCoord !== null &&
+            previousCoords.length > 0 &&
+            previousCoords.length%2 !== 0 ){
+            // single
+            if (switchTool(selectedTool) === 3) {
+                const startX = previousCoords[previousCoords.length - 1].x;
+                const startY = previousCoords[previousCoords.length - 1].y;
+                const endX = previewCoord.x;
+                const endY = previewCoord.y;
+                setPreviewRenders(
+                    bond(startX, startY, endX, endY,"CH3", "CH3", 1)
+                )
+            }
+            // double
+            if (switchTool(selectedTool) === 4) {
+                const startX = previousCoords[previousCoords.length - 1].x;
+                const startY = previousCoords[previousCoords.length - 1].y;
+                const endX = previewCoord.x;
+                const endY = previewCoord.y;
+                setPreviewRenders(
+                    bond(startX, startY, endX, endY,"CH2", "CH2", 2)
+                )
+            }
+        }
+    }, [previewCoord])
 
     useEffect(() => {
         console.log(konvaImages);
     }, [konvaImages])
 
+    /**
+     * Hook which removes last coordinate click and resets preview
+     * if tool is switched before finalising bond render.
+     */
     useEffect(() => {
         console.log("Selected tool:" + selectedTool);
+        if (!isBondRenderValid()){
+            // Remove last entry
+            const newPreviousCoords = previousCoords.slice(-1, 1)
+            setPreviousCoords(newPreviousCoords)
+            // Reset preview
+            setPreviewCoord(null)
+            setPreviewRenders({path: ""})
+        }
     }, [selectedTool])
 
     useEffect(() => {
@@ -132,11 +186,30 @@ const DrawingArea = (tool) => {
     }, [bondRenders])
 
 
+    /**
+     * Function which returns a coordinate object if parameter coordinate is within a snappable distance of it.
+     * Returns null if it is not within snappable distance of any coordinate.
+     */
+    const snappableCoord = (tryCoord) => {
+        const snappableDistance = 5;
+        for (const [coord] of previousCoords){
+            // if within +- 5 of x and y coord
+            if ((coord.x-snappableDistance <= tryCoord.x  && tryCoord.x <= coord.x+snappableDistance ) &&
+                ((coord.y-snappableDistance <= tryCoord.y  && tryCoord.y <= coord.y+snappableDistance ))){
+                return coord;
+            }
+            else{
+                return null;
+            }
+        }
+            }
+
     // Currently adds image to layer
     const onMouseClick = (event) => {
         console.log("click");
-        // todo: Have this be assignable for url, width, height, ect.
 
+        // Erase preview
+        setPreviewCoord(null);
 
         const newKonvaImages = konvaImages.slice()
 
@@ -175,52 +248,8 @@ const DrawingArea = (tool) => {
                 height: smallHeight
             })
         }
-
-
-
-
-
-
         // console.log(newKonvaImages);
-
         setKonvaImages(newKonvaImages);
-
-
-
-        // const newKonvaImages = konvaImages.slice()
-        // // Update coords
-        // // CHECK IF THE TOOL CLEARS CANVAS STATE
-        // if (selectedTool !== "transform" || selectedTool !== "selection" || selectedTool !== "text") {
-        //     const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
-        //
-        //     setCoords([...coords, currentCoord]);
-        //     console.log(currentCoord);
-        //
-        //
-        //     // CHECK IF ITS A CHARGE WHICH WOULD APPEAR SMALL
-        //     if (selectedTool !== "radical" || selectedTool !== "minus" || selectedTool !== "plus" || selectedTool !== "neg_dipole" || selectedTool !== "pos_dipole") {
-        //         newKonvaImages.push({
-        //             key: newKonvaImages.length,
-        //             url: Vectors[selectedTool], // Dictionary accessor
-        //             x: (event.evt.layerX - width / 2),
-        //             y: (event.evt.layerY - height / 2),
-        //             width: width,
-        //             height: height
-        //         });
-        //     } else {
-        //         newKonvaImages.push({
-        //             key: newKonvaImages.length,
-        //             url: Vectors[selectedTool], // Dictionary accessor
-        //             x: (event.evt.layerX - smallWidth / 2),
-        //             y: (event.evt.layerY - smallHeight / 2),
-        //             width: smallWidth,
-        //             height: smallHeight
-        //         })
-        //     }
-        //
-
-        //
-        // }
     }
 
     const onMouseUnclick = (event) => {
@@ -230,8 +259,14 @@ const DrawingArea = (tool) => {
 
     const onMouseMove = (event) => {
         console.log("mouse moving");
-        const mouseX = event.evt.layerX;
-        const mouseY = event.evt.layerY;
+        const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
+
+        // Assign new moving coord
+        setPreviewCoord(currentCoord);
+
+        // console.log("Current mouse position: (" +
+        //     currentCoord.x + ", " + currentCoord.y + ")")
+
     }
 
     // ZOOM
@@ -305,13 +340,11 @@ const DrawingArea = (tool) => {
                         />
                     )
                 })}
-                {/*<Path*/}
-                {/*    key={0}*/}
-                {/*    stroke="black"*/}
-                {/*    data="M50,100,264.285714285714d3L200,92.85714285714289L275,264.2857142857143L350,92.85714285714289L350,350L275,350L200,350L125,350L50,350Z"*/}
-                {/*/>*/}
-                {/*<Text text="Some text on canvas" fontSize={15} />*/}
-                {/*<Circle x={200} y={100} radius={50} fill="green" />*/}
+                <Path
+                    stroke="black"
+                    data={previewRender.path}
+                />
+                {/*<Circle x={200} y={100} radius={50} fill="yellow" opacity={0.5}/>*/}
             </Layer>
         </Stage>
     );

@@ -1,5 +1,3 @@
-import React from "react";
-
 const maxDistance = 50;
 const doubleBondOffset=10;
 
@@ -27,7 +25,7 @@ const calculateAngle = (startX, startY, endX, endY) => {
     return theta_deg;
 }
 
-// Check if DB is horizontal
+// Returns true if DB is horizontal
 const isBondHorizontal = (angle) => {
     if (( 175 <= angle && angle <= 180 ) ||
         ( 180 <= angle && angle <= 190 ) ||
