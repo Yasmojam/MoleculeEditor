@@ -195,6 +195,23 @@ const DrawingArea = () => {
         }
     }, [selectedTool])
 
+    /**
+     * Hook which clears and refreshes state.
+     * Triggers on selected tool change.
+     */
+    useEffect(() => {
+        console.log("Selected tool:" + selectedTool);
+        if (selectedTool === "clear"){
+            setBondRenders([])
+            setKonvaImages([])
+            setPreviousCoords([])
+            setPreviewRenders({path:""})
+            setHighlightOpacity(0)
+            setHighlightCoord({x: 0, y: 0})
+        }
+    }, [selectedTool])
+
+
     useEffect(() => {
         console.log(bondRenders)
         // log angles
@@ -243,9 +260,6 @@ const DrawingArea = () => {
             }
         }
     }
-
-
-
 
     // Currently adds image to layer
     const onMouseClick = (event) => {

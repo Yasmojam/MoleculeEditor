@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Bonds now preview before finalising their path. List of previousCoords now removes last entry and preview is reset if tool is switched before finalising bond.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now highlight bond ends and snap bonds to bond ends.">
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bondpaths.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bondpaths.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +104,7 @@
       <workItem from="1592236844748" duration="4152000" />
       <workItem from="1592923013861" duration="64322000" />
       <workItem from="1593512982278" duration="16546000" />
-      <workItem from="1593620922436" duration="81958000" />
+      <workItem from="1593620922436" duration="82778000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -220,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594215325813</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Can now highlight bond ends and snap bonds to bond ends.">
+      <created>1594224622924</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1594224622924</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +262,8 @@
     <MESSAGE value="Added consistent path length, angle calc function, detect if bond is horizontal, and change the path calculations. Also added triple bond path. Refactored some drawing area rendering." />
     <MESSAGE value="Fixed small horizontal DB bug." />
     <MESSAGE value="Bonds now preview before finalising their path. List of previousCoords now removes last entry and preview is reset if tool is switched before finalising bond." />
-    <option name="LAST_COMMIT_MESSAGE" value="Bonds now preview before finalising their path. List of previousCoords now removes last entry and preview is reset if tool is switched before finalising bond." />
+    <MESSAGE value="Can now highlight bond ends and snap bonds to bond ends." />
+    <option name="LAST_COMMIT_MESSAGE" value="Can now highlight bond ends and snap bonds to bond ends." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
