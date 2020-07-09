@@ -11,9 +11,6 @@ import bond from "./bondpaths";
 const DrawingArea = () => {
     // can use ref to store any object that must be preserved on rerender
     const stageRef = useRef(null)
-    const [stageScale, setStageScale] = useState(1);
-    const [stageX, setStageX] = useState(0);
-    const [stageY, setStageY] = useState(0);
 
     // const [currentCoords, setCurrentCoords] = useState([]);
     const [previousCoords, setPreviousCoords] = useState([])
@@ -133,7 +130,6 @@ const DrawingArea = () => {
             bond(startCoord, endCoord,12, 12, bondOrder)
         )
     }
-
 
     // DRAW PREVIEW BEFORE CLICK
     /**
@@ -338,13 +334,8 @@ const DrawingArea = () => {
 
             ref={stageRef}
 
-            width={842 * stageScale}
-            height={595 * stageScale}
-
-            scaleX={stageScale}
-            scaleY={stageScale}
-            x={stageX}
-            y={stageY}
+            width={842}
+            height={595}
 
             onMouseDown={onMouseClick}
             onMouseMove={onMouseMove}

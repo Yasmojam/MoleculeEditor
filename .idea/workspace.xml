@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added clear canvas functionality to header button.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/bondpaths.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bondpaths.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +107,7 @@
       <workItem from="1592236844748" duration="4152000" />
       <workItem from="1592923013861" duration="64322000" />
       <workItem from="1593512982278" duration="16546000" />
-      <workItem from="1593620922436" duration="92797000" />
+      <workItem from="1593620922436" duration="96210000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -235,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594225284275</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked.">
+      <created>1594322740726</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1594322740726</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +281,9 @@
     <MESSAGE value="Bonds now preview before finalising their path. List of previousCoords now removes last entry and preview is reset if tool is switched before finalising bond." />
     <MESSAGE value="Can now highlight bond ends and snap bonds to bond ends." />
     <MESSAGE value="Added clear canvas functionality to header button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added clear canvas functionality to header button." />
+    <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each." />
+    <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
