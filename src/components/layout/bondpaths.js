@@ -1,22 +1,22 @@
 const maxDistance = 50;
 const doubleBondOffset=5;
 
-const pathDistance = (startX, startY, endX, endY) => {
-    let dx = endX - startX;
-    let dy = endY - startY;
+const pathDistance = (startCoord: Object, endCoord: Object) => {
+    const dx = endCoord.x - startCoord.x;
+    const dy = endCoord.y - startCoord.y;
     const distance = Math.sqrt((dx**2) + (dy**2))
 
     return distance;
 }
 
-const pathDisRatio = (clickedDistance) => {
+const pathDisRatio = (clickedDistance: Number) => {
     const ratio = maxDistance/clickedDistance;
     return ratio;
 }
 
-const calculateAngle = (startX, startY, endX, endY) => {
-    let dx = startX - endX;
-    let dy = startY - endY;
+const calculateAngle = (startCoord: Object, endCoord: Object) => {
+    const dx = endCoord.x - startCoord.x;
+    const dy = endCoord.y - startCoord.y;
     let theta_rad = Math.atan2(-dy, -dx); // gives answer in rads
     let theta_deg = theta_rad*(180/Math.PI)  // convert rads to degrees
     if (theta_deg < 0) {
@@ -26,7 +26,7 @@ const calculateAngle = (startX, startY, endX, endY) => {
 }
 
 // Returns true if DB is horizontal
-const isBondHorizontal = (angle) => {
+const isBondHorizontal = (angle: Number) => {
     if (( 175 <= angle && angle <= 180 ) ||
         ( 180 <= angle && angle <= 190 ) ||
         ( 350 <= angle && angle <= 360 ) ||
@@ -35,12 +35,19 @@ const isBondHorizontal = (angle) => {
     }
 }
 
-const bond = (startX, startY, endX, endY , startAtom="CH3", endAtom="CH3", bondOrder=0) => {
+const bond = (startCoord: Object, endCoord: Object,
+              startAtom: Number, endAtom: Number,
+              bondOrder: Number) => {
     let path="";
+    let startX = startCoord.x
+    let startY = startCoord.y
+    let endX = endCoord.x
+    let endY = endCoord.y
 
-    const pathdist = pathDistance(startX, startY, endX, endY);
+
+    const pathdist = pathDistance(startCoord, endCoord);
     const ratio = pathDisRatio(pathdist)
-    const angle =  calculateAngle(startX, startY, endX, endY);
+    const angle =  calculateAngle(startCoord, endCoord);
 
     // if path distance is >maxPointDist
 
@@ -51,9 +58,9 @@ const bond = (startX, startY, endX, endY , startAtom="CH3", endAtom="CH3", bondO
     const newEndX = ((1-ratio)*startX) + (ratio*endX);
     const newEndY = ((1-ratio)*startY) + (ratio*endY);
 
-    // Reassign the final
-    endX=newEndX;
-    endY=newEndY;
+    // Reassign the new end coord to end coords
+        endX = newEndX;
+        endY = newEndY;
 
     // SINGLE BOND
     if (bondOrder === 1) {
@@ -89,7 +96,7 @@ const bond = (startX, startY, endX, endY , startAtom="CH3", endAtom="CH3", bondO
                 "M" + (startX+doubleBondOffset) + "," + startY + "L" + (endX+doubleBondOffset) + "," + endY)
         }
     }
-    return {startX, startY, endX, endY , startAtom, endAtom, bondOrder, path, angle}
+    return {startCoord:{x:startX, y:startY}, endCoord: {x: endX, y:endY} , startAtom, endAtom, bondOrder, path, angle}
 }
 
 export default bond;

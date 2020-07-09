@@ -81,50 +81,59 @@ const DrawingArea = () => {
     }
 
     /**
+     * Function which adds bond to list of bonds to be rendered to canvas.
+     */
+    const bondRenderToCanvas = (bondOrder: Number) => {
+        const newBondRenders = bondRenders.slice()
+
+        const startCoord =
+            {x: previousCoords[previousCoords.length - 2].x, y: previousCoords[previousCoords.length - 2].y};
+        const endCoord =
+            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+        newBondRenders.push(
+            bond(startCoord, endCoord,12, 12, bondOrder)
+        )
+
+        setBondRenders(newBondRenders);
+    }
+    /**
      * Hook which updates list of bond objects for rendering to canvas.
      * Triggers when list of previous coords is updated.
      */
     useEffect(() => {
         console.log(previousCoords)
 
-        const newBondRenders = bondRenders.slice()
-
         // single
-        if (switchTool(selectedTool) === 3 &&
+        if (selectedTool === "single" &&
             isBondRenderValid()) {
-            const startX = previousCoords[previousCoords.length - 2].x;
-            const startY = previousCoords[previousCoords.length - 2].y;
-            const endX = previousCoords[previousCoords.length - 1].x;
-            const endY = previousCoords[previousCoords.length - 1].y;
-            newBondRenders.push(
-                bond(startX, startY, endX, endY,"CH3", "CH3", 1)
-            )
+            bondRenderToCanvas(1);
         }
         // double
-        if (switchTool(selectedTool) === 4 &&
+        if (selectedTool === "double" &&
             isBondRenderValid()) {
-            const startX = previousCoords[previousCoords.length - 2].x;
-            const startY = previousCoords[previousCoords.length - 2].y;
-            const endX = previousCoords[previousCoords.length - 1].x;
-            const endY = previousCoords[previousCoords.length - 1].y;
-            newBondRenders.push(
-                bond(startX, startY, endX, endY,"CH2", "CH2", 2)
-            )
+            bondRenderToCanvas(2)
         }
 
-        if (switchTool(selectedTool) === 5 &&
+        if (selectedTool === "triple" &&
             isBondRenderValid()) {
-            const startX = previousCoords[previousCoords.length - 2].x;
-            const startY = previousCoords[previousCoords.length - 2].y;
-            const endX = previousCoords[previousCoords.length - 1].x;
-            const endY = previousCoords[previousCoords.length - 1].y;
-            newBondRenders.push(
-                bond(startX, startY, endX, endY,"CH", "CH", 3)
-            )
+            bondRenderToCanvas(3)
         }
-
-        setBondRenders(newBondRenders);
     }, [previousCoords])
+
+
+    /**
+     * Function which sets bond preview to be rendered to canvas.
+     */
+    const previewBondToCanvas = (bondOrder: Number) => {
+        const startCoord =
+            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+        const endCoord =
+            {x: previewCoord.x, y:  previewCoord.y};
+        setPreviewRenders(
+            bond(startCoord, endCoord,12, 12, bondOrder)
+        )
+    }
+
 
     // DRAW PREVIEW BEFORE CLICK
     /**
@@ -138,24 +147,12 @@ const DrawingArea = () => {
             previousCoords.length > 0 &&
             previousCoords.length%2 !== 0 ){
             // single
-            if (switchTool(selectedTool) === 3) {
-                const startX = previousCoords[previousCoords.length - 1].x;
-                const startY = previousCoords[previousCoords.length - 1].y;
-                const endX = previewCoord.x;
-                const endY = previewCoord.y;
-                setPreviewRenders(
-                    bond(startX, startY, endX, endY,"CH3", "CH3", 1)
-                )
+            if (selectedTool === "single") {
+                previewBondToCanvas(1);
             }
             // double
-            if (switchTool(selectedTool) === 4) {
-                const startX = previousCoords[previousCoords.length - 1].x;
-                const startY = previousCoords[previousCoords.length - 1].y;
-                const endX = previewCoord.x;
-                const endY = previewCoord.y;
-                setPreviewRenders(
-                    bond(startX, startY, endX, endY,"CH2", "CH2", 2)
-                )
+            if (selectedTool === "double") {
+                previewBondToCanvas(2);
             }
         }
     }, [previewCoord])
@@ -224,16 +221,21 @@ const DrawingArea = () => {
     /**
      * Returns true if tryCoord is within snappable distance of any start or end pair of coordinates listed in bond render.
      */
-    const isCoordSnappable = (tryCoord) => {
+    const isCoordSnappable = (tryCoord: Object) => {
         if (tryCoord !== null) {
             for (let bond of bondRenders) {
+                const startX = bond.startCoord.x;
+                const startY = bond.startCoord.y;
+                const endX = bond.endCoord.x;
+                const endY = bond.endCoord.y;
+
                 // if within +- 5 of start/end x and start/end y coord
-                if ((bond.startX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.startX + snappableDistance) &&
-                    (bond.startY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.startY + snappableDistance)){
+                if ((startX- snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
+                    (startY - snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)){
                     return true;
                 }
-                if ((bond.endX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.endX + snappableDistance) &&
-                    (bond.endY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.endY + snappableDistance)) {
+                if ((endX- snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
+                    (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
                     return true;
                 }
             }
@@ -243,20 +245,21 @@ const DrawingArea = () => {
     /**
      * Function which returns a coordinate object if parameter coordinate is within a snappable distance of it.
      */
-    const snappableCoord = (tryCoord) => {
+    const snappableCoord = (tryCoord: Object) => {
         for (let bond of bondRenders) {
             // if within +- 5 of x and y coord
-            // if ((coord.x - snappableDistance <= tryCoord.x && tryCoord.x <= coord.x + snappableDistance) &&
-            //     ((coord.y - snappableDistance <= tryCoord.y && tryCoord.y <= coord.y + snappableDistance))) {
-            //     return coord;
-            // }
-            if ((bond.startX-snappableDistance <= tryCoord.x && tryCoord.x <= bond.startX+snappableDistance) &&
-                (bond.startY-snappableDistance <= tryCoord.y && tryCoord.y <= bond.startY + snappableDistance)){
-                return {x: bond.startX, y: bond.startY};
+            const startX = bond.startCoord.x;
+            const startY = bond.startCoord.y;
+            const endX = bond.endCoord.x;
+            const endY = bond.endCoord.y;
+
+            if ((startX-snappableDistance <= tryCoord.x && tryCoord.x <= startX+snappableDistance) &&
+                (startY-snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)){
+                return {x: startX, y: startY};
             }
-            if ((bond.endX- snappableDistance <= tryCoord.x && tryCoord.x <= bond.endX + snappableDistance) &&
-                (bond.endY - snappableDistance <= tryCoord.y && tryCoord.y <= bond.endY + snappableDistance)) {
-                return {x: bond.endX, y: bond.endY};
+            if ((endX- snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
+                (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
+                return {x: endX, y: endY};
             }
         }
     }
@@ -266,7 +269,8 @@ const DrawingArea = () => {
         console.log("click");
 
         // Erase preview
-        setPreviewCoord(null);
+        setPreviousCoords([])
+        setPreviewRenders({path:""})
 
         const newKonvaImages = konvaImages.slice()
 
@@ -318,13 +322,7 @@ const DrawingArea = () => {
         setKonvaImages(newKonvaImages);
     }
 
-    const onMouseUnclick = (event) => {
-        console.log("unclick");
-
-    }
-
     const onMouseMove = (event) => {
-        console.log("mouse moving");
         const currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
         // Assign new moving coord
@@ -334,27 +332,6 @@ const DrawingArea = () => {
         //     currentCoord.x + ", " + currentCoord.y + ")")
 
     }
-
-    // ZOOM
-    const onWheel = (event) => {
-        console.log("wheel moving");
-        event.evt.preventDefault();
-
-        const scalingConst = 1.01;
-        const stage = stageRef.current.getStage();
-        const previousScale = stage.scaleX();
-        const mousePointTo = {
-            x: stage.getPointerPosition().x / previousScale - stage.x() / previousScale,
-            y: stage.getPointerPosition().y / previousScale - stage.y() / previousScale
-        };
-
-        const newScale = event.evt.deltaY > 0 ? (previousScale * scalingConst) : (previousScale / scalingConst);
-
-        setStageScale(newScale);
-        setStageX((mousePointTo.x - stage.getPointerPosition().x / newScale) * newScale);
-        setStageY((mousePointTo.y - stage.getPointerPosition().y / newScale) * newScale);
-    }
-
 
     return (
         <Stage
@@ -370,9 +347,7 @@ const DrawingArea = () => {
             y={stageY}
 
             onMouseDown={onMouseClick}
-            onMouseUp={onMouseUnclick}
             onMouseMove={onMouseMove}
-            onWheel={onWheel}
 
             style={{
                 display: "flex",
