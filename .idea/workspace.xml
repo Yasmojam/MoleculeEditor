@@ -19,13 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons.">
-      <change afterPath="$PROJECT_DIR$/src/components/layout/atom.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Implemented atoms from atom buttons window rendering to the canvas.">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Atom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cheminfo/chemElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cheminfo/chemElement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bondpaths.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1593620922436" duration="96210000" />
       <workItem from="1594336625318" duration="510000" />
       <workItem from="1594384364375" duration="5000" />
-      <workItem from="1594386478728" duration="9777000" />
+      <workItem from="1594386478728" duration="12823000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -254,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594336816032</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Implemented atoms from atom buttons window rendering to the canvas.">
+      <created>1594396472180</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1594396472180</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +300,8 @@
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
     <MESSAGE value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
+    <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented atoms from atom buttons window rendering to the canvas." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

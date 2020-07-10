@@ -69,6 +69,20 @@ const DrawingArea = () => {
         }
     }
 
+    /**
+     *
+     * @param tool
+     * @returns true if tool is a atom drawing tool.
+     */
+    const isToolAtom = (tool) => {
+        for (let element of chemElement) {
+            if (element !== null) {
+                if (element.Symbol === tool) {
+                    return true;
+                }
+            }
+        }
+    }
 
     /**
      * Function which adds atom to list of atoms to be rendered to canvas.
@@ -120,8 +134,6 @@ const DrawingArea = () => {
      * Triggers when list of previous coords is updated.
      */
     useEffect(() => {
-        console.log(previousCoords)
-
         // single
         if (selectedTool === "single" &&
             isBondRenderValid()) {
@@ -139,24 +151,14 @@ const DrawingArea = () => {
         }
         // Preselected atom buttons
         // Todo assign all other buttons so this can be an else statement
-        if (selectedTool === "H" ||
-            selectedTool === "C" ||
-            selectedTool === "O" ||
-            selectedTool === "N" ||
-            selectedTool === "P" ||
-            selectedTool === "S" ||
-            selectedTool === "F" ||
-            selectedTool === "Cl"||
-            selectedTool === "B" ||
-            selectedTool === "I"
-        ) {
+        if (isToolAtom(selectedTool)) {
             if (previousCoords.length > 0) {
                 const atomicNumber = findAtomicNumBySymbol(selectedTool);
-                console.log(atomicNumber);
                 atomRenderToCanvas(atomicNumber);
-                console.log(atomRenders)
             }
         }
+        console.log("Previous coords:")
+        console.log(previousCoords)
     }, [previousCoords])
 
 
@@ -211,6 +213,7 @@ const DrawingArea = () => {
     }, [previewCoord])
 
     useEffect(() => {
+        console.log("KonvaImages:")
         console.log(konvaImages);
     }, [konvaImages])
 
@@ -220,7 +223,7 @@ const DrawingArea = () => {
      */
     useEffect(() => {
         console.log("Selected tool:" + selectedTool);
-        if (!isBondRenderValid()){
+        if (!isBondRenderValid() && !isToolAtom(selectedTool)){
             // Remove last entry
             const newPreviousCoords = previousCoords.slice(-1, 1)
             setPreviousCoords(newPreviousCoords)
@@ -235,29 +238,41 @@ const DrawingArea = () => {
      * Triggers on selected tool change.
      */
     useEffect(() => {
-        console.log("Selected tool:" + selectedTool);
         if (selectedTool === "clear"){
-            setBondRenders([])
-            setKonvaImages([])
-            setPreviousCoords([])
-            setPreviewRenders({path:""})
-            setHighlightOpacity(0)
-            setHighlightCoord({x: 0, y: 0})
+            setBondRenders([]);
+            setAtomRenders([]);
+            setKonvaImages([]);
+            setPreviousCoords([]);
+            setPreviewRenders({path:""});
+            setHighlightOpacity(0);
+            setHighlightCoord({x: 0, y: 0});
         }
     }, [selectedTool])
 
 
     // log angles
     useEffect(() => {
+        console.log("Bond Renders")
         console.log(bondRenders)
         if (bondRenders.length >= 1) {
-            console.log(bondRenders[bondRenders.length - 1].angle)
+            console.log("Angle:");
+            console.log(bondRenders[bondRenders.length - 1].angle);
         }
     }, [bondRenders])
 
 
+    // log Atoms
+    useEffect(() => {
+        if (atomRenders.length > 0){
+            console.log("Atom Renders:");
+            console.log(atomRenders);
+        }
+    }, [atomRenders])
+
+
     /**
      * Returns true if tryCoord is within snappable distance of any start or end pair of coordinates listed in bond render.
+     * Returns true if tryCoord is within snappable distance of any atom.
      */
     const isCoordSnappable = (tryCoord: Object) => {
         if (tryCoord !== null) {
@@ -268,12 +283,20 @@ const DrawingArea = () => {
                 const endY = bond.endCoord.y;
 
                 // if within +- 5 of start/end x and start/end y coord
-                if ((startX- snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
+                if ((startX - snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
                     (startY - snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)){
                     return true;
                 }
-                if ((endX- snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
+                if ((endX - snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
                     (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
+                    return true;
+                }
+            }
+            for (let atom of atomRenders) {
+                const atomX = atom.coord.x;
+                const atomY = atom.coord.y;
+                if ((atomX - snappableDistance <= tryCoord.x && tryCoord.x <= atomX + snappableDistance) &&
+                    (atomY - snappableDistance <= tryCoord.y && tryCoord.y <= atomY + snappableDistance)) {
                     return true;
                 }
             }
@@ -300,6 +323,16 @@ const DrawingArea = () => {
                 return {x: endX, y: endY};
             }
         }
+
+        for (let atom of atomRenders) {
+            const atomX = atom.coord.x;
+            const atomY = atom.coord.y;
+
+            if ((atomX - snappableDistance <= tryCoord.x && tryCoord.x <= atomX + snappableDistance) &&
+                (atomY - snappableDistance <= tryCoord.y && tryCoord.y <= atomY + snappableDistance)) {
+                return {x: atomX, y: atomY};
+            }
+        }
     }
 
     // Currently adds image to layer
@@ -307,7 +340,7 @@ const DrawingArea = () => {
         console.log("click");
 
         // Erase preview
-        setPreviousCoords([])
+        setPreviewCoord([])
         setPreviewRenders({path:""})
 
         const newKonvaImages = konvaImages.slice()
@@ -417,8 +450,8 @@ const DrawingArea = () => {
                 {atomRenders.map(atom => {
                     return(
                         <Text
-                        x = {atom.coord.x}
-                        y = {atom.coord.y}
+                        x = {atom.coord.x -7.5}
+                        y = {atom.coord.y -7.5}
                         text={atom.symbol}
                         fontFamily="Lato"
                         fontSize={15}
