@@ -6,7 +6,7 @@
  * Code version: revision 4
  * Availability: https://gist.github.com/GoodmanSciences/c2dd862cd38f21b0ad36b8f96b4bf1ee
  **************************************************/
-const chemElement =
+export const chemElement =
     [
         null,
         {

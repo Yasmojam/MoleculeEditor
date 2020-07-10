@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Layer, Stage, Path, Circle} from "react-konva";
+import {Layer, Stage, Path, Circle, Text} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
-import bond from "./bondpaths";
+import bond from "./bond";
+import {chemElement} from "../cheminfo/chemElement";
+import {atom, findAtomicNumBySymbol} from "./atom";
 
 /**
  * Functional component which represents the drawing canvas.
@@ -16,7 +18,8 @@ const DrawingArea = () => {
     const [previousCoords, setPreviousCoords] = useState([])
 
     const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
-    const [bondRenders, setBondRenders] = useState([]); //bond specifications
+    const [bondRenders, setBondRenders] = useState([]); // list of bond specifications
+    const [atomRenders, setAtomRenders] = useState([]) // list of atom specifications
 
     const [previewRender, setPreviewRenders] = useState({path:""});
     const [previewCoord, setPreviewCoord] = useState(null);
@@ -66,6 +69,24 @@ const DrawingArea = () => {
         }
     }
 
+
+    /**
+     * Function which adds atom to list of atoms to be rendered to canvas.
+     * Todo allow for checking associated bonds and adding them to atom if snaps to bond.
+     */
+    const atomRenderToCanvas = (atomicNum: Number) => {
+        const newAtomRenders = atomRenders.slice()
+
+        const coord =
+            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+        newAtomRenders.push(
+            atom(atomicNum, coord)
+        )
+
+        setAtomRenders(newAtomRenders);
+    }
+
+
     /**
      * Function which returns true if the length of list of previous coords is even and
      * more than zero.
@@ -79,6 +100,7 @@ const DrawingArea = () => {
 
     /**
      * Function which adds bond to list of bonds to be rendered to canvas.
+     * Todo replace start and end atom if snaps to atom on either end.
      */
     const bondRenderToCanvas = (bondOrder: Number) => {
         const newBondRenders = bondRenders.slice()
@@ -88,7 +110,7 @@ const DrawingArea = () => {
         const endCoord =
             {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
         newBondRenders.push(
-            bond(startCoord, endCoord,12, 12, bondOrder)
+            bond(startCoord, endCoord,6, 6, bondOrder)
         )
 
         setBondRenders(newBondRenders);
@@ -115,6 +137,26 @@ const DrawingArea = () => {
             isBondRenderValid()) {
             bondRenderToCanvas(3)
         }
+        // Preselected atom buttons
+        // Todo assign all other buttons so this can be an else statement
+        if (selectedTool === "H" ||
+            selectedTool === "C" ||
+            selectedTool === "O" ||
+            selectedTool === "N" ||
+            selectedTool === "P" ||
+            selectedTool === "S" ||
+            selectedTool === "F" ||
+            selectedTool === "Cl"||
+            selectedTool === "B" ||
+            selectedTool === "I"
+        ) {
+            if (previousCoords.length > 0) {
+                const atomicNumber = findAtomicNumBySymbol(selectedTool);
+                console.log(atomicNumber);
+                atomRenderToCanvas(atomicNumber);
+                console.log(atomRenders)
+            }
+        }
     }, [previousCoords])
 
 
@@ -127,7 +169,7 @@ const DrawingArea = () => {
         const endCoord =
             {x: previewCoord.x, y:  previewCoord.y};
         setPreviewRenders(
-            bond(startCoord, endCoord,12, 12, bondOrder)
+            bond(startCoord, endCoord,6, 6, bondOrder)
         )
     }
 
@@ -205,9 +247,9 @@ const DrawingArea = () => {
     }, [selectedTool])
 
 
+    // log angles
     useEffect(() => {
         console.log(bondRenders)
-        // log angles
         if (bondRenders.length >= 1) {
             console.log(bondRenders[bondRenders.length - 1].angle)
         }
@@ -369,6 +411,17 @@ const DrawingArea = () => {
                             key={bondRenders.indexOf(bond)}
                             stroke="black"
                             data={bond.path}
+                        />
+                    )
+                })}
+                {atomRenders.map(atom => {
+                    return(
+                        <Text
+                        x = {atom.coord.x}
+                        y = {atom.coord.y}
+                        text={atom.symbol}
+                        fontFamily="Lato"
+                        fontSize={15}
                         />
                     )
                 })}
