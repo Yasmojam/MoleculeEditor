@@ -14,8 +14,11 @@ const DrawingArea = () => {
     // can use ref to store any object that must be preserved on rerender
     const stageRef = useRef(null)
 
-    // const [currentCoords, setCurrentCoords] = useState([]);
-    const [previousCoords, setPreviousCoords] = useState([])
+    // Track all coord; used for snapping and useEffects
+    const [allCoordsHistory, setAllCoordsHistory] = useState([]);
+    const [bondCoordsHistory, setBondCoordsHistory] = useState([]); // Track bond coords
+    const [bondMidPointCoords, setBondMidPointCoords] = useState([]) // Track bond mid points for highlights
+    const [atomCoordsHistory, setAtomCoordsHistory] = useState([]); // Track atom coords
 
     const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
     const [bondRenders, setBondRenders] = useState([]); // list of bond specifications
@@ -70,9 +73,8 @@ const DrawingArea = () => {
     }
 
     /**
-     *
      * @param tool
-     * @returns true if tool is a atom drawing tool.
+     *  Returns true if tool is a atom drawing tool.
      */
     const isToolAtom = (tool) => {
         for (let element of chemElement) {
@@ -92,7 +94,7 @@ const DrawingArea = () => {
         const newAtomRenders = atomRenders.slice()
 
         const coord =
-            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
         newAtomRenders.push(
             atom(atomicNum, coord)
         )
@@ -106,8 +108,8 @@ const DrawingArea = () => {
      * more than zero.
      */
     const isBondRenderValid = () => {
-        if (previousCoords.length%2 === 0 &&
-            previousCoords.length > 0) {
+        if (allCoordsHistory.length%2 === 0 &&
+            allCoordsHistory.length > 0) {
             return true;
         }
     }
@@ -120,9 +122,9 @@ const DrawingArea = () => {
         const newBondRenders = bondRenders.slice()
 
         const startCoord =
-            {x: previousCoords[previousCoords.length - 2].x, y: previousCoords[previousCoords.length - 2].y};
+            {x: allCoordsHistory[allCoordsHistory.length - 2].x, y: allCoordsHistory[allCoordsHistory.length - 2].y};
         const endCoord =
-            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
         newBondRenders.push(
             bond(startCoord, endCoord,6, 6, bondOrder)
         )
@@ -152,14 +154,14 @@ const DrawingArea = () => {
         // Preselected atom buttons
         // Todo assign all other buttons so this can be an else statement
         if (isToolAtom(selectedTool)) {
-            if (previousCoords.length > 0) {
+            if (allCoordsHistory.length > 0) {
                 const atomicNumber = findAtomicNumBySymbol(selectedTool);
                 atomRenderToCanvas(atomicNumber);
             }
         }
         console.log("Previous coords:")
-        console.log(previousCoords)
-    }, [previousCoords])
+        console.log(allCoordsHistory)
+    }, [allCoordsHistory])
 
 
     /**
@@ -167,7 +169,7 @@ const DrawingArea = () => {
      */
     const previewBondToCanvas = (bondOrder: Number) => {
         const startCoord =
-            {x: previousCoords[previousCoords.length - 1].x, y: previousCoords[previousCoords.length - 1].y};
+            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
         const endCoord =
             {x: previewCoord.x, y:  previewCoord.y};
         setPreviewRenders(
@@ -184,8 +186,8 @@ const DrawingArea = () => {
         // Draw previews
         // Check if odd number of clicks on canvas and clicks length is more than zero
         if (previewCoord !== null &&
-            previousCoords.length > 0 &&
-            previousCoords.length%2 !== 0 ){
+            allCoordsHistory.length > 0 &&
+            allCoordsHistory.length%2 !== 0 ){
             // single
             if (selectedTool === "single") {
                 previewBondToCanvas(1);
@@ -225,8 +227,8 @@ const DrawingArea = () => {
         console.log("Selected tool:" + selectedTool);
         if (!isBondRenderValid() && !isToolAtom(selectedTool)){
             // Remove last entry
-            const newPreviousCoords = previousCoords.slice(-1, 1)
-            setPreviousCoords(newPreviousCoords)
+            const newPreviousCoords = allCoordsHistory.slice(-1, 1)
+            setAllCoordsHistory(newPreviousCoords)
             // Reset preview
             setPreviewCoord(null)
             setPreviewRenders({path: ""})
@@ -242,7 +244,7 @@ const DrawingArea = () => {
             setBondRenders([]);
             setAtomRenders([]);
             setKonvaImages([]);
-            setPreviousCoords([]);
+            setAllCoordsHistory([]);
             setPreviewRenders({path:""});
             setHighlightOpacity(0);
             setHighlightCoord({x: 0, y: 0});
@@ -352,11 +354,11 @@ const DrawingArea = () => {
         if (isCoordSnappable(currentCoord)){
             currentCoord = snappableCoord(currentCoord)
             // Add currentCoord to list of previous coord
-            setPreviousCoords([...previousCoords, currentCoord]);
+            setAllCoordsHistory([...allCoordsHistory, currentCoord]);
         }
         else {
             // Add currentCoord to list of previous coord
-            setPreviousCoords([...previousCoords, currentCoord]);
+            setAllCoordsHistory([...allCoordsHistory, currentCoord]);
         }
 
 
@@ -450,10 +452,10 @@ const DrawingArea = () => {
                 {atomRenders.map(atom => {
                     return(
                         <Text
-                        x = {atom.coord.x -7.5}
-                        y = {atom.coord.y -7.5}
+                        /*  Minus 8px centres the atoms, otherwise they render to the right and below of click  */
+                        x = {atom.coord.x -6}
+                        y = {atom.coord.y -6}
                         text={atom.symbol}
-                        fontFamily="Lato"
                         fontSize={15}
                         />
                     )
