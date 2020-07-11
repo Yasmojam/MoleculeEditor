@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
     </list>
@@ -108,7 +108,7 @@
       <workItem from="1593620922436" duration="96210000" />
       <workItem from="1594336625318" duration="510000" />
       <workItem from="1594384364375" duration="5000" />
-      <workItem from="1594386478728" duration="15965000" />
+      <workItem from="1594386478728" duration="22063000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594399430150</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary.">
+      <created>1594420095473</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1594420095473</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,7 +315,8 @@
     <MESSAGE value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
     <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
     <MESSAGE value="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord." />
-    <option name="LAST_COMMIT_MESSAGE" value="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord." />
+    <MESSAGE value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

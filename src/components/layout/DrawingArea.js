@@ -87,6 +87,24 @@ const DrawingArea = () => {
     }
 
     /**
+     * @param tool
+     *  Returns true if tool is a bond drawing tool.
+     */
+    const isToolBond = (tool) => {
+        if (selectedTool === "single" ||
+            selectedTool === "double" ||
+            selectedTool === "triple" ||
+            selectedTool === "quadruple" ||
+            selectedTool === "forward_plane" ||
+            selectedTool === "backward_plane" ||
+            selectedTool === "unspecified_plane" ||
+            selectedTool === "dative" ||
+            selectedTool === "intermediate"){
+            return true;
+        }
+    }
+
+    /**
      * Function which adds atom to list of atoms to be rendered to canvas.
      * Todo allow for checking associated bonds and adding them to atom if snaps to bond.
      */
@@ -94,12 +112,13 @@ const DrawingArea = () => {
         const newAtomRenders = atomRenders.slice()
 
         const coord =
-            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
+            {x: atomCoordsHistory[atomCoordsHistory.length - 1].x, y: atomCoordsHistory[atomCoordsHistory.length - 1].y};
         newAtomRenders.push(
             atom(atomicNum, coord)
         )
 
         setAtomRenders(newAtomRenders);
+        setAllCoordsHistory([...allCoordsHistory, coord]);
     }
 
 
@@ -108,8 +127,8 @@ const DrawingArea = () => {
      * more than zero.
      */
     const isBondRenderValid = () => {
-        if (allCoordsHistory.length%2 === 0 &&
-            allCoordsHistory.length > 0) {
+        if (bondCoordsHistory.length%2 === 0 &&
+            bondCoordsHistory.length > 0) {
             return true;
         }
     }
@@ -122,15 +141,18 @@ const DrawingArea = () => {
         const newBondRenders = bondRenders.slice()
 
         const startCoord =
-            {x: allCoordsHistory[allCoordsHistory.length - 2].x, y: allCoordsHistory[allCoordsHistory.length - 2].y};
+            {x: bondCoordsHistory[bondCoordsHistory.length - 2].x, y: bondCoordsHistory[bondCoordsHistory.length - 2].y};
         const endCoord =
-            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
+            {x: bondCoordsHistory[bondCoordsHistory.length - 1].x, y: bondCoordsHistory[bondCoordsHistory.length - 1].y};
         newBondRenders.push(
             bond(startCoord, endCoord,6, 6, bondOrder)
         )
 
         setBondRenders(newBondRenders);
+        setAllCoordsHistory([...allCoordsHistory, startCoord]);
+        setAllCoordsHistory([...allCoordsHistory, endCoord]);
     }
+
     /**
      * Hook which updates list of bond objects for rendering to canvas.
      * Triggers when list of previous coords is updated.
@@ -161,7 +183,25 @@ const DrawingArea = () => {
         }
         console.log("Previous coords:")
         console.log(allCoordsHistory)
-    }, [allCoordsHistory])
+    }, [bondCoordsHistory])
+
+    /**
+     * Hook which updates list of bond objects for rendering to canvas.
+     * Triggers when list of previous coords is updated.
+     */
+    useEffect(() => {
+        // Preselected atom buttons
+        // Todo assign all other buttons so this can be an else statement
+        if (isToolAtom(selectedTool)) {
+            if (allCoordsHistory.length > 0) {
+                const atomicNumber = findAtomicNumBySymbol(selectedTool);
+                atomRenderToCanvas(atomicNumber);
+            }
+        }
+        console.log("Previous coords:")
+        console.log(allCoordsHistory)
+    }, [atomCoordsHistory])
+
 
 
     /**
@@ -169,7 +209,7 @@ const DrawingArea = () => {
      */
     const previewBondToCanvas = (bondOrder: Number) => {
         const startCoord =
-            {x: allCoordsHistory[allCoordsHistory.length - 1].x, y: allCoordsHistory[allCoordsHistory.length - 1].y};
+            {x: bondCoordsHistory[bondCoordsHistory.length - 1].x, y: bondCoordsHistory[bondCoordsHistory.length - 1].y};
         const endCoord =
             {x: previewCoord.x, y:  previewCoord.y};
         setPreviewRenders(
@@ -186,8 +226,8 @@ const DrawingArea = () => {
         // Draw previews
         // Check if odd number of clicks on canvas and clicks length is more than zero
         if (previewCoord !== null &&
-            allCoordsHistory.length > 0 &&
-            allCoordsHistory.length%2 !== 0 ){
+            bondCoordsHistory.length > 0 &&
+            bondCoordsHistory.length%2 !== 0 ){
             // single
             if (selectedTool === "single") {
                 previewBondToCanvas(1);
@@ -227,11 +267,11 @@ const DrawingArea = () => {
         console.log("Selected tool:" + selectedTool);
         if (!isBondRenderValid() && !isToolAtom(selectedTool)){
             // Remove last entry
-            const newPreviousCoords = allCoordsHistory.slice(-1, 1)
-            setAllCoordsHistory(newPreviousCoords)
+            const newBondCoordsHistory = bondCoordsHistory.slice(-1, 1);
+            setBondCoordsHistory(newBondCoordsHistory);
             // Reset preview
-            setPreviewCoord(null)
-            setPreviewRenders({path: ""})
+            setPreviewCoord(null);
+            setPreviewRenders({path: ""});
         }
     }, [selectedTool])
 
@@ -245,6 +285,8 @@ const DrawingArea = () => {
             setAtomRenders([]);
             setKonvaImages([]);
             setAllCoordsHistory([]);
+            setAtomCoordsHistory([]);
+            setBondCoordsHistory([]);
             setPreviewRenders({path:""});
             setHighlightOpacity(0);
             setHighlightCoord({x: 0, y: 0});
@@ -345,24 +387,36 @@ const DrawingArea = () => {
         setPreviewCoord([])
         setPreviewRenders({path:""})
 
-        const newKonvaImages = konvaImages.slice()
-
-
         // Store new current coord
         let currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
 
+        // Todo update with isArrow()/isCharge() later when these are implemented with states
         if (isCoordSnappable(currentCoord)){
+            // Add snappable coord to list of previous coords instead
             currentCoord = snappableCoord(currentCoord)
-            // Add currentCoord to list of previous coord
-            setAllCoordsHistory([...allCoordsHistory, currentCoord]);
+            if (isToolAtom(selectedTool)){
+                setAtomCoordsHistory([...atomCoordsHistory, currentCoord]);
+            }
+            if (isToolBond(selectedTool)){
+                setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
+            }
+            // setAllCoordsHistory([...allCoordsHistory, currentCoord]);
         }
         else {
-            // Add currentCoord to list of previous coord
-            setAllCoordsHistory([...allCoordsHistory, currentCoord]);
+            // Add currentCoord to list of coord
+            if (isToolAtom(selectedTool)){
+                setAtomCoordsHistory([...atomCoordsHistory, currentCoord]);
+            }
+            if (isToolBond(selectedTool)){
+                setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
+            }
+            // setAllCoordsHistory([...allCoordsHistory, currentCoord]);
         }
 
 
         console.log("Current coord: " + currentCoord);
+
+        const newKonvaImages = konvaImages.slice()
 
         if (switchTool(selectedTool) === 0) {
             newKonvaImages.push({
