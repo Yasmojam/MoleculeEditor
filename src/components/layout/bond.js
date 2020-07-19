@@ -62,6 +62,9 @@ const bond = (startCoord: Object, endCoord: Object,
         endX = newEndX;
         endY = newEndY;
 
+    // midPoint
+    const midPoint = {x: (endX+startX)/2, y: (endY+startY)/2 };
+
     // SINGLE BOND
     if (bondOrder === 1) {
             path = ("M" + startX + "," + startY + "L" + endX + "," + endY)
@@ -96,7 +99,7 @@ const bond = (startCoord: Object, endCoord: Object,
                 "M" + (startX+doubleBondOffset) + "," + startY + "L" + (endX+doubleBondOffset) + "," + endY)
         }
     }
-    return {startCoord:{x:startX, y:startY}, endCoord: {x: endX, y:endY} , startAtom, endAtom, bondOrder, path, angle}
+    return {startCoord:{x:startX, y:startY}, endCoord: {x: endX, y:endY}, midPoint, startAtom, endAtom, bondOrder, path, angle}
 }
 
 

@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Layer, Stage, Path, Circle, Text} from "react-konva";
+import {Layer, Stage, Path, Circle, Text, Rect} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
@@ -27,8 +27,13 @@ const DrawingArea = () => {
     const [previewRender, setPreviewRenders] = useState({path:""});
     const [previewCoord, setPreviewCoord] = useState(null);
 
-    const [highlightOpacity, setHighlightOpacity] = useState(0);
-    const [highlightCoord, setHighlightCoord] = useState({x: 0, y: 0})
+    const [highlightEndOpacity, setHighlightEndOpacity] = useState(0);
+    const [highlightEndCoord, setHighlightEndCoord] = useState({x: 0, y: 0});
+
+    const [highlightBondOpacity, setHighlightBondOpacity] = useState(0);
+    const [highlightBondCoord, setHighlightBondCoord] = useState({x: 0, y: 0});
+    const [highlightBondRotation, setHighlightBondRotation] = useState(0);
+
 
     // For dimensions for centering konvaImages
     const width = 50;
@@ -138,7 +143,7 @@ const DrawingArea = () => {
      * Todo replace start and end atom if snaps to atom on either end.
      */
     const bondRenderToCanvas = (bondOrder: Number) => {
-        const newBondRenders = bondRenders.slice()
+        const newBondRenders = bondRenders.slice();
 
         const startCoord =
             {x: bondCoordsHistory[bondCoordsHistory.length - 2].x, y: bondCoordsHistory[bondCoordsHistory.length - 2].y};
@@ -149,8 +154,20 @@ const DrawingArea = () => {
         )
 
         setBondRenders(newBondRenders);
+
         setAllCoordsHistory([...allCoordsHistory, startCoord]);
         setAllCoordsHistory([...allCoordsHistory, endCoord]);
+    }
+
+    /**
+     * Function which records the newest midpoint to list of midpoints.
+     * Todo replace start and end atom if snaps to atom on either end.
+     */
+    const recordMidPoints = () => {
+        const newBondMidPoint = bondMidPointCoords.slice();
+
+        newBondMidPoint.push(bondRenders[bondRenders.length-1].midPoint);
+        setBondMidPointCoords(newBondMidPoint);
     }
 
     /**
@@ -181,6 +198,7 @@ const DrawingArea = () => {
                 atomRenderToCanvas(atomicNumber);
             }
         }
+
         console.log("Previous coords:")
         console.log(allCoordsHistory)
     }, [bondCoordsHistory])
@@ -201,7 +219,6 @@ const DrawingArea = () => {
         console.log("Previous coords:")
         console.log(allCoordsHistory)
     }, [atomCoordsHistory])
-
 
 
     /**
@@ -240,19 +257,42 @@ const DrawingArea = () => {
     }, [previewCoord])
 
     /**
-     * Highlight the closest clicked coord to preview coord
+     * Highlight the closest previously clicked coord to preview coord.
      */
     useEffect(() => {
-        if (isCoordSnappable(previewCoord)){
-            setHighlightCoord(
+        if (isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "end"){
+            setHighlightEndCoord(
                 {x: snappableCoord(previewCoord).x,
                     y: snappableCoord(previewCoord).y});
-            setHighlightOpacity(0.5);
+            setHighlightEndOpacity(0.5);
         }
         else {
-            return;
+            setHighlightEndOpacity(0);
         }
     }, [previewCoord])
+
+    /**
+     * Highlight the closest midpoint bond to preview coord and set its rotaion
+     */
+    useEffect(() => {
+        if (isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "mid"){
+            setHighlightBondCoord(
+                {x: snappableCoord(previewCoord).x,
+                    y: snappableCoord(previewCoord).y});
+
+            for (let bond of bondRenders) {
+                if (bond.midPoint === snappableCoord(previewCoord)){
+                    setHighlightBondRotation(bond.angle);
+                }
+            }
+
+            setHighlightBondOpacity(0.5);
+        }
+        else {
+            setHighlightBondOpacity(0);
+        }
+    }, [previewCoord])
+
 
     useEffect(() => {
         console.log("KonvaImages:")
@@ -265,7 +305,7 @@ const DrawingArea = () => {
      */
     useEffect(() => {
         console.log("Selected tool:" + selectedTool);
-        if (!isBondRenderValid() && !isToolAtom(selectedTool)){
+        if (!isBondRenderValid() && isToolBond(selectedTool)){
             // Remove last entry
             const newBondCoordsHistory = bondCoordsHistory.slice(-1, 1);
             setBondCoordsHistory(newBondCoordsHistory);
@@ -288,13 +328,16 @@ const DrawingArea = () => {
             setAtomCoordsHistory([]);
             setBondCoordsHistory([]);
             setPreviewRenders({path:""});
-            setHighlightOpacity(0);
-            setHighlightCoord({x: 0, y: 0});
+            setHighlightEndOpacity(0);
+            setHighlightEndCoord({x: 0, y: 0});
         }
     }, [selectedTool])
 
 
-    // log angles
+    /**
+     * Hook which logs angles of bonds and updates the list of mid points.
+     * Triggers on bondRenders change.
+     */
     useEffect(() => {
         console.log("Bond Renders")
         console.log(bondRenders)
@@ -302,8 +345,18 @@ const DrawingArea = () => {
             console.log("Angle:");
             console.log(bondRenders[bondRenders.length - 1].angle);
         }
+
+        // set new mid points
+        if (bondRenders.length > 0) {
+            recordMidPoints();
+        }
     }, [bondRenders])
 
+    // log mid points
+    useEffect(() => {
+        console.log("Midpoints:")
+        console.log(bondMidPointCoords)
+    }, [bondMidPointCoords])
 
     // log Atoms
     useEffect(() => {
@@ -325,6 +378,8 @@ const DrawingArea = () => {
                 const startY = bond.startCoord.y;
                 const endX = bond.endCoord.x;
                 const endY = bond.endCoord.y;
+                const midpointX = bond.midPoint.x;
+                const midpointY = bond.midPoint.y;
 
                 // if within +- 5 of start/end x and start/end y coord
                 if ((startX - snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
@@ -333,6 +388,11 @@ const DrawingArea = () => {
                 }
                 if ((endX - snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
                     (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
+                    return true;
+                }
+                // midpoint check
+                if ((midpointX - snappableDistance <= tryCoord.x && tryCoord.x <= midpointX + snappableDistance) &&
+                    (midpointY - snappableDistance <= tryCoord.y && tryCoord.y <= midpointY + snappableDistance)) {
                     return true;
                 }
             }
@@ -357,6 +417,8 @@ const DrawingArea = () => {
             const startY = bond.startCoord.y;
             const endX = bond.endCoord.x;
             const endY = bond.endCoord.y;
+            const midpointX = bond.midPoint.x;
+            const midpointY = bond.midPoint.y;
 
             if ((startX-snappableDistance <= tryCoord.x && tryCoord.x <= startX+snappableDistance) &&
                 (startY-snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)){
@@ -365,6 +427,11 @@ const DrawingArea = () => {
             if ((endX- snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
                 (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
                 return {x: endX, y: endY};
+            }
+            // midpoint check
+            if ((midpointX - snappableDistance <= tryCoord.x && tryCoord.x <= midpointX + snappableDistance) &&
+                (midpointY - snappableDistance <= tryCoord.y && tryCoord.y <= midpointY + snappableDistance)) {
+                return {x: midpointX, y: midpointY};
             }
         }
 
@@ -378,6 +445,36 @@ const DrawingArea = () => {
             }
         }
     }
+
+    /**
+     * Function which returns a string of "end" or "mid" if coord is a bond end or bond midpoint.
+     */
+    const isBondCoorEndorMid = (tryCoord: Object) => {
+        for (let bond of bondRenders) {
+        // if within +- 5 of x and y coord
+        const startX = bond.startCoord.x;
+        const startY = bond.startCoord.y;
+        const endX = bond.endCoord.x;
+        const endY = bond.endCoord.y;
+        const midpointX = bond.midPoint.x;
+        const midpointY = bond.midPoint.y;
+
+        if ((startX-snappableDistance <= tryCoord.x && tryCoord.x <= startX+snappableDistance) &&
+            (startY-snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)){
+            return "end";
+        }
+        if ((endX- snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
+            (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
+            return "end";
+        }
+        // midpoint check
+        if ((midpointX - snappableDistance <= tryCoord.x && tryCoord.x <= midpointX + snappableDistance) &&
+            (midpointY - snappableDistance <= tryCoord.y && tryCoord.y <= midpointY + snappableDistance)) {
+            return "mid";
+        }
+    }
+    }
+
 
     // Currently adds image to layer
     const onMouseClick = (event) => {
@@ -507,6 +604,7 @@ const DrawingArea = () => {
                     return(
                         <Text
                         /*  Minus 8px centres the atoms, otherwise they render to the right and below of click  */
+                        key = {atomRenders.indexOf(atom)}
                         x = {atom.coord.x -6}
                         y = {atom.coord.y -6}
                         text={atom.symbol}
@@ -519,11 +617,20 @@ const DrawingArea = () => {
                     data={previewRender.path}
                 />
                 <Circle
-                    x={highlightCoord.x}
-                    y={highlightCoord.y}
+                    x={highlightEndCoord.x}
+                    y={highlightEndCoord.y}
                     radius={snappableDistance}
                     fill="yellow"
-                    opacity={highlightOpacity}
+                    opacity={highlightEndOpacity}
+                />
+                <Rect
+                    x={highlightBondCoord.x - (snappableDistance/2)}
+                    y={highlightBondCoord.y - (snappableDistance/2)}
+                    width={50}
+                    height={snappableDistance}
+                    stroke="blue"
+                    opacity={highlightBondOpacity}
+                    rotation={highlightBondRotation}
                 />
             </Layer>
         </Stage>
