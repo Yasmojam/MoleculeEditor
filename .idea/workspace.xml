@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now highlight bond from end to end and the bond. Snap to midpoint.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +109,7 @@
       <workItem from="1594336625318" duration="510000" />
       <workItem from="1594384364375" duration="5000" />
       <workItem from="1594386478728" duration="22063000" />
-      <workItem from="1595158145665" duration="14916000" />
+      <workItem from="1595158145665" duration="21976000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -287,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595203863456</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect.">
+      <created>1595261989313</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1595261989313</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +313,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added flex boxes. Adjusted canvas. Added atom tool box." />
     <MESSAGE value="Changed web app description." />
     <MESSAGE value="Added a border to differentiate the panels and the header from the background." />
     <MESSAGE value="Fixed overflow bug on buttons on chrome" />
@@ -332,7 +337,8 @@
     <MESSAGE value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
     <MESSAGE value="Midpoint tracking and snaping. Entire bond highlighting in progress. Next commit the entire bond highlight will rotate at same angle as bond slope." />
     <MESSAGE value="Can now highlight bond from end to end and the bond. Snap to midpoint." />
-    <option name="LAST_COMMIT_MESSAGE" value="Can now highlight bond from end to end and the bond. Snap to midpoint." />
+    <MESSAGE value="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect." />
+    <option name="LAST_COMMIT_MESSAGE" value="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -363,9 +369,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593374577846" />
-    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1594229140980">
+    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1595268630700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="747" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595268630700" />
     <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594229140980" />
     <state x="217" y="203" width="998" height="708" key="SettingsEditor" timestamp="1593271420901">
       <screen x="0" y="0" width="1920" height="1040" />

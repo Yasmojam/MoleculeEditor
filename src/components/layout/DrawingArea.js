@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Layer, Stage, Path, Circle, Text, Ellipse} from "react-konva";
-import Vectors from "./assets/Vectors";
-import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
 import bond from "./bond";
 import {chemElement} from "../cheminfo/chemElement";
@@ -19,7 +17,6 @@ const DrawingArea = () => {
     const [bondCoordsHistory, setBondCoordsHistory] = useState([]); // Track bond coords
     const [atomCoordsHistory, setAtomCoordsHistory] = useState([]); // Track atom coords
 
-    const [konvaImages, setKonvaImages] = useState([]); // list of dimensions and positions to be rendered
     const [bondRenders, setBondRenders] = useState([]); // list of bond specifications
     const [atomRenders, setAtomRenders] = useState([]) // list of atom specifications
 
@@ -34,47 +31,10 @@ const DrawingArea = () => {
     const [highlightBondRotation, setHighlightBondRotation] = useState(0);
 
 
-    // For dimensions for centering konvaImages
-    const width = 50;
-    const height = 50;
-
-    const smallWidth = 25;
-    const smallHeight = 25;
-
     const selectedTool = useSelectedTool().tool;
 
     const snappableDistance = 15;
 
-    /**
-     * Function which returns a number based on the currently selected tool.
-     */
-    const switchTool = (tool) => {
-        switch(tool) {
-            default:
-                return 0;
-            case "transform":
-            case "selection":
-            case "text":
-                return 1;
-
-            case "radical":
-            case "minus":
-            case "plus":
-            case "neg_dipole":
-            case "pos_dipole":
-            case "dipole":
-                return 2;
-
-            case "single":
-                return 3;
-
-            case "double":
-                return 4;
-
-            case "triple":
-                return 5;
-        }
-    }
 
     /**
      * @param tool
@@ -286,13 +246,6 @@ const DrawingArea = () => {
         }
     }, [previewCoord])
 
-
-
-    useEffect(() => {
-        console.log("KonvaImages:")
-        console.log(konvaImages);
-    }, [konvaImages])
-
     /**
      * Hook which removes last coordinate click and resets preview
      * if tool is switched before finalising bond render.
@@ -317,7 +270,6 @@ const DrawingArea = () => {
         if (selectedTool === "clear"){
             setBondRenders([]);
             setAtomRenders([]);
-            setKonvaImages([]);
             setAllCoordsHistory([]);
             setAtomCoordsHistory([]);
             setBondCoordsHistory([]);
@@ -497,41 +449,6 @@ const DrawingArea = () => {
             }
             // setAllCoordsHistory([...allCoordsHistory, currentCoord]);
         }
-
-
-        console.log("Current coord: " + currentCoord);
-
-        const newKonvaImages = konvaImages.slice()
-
-        if (switchTool(selectedTool) === 0) {
-            newKonvaImages.push({
-                key: newKonvaImages.length,
-                url: Vectors[selectedTool], // Dictionary accessor
-                x: (event.evt.layerX - width / 2),
-                y: (event.evt.layerY - height / 2),
-                width: width,
-                height: height
-            });
-        }
-
-        // For not placable tools
-        if (switchTool(selectedTool) === 1) {
-
-        }
-
-        // charges
-        if (switchTool(selectedTool) === 2) {
-            newKonvaImages.push({
-                key: newKonvaImages.length,
-                url: Vectors[selectedTool], // Dictionary accessor
-                x: (event.evt.layerX - smallWidth / 2),
-                y: (event.evt.layerY - smallHeight / 2),
-                width: smallWidth,
-                height: smallHeight
-            })
-        }
-        // console.log(newKonvaImages);
-        setKonvaImages(newKonvaImages);
     }
 
     const onMouseMove = (event) => {
@@ -567,18 +484,6 @@ const DrawingArea = () => {
 
             }}>
             <Layer>
-                {konvaImages.map(konvaImage => {
-                    return (
-                        <KonvaImage
-                            key={konvaImage.key}
-                            url={konvaImage.url}
-                            x={konvaImage.x}
-                            y={konvaImage.y}
-                            height={konvaImage.height}
-                            width={konvaImage.width}
-                        />
-                    );
-                })}
                 {bondRenders.map(bond => {
                     return(
                         <Path
