@@ -22,7 +22,6 @@
     <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +109,7 @@
       <workItem from="1594336625318" duration="510000" />
       <workItem from="1594384364375" duration="5000" />
       <workItem from="1594386478728" duration="22063000" />
-      <workItem from="1595158145665" duration="7146000" />
+      <workItem from="1595158145665" duration="13313000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -273,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1594420095473</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Midpoint tracking and snaping. Entire bond highlighting in progress. Next commit the entire bond highlight will rotate at same angle as bond slope.">
+      <created>1595184798509</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1595184798509</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +299,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Started working on the UI" />
     <MESSAGE value="Added all left hand side tool windows" />
     <MESSAGE value="Added flex boxes. Adjusted canvas. Added atom tool box." />
     <MESSAGE value="Changed web app description." />
@@ -318,7 +323,8 @@
     <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
     <MESSAGE value="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord." />
     <MESSAGE value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
+    <MESSAGE value="Midpoint tracking and snaping. Entire bond highlighting in progress. Next commit the entire bond highlight will rotate at same angle as bond slope." />
+    <option name="LAST_COMMIT_MESSAGE" value="Midpoint tracking and snaping. Entire bond highlighting in progress. Next commit the entire bond highlight will rotate at same angle as bond slope." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
