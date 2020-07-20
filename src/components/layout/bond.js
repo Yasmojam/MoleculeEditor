@@ -37,7 +37,7 @@ const isBondHorizontal = (angle: Number) => {
 
 const bond = (startCoord: Object, endCoord: Object,
               startAtom: Number, endAtom: Number,
-              bondOrder: Number) => {
+              bondOrder: Number, snapped: Boolean = false) => {
     let path="";
     let startX = startCoord.x
     let startY = startCoord.y
@@ -49,18 +49,17 @@ const bond = (startCoord: Object, endCoord: Object,
     const ratio = pathDisRatio(pathdist)
     const angle =  calculateAngle(startCoord, endCoord);
 
-    // if path distance is >maxPointDist
 
-    // because start is zero must add starting coords
-
-    // const newEndY = startY + Math.sin(angle) * maxPointDist;
-    // const newEndX = startX + Math.cos(angle) * maxPointDist;
-    const newEndX = ((1-ratio)*startX) + (ratio*endX);
-    const newEndY = ((1-ratio)*startY) + (ratio*endY);
-
-    // Reassign the new end coord to end coords
+    // if bond doesnt snap then recalculate the bond length to maxPointDist
+    if (!snapped) {
+        // const newEndY = startY + Math.sin(angle) * maxPointDist;
+        // const newEndX = startX + Math.cos(angle) * maxPointDist;
+        const newEndX = ((1-ratio)*startX) + (ratio*endX);
+        const newEndY = ((1-ratio)*startY) + (ratio*endY);
+        // Reassign the new end coord to end coords
         endX = newEndX;
         endY = newEndY;
+    }
 
     // midPoint
     const midPoint = {x: (endX+startX)/2, y: (endY+startY)/2 };

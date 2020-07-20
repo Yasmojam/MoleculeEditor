@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Layer, Stage, Path, Circle, Text, Rect, Ellipse} from "react-konva";
+import {Layer, Stage, Path, Circle, Text, Ellipse} from "react-konva";
 import Vectors from "./assets/Vectors";
 import KonvaImage from "../KonvaImage";
 import {useSelectedTool} from "../ToolContexProvider";
@@ -149,7 +149,7 @@ const DrawingArea = () => {
         const endCoord =
             {x: bondCoordsHistory[bondCoordsHistory.length - 1].x, y: bondCoordsHistory[bondCoordsHistory.length - 1].y};
         newBondRenders.push(
-            bond(startCoord, endCoord,6, 6, bondOrder)
+            bond(startCoord, endCoord,6, 6, bondOrder, isCoordSnappable(endCoord))
         )
 
         setBondRenders(newBondRenders);
@@ -219,7 +219,7 @@ const DrawingArea = () => {
         const endCoord =
             {x: previewCoord.x, y:  previewCoord.y};
         setPreviewRenders(
-            bond(startCoord, endCoord,6, 6, bondOrder)
+            bond(startCoord, endCoord,6, 6, bondOrder, isCoordSnappable(endCoord))
         )
     }
 
