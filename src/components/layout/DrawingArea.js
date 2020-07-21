@@ -13,7 +13,7 @@ const DrawingArea = () => {
     const stageRef = useRef(null)
 
     // Track all coord; used for snapping and useEffects
-    const [allCoordsHistory, setAllCoordsHistory] = useState([]);
+    const [canvasClickHistory, setCanvasClickHistory] = useState([]);
     const [bondCoordsHistory, setBondCoordsHistory] = useState([]); // Track bond coords
     const [atomCoordsHistory, setAtomCoordsHistory] = useState([]); // Track atom coords
 
@@ -23,18 +23,41 @@ const DrawingArea = () => {
     const [previewRender, setPreviewRenders] = useState({path:""});
     const [previewCoord, setPreviewCoord] = useState({x: null, y: null});
 
-    const [highlightEndOpacity, setHighlightEndOpacity] = useState(0);
-    const [highlightEndCoord, setHighlightEndCoord] = useState({x: 0, y: 0});
+    const [highlighAtomOpacity, setHighlightAtomOpacity] = useState(0);
+    const [highlightAtomCoord, setHighlightAtomCoord] = useState({x: 0, y: 0});
 
     const [highlightBondOpacity, setHighlightBondOpacity] = useState(0);
     const [highlightBondCoord, setHighlightBondCoord] = useState({x: 0, y: 0});
     const [highlightBondRotation, setHighlightBondRotation] = useState(0);
+
+    // track if a bond was recently created
+    const [bondRecentlyCreated, setBondRecentlyCreated] = useState(true);
 
 
     const selectedTool = useSelectedTool().tool;
 
     const snappableDistance = 15;
 
+    useEffect(() => {
+        console.log("Bond recently created:");
+        console.log(bondRecentlyCreated);
+    }, [bondRecentlyCreated])
+
+    useEffect(() => {
+        console.log("Atom coords:");
+        console.log(atomCoordsHistory);
+
+    }, [atomCoordsHistory])
+
+    useEffect(() => {
+        console.log("Bond coords:");
+        console.log(bondCoordsHistory);
+    }, [bondCoordsHistory])
+
+    useEffect(() => {
+        console.log("Canvas click history:");
+        console.log(canvasClickHistory);
+    }, [canvasClickHistory])
 
     /**
      * @param tool
@@ -82,7 +105,9 @@ const DrawingArea = () => {
         )
 
         setAtomRenders(newAtomRenders);
-        setAllCoordsHistory([...allCoordsHistory, coord]);
+
+        // only update canvas history as atom history is updated by {mouseDown}.
+        setCanvasClickHistory([...canvasClickHistory, coord]);
     }
 
 
@@ -114,8 +139,9 @@ const DrawingArea = () => {
 
         setBondRenders(newBondRenders);
 
-        setAllCoordsHistory([...allCoordsHistory, startCoord]);
-        setAllCoordsHistory([...allCoordsHistory, endCoord]);
+        // Update all clicks here but not bonds as this is updated by {mouseDown}
+        setCanvasClickHistory([...canvasClickHistory, startCoord]);
+        setCanvasClickHistory([...canvasClickHistory, endCoord]);
     }
 
 
@@ -142,14 +168,14 @@ const DrawingArea = () => {
         // Preselected atom buttons
         // Todo assign all other buttons so this can be an else statement
         if (isToolAtom(selectedTool)) {
-            if (allCoordsHistory.length > 0) {
+            if (canvasClickHistory.length >= 0) {
                 const atomicNumber = findAtomicNumBySymbol(selectedTool);
                 atomRenderToCanvas(atomicNumber);
             }
         }
 
-        console.log("Previous coords:")
-        console.log(allCoordsHistory)
+        console.log("Canvas click History:")
+        console.log(canvasClickHistory)
     }, [bondCoordsHistory])
 
     /**
@@ -160,13 +186,11 @@ const DrawingArea = () => {
         // Preselected atom buttons
         // Todo assign all other buttons so this can be an else statement
         if (isToolAtom(selectedTool)) {
-            if (allCoordsHistory.length > 0) {
+            if (canvasClickHistory.length >= 0) {
                 const atomicNumber = findAtomicNumBySymbol(selectedTool);
                 atomRenderToCanvas(atomicNumber);
             }
         }
-        console.log("Previous coords:")
-        console.log(allCoordsHistory)
     }, [atomCoordsHistory])
 
 
@@ -209,14 +233,15 @@ const DrawingArea = () => {
      * Highlight the closest previously clicked coord to preview coord.
      */
     useEffect(() => {
-        if (isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "end"){
-            setHighlightEndCoord(
+        if (isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "end" ||
+            isCoordSnappable(previewCoord) && isCoordAtom(snappableCoord(previewCoord))){
+            setHighlightAtomCoord(
                 {x: snappableCoord(previewCoord).x,
                     y: snappableCoord(previewCoord).y});
-            setHighlightEndOpacity(0.5);
+            setHighlightAtomOpacity(0.5);
         }
         else {
-            setHighlightEndOpacity(0);
+            setHighlightAtomOpacity(0);
         }
     }, [previewCoord])
 
@@ -270,12 +295,12 @@ const DrawingArea = () => {
         if (selectedTool === "clear"){
             setBondRenders([]);
             setAtomRenders([]);
-            setAllCoordsHistory([]);
+            setCanvasClickHistory([]);
             setAtomCoordsHistory([]);
             setBondCoordsHistory([]);
             setPreviewRenders({path:""});
-            setHighlightEndOpacity(0);
-            setHighlightEndCoord({x: 0, y: 0});
+            setHighlightAtomOpacity(0);
+            setHighlightAtomCoord({x: 0, y: 0});
         }
     }, [selectedTool])
 
@@ -415,6 +440,21 @@ const DrawingArea = () => {
     }
     }
 
+    /**
+     * Function which returns true if coord is a atom.
+     */
+    const isCoordAtom = (tryCoord: Object) => {
+        for (let atom of atomRenders) {
+            const atomX = atom.coord.x;
+            const atomY = atom.coord.y;
+            if ((atomX - snappableDistance <= tryCoord.x && tryCoord.x <= atomX + snappableDistance) &&
+                (atomY - snappableDistance <= tryCoord.y && tryCoord.y <= atomY + snappableDistance)) {
+                return true;
+            }
+        }
+    }
+
+
 
     // Currently adds image to layer
     const onMouseClick = (event) => {
@@ -437,9 +477,9 @@ const DrawingArea = () => {
             if (isToolBond(selectedTool)){
                 setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
             }
-            // setAllCoordsHistory([...allCoordsHistory, currentCoord]);
+            setCanvasClickHistory([...canvasClickHistory, currentCoord]);
         }
-        else {
+        else if (!isCoordSnappable(currentCoord)) {
             // Add currentCoord to list of coord
             if (isToolAtom(selectedTool)){
                 setAtomCoordsHistory([...atomCoordsHistory, currentCoord]);
@@ -447,7 +487,7 @@ const DrawingArea = () => {
             if (isToolBond(selectedTool)){
                 setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
             }
-            // setAllCoordsHistory([...allCoordsHistory, currentCoord]);
+            setCanvasClickHistory([...canvasClickHistory, currentCoord]);
         }
     }
 
@@ -510,11 +550,11 @@ const DrawingArea = () => {
                     data={previewRender.path}
                 />
                 <Circle
-                    x={highlightEndCoord.x}
-                    y={highlightEndCoord.y}
+                    x={highlightAtomCoord.x}
+                    y={highlightAtomCoord.y}
                     radius={snappableDistance}
                     stroke="blue"
-                    opacity={highlightEndOpacity}
+                    opacity={highlighAtomOpacity}
                 />
                 <Ellipse
                     x={highlightBondCoord.x}
