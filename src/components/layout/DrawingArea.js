@@ -77,7 +77,7 @@ const DrawingArea = () => {
      * @param tool
      *  Returns true if tool is a bond drawing tool.
      */
-    const isToolBond = (tool) => {
+    const isToolBond = (tool: String) => {
         if (selectedTool === "single" ||
             selectedTool === "double" ||
             selectedTool === "triple" ||
@@ -128,13 +128,14 @@ const DrawingArea = () => {
      */
     const bondRenderToCanvas = (bondOrder: Number) => {
         const newBondRenders = bondRenders.slice();
+        const bondType = selectedTool;
 
         const startCoord =
             {x: bondCoordsHistory[bondCoordsHistory.length - 2].x, y: bondCoordsHistory[bondCoordsHistory.length - 2].y};
         const endCoord =
             {x: bondCoordsHistory[bondCoordsHistory.length - 1].x, y: bondCoordsHistory[bondCoordsHistory.length - 1].y};
         newBondRenders.push(
-            bond(startCoord, endCoord,6, 6, bondOrder, isCoordSnappable(endCoord))
+            bond(startCoord, endCoord,6, 6, bondOrder, bondType,isCoordSnappable(endCoord))
         )
 
         setBondRenders(newBondRenders);
@@ -150,9 +151,14 @@ const DrawingArea = () => {
      * Triggers when list of previous coords is updated.
      */
     useEffect(() => {
-        // single
-        if (selectedTool === "single" &&
-            isBondRenderValid()) {
+        // single bond variations
+        if ((selectedTool === "single" ||
+            selectedTool === "forward_plane" ||
+            selectedTool === "backward_plane" ||
+            selectedTool === "unspecified_plane" ||
+            selectedTool === "dative" ||
+            selectedTool === "intermediate") &&
+            isBondRenderValid() ) {
             bondRenderToCanvas(1);
         }
         // double
@@ -165,6 +171,13 @@ const DrawingArea = () => {
             isBondRenderValid()) {
             bondRenderToCanvas(3)
         }
+
+        if (selectedTool === "quadruple" &&
+            isBondRenderValid()) {
+            bondRenderToCanvas(4)
+        }
+
+
         // Preselected atom buttons
         // Todo assign all other buttons so this can be an else statement
         if (isToolAtom(selectedTool)) {
@@ -198,12 +211,14 @@ const DrawingArea = () => {
      * Function which sets bond preview to be rendered to canvas.
      */
     const previewBondToCanvas = (bondOrder: Number) => {
+        const bondType = selectedTool;
+
         const startCoord =
             {x: bondCoordsHistory[bondCoordsHistory.length - 1].x, y: bondCoordsHistory[bondCoordsHistory.length - 1].y};
         const endCoord =
             {x: previewCoord.x, y:  previewCoord.y};
         setPreviewRenders(
-            bond(startCoord, endCoord,6, 6, bondOrder, isCoordSnappable(endCoord))
+            bond(startCoord, endCoord,6, 6, bondOrder, bondType, isCoordSnappable(endCoord))
         )
     }
 
@@ -218,13 +233,26 @@ const DrawingArea = () => {
         if (previewCoord !== null &&
             bondCoordsHistory.length > 0 &&
             bondCoordsHistory.length%2 !== 0 ){
-            // single
-            if (selectedTool === "single") {
+            // single and variations
+            if (selectedTool === "single" ||
+                selectedTool === "forward_plane" ||
+                selectedTool === "backward_plane" ||
+                selectedTool === "unspecified_plane" ||
+                selectedTool === "dative" ||
+                selectedTool === "intermediate") {
                 previewBondToCanvas(1);
             }
             // double
             if (selectedTool === "double") {
                 previewBondToCanvas(2);
+            }
+            // triple
+            if (selectedTool === "triple") {
+                previewBondToCanvas(3)
+            }
+            // quadruple
+            if (selectedTool === "quadruple") {
+                previewBondToCanvas(4)
             }
         }
     }, [previewCoord])

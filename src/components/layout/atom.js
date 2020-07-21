@@ -9,6 +9,10 @@ export const atom = ( atomicNum: Number, coord: Object, associatedBonds = []) =>
     // ie. Carbon has 4e- and requires another 4e- (covalentElectrons) to obtain nobel gas state.
     // Ionic bonding is very strong covalent bonding where share of electrons is more to one atom.
     // These rules should still hold for ionic bonding between groups
+
+    // can be reassigned by function once atom object is created
+    const charge = 0;
+
     const symbol = chemElement[atomicNum].Symbol;
     const element_valence = chemElement[atomicNum].NumberofValence;
     let new_valence = null;
@@ -30,7 +34,7 @@ export const atom = ( atomicNum: Number, coord: Object, associatedBonds = []) =>
         new_valence = element_valence;
     }
 
-    return {symbol, atomicNum, coord, associatedBonds, new_valence}
+    return {symbol, atomicNum, coord, associatedBonds, new_valence, charge}
 }
 
 // Atomic number should be the same as its index

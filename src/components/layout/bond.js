@@ -1,5 +1,7 @@
 const maxDistance = 50;
 const doubleBondOffset=5;
+const tripleBondOffset= doubleBondOffset*1.5;
+const quadrupleBondOffset=doubleBondOffset*2;
 
 const pathDistance = (startCoord: Object, endCoord: Object) => {
     const dx = endCoord.x - startCoord.x;
@@ -37,7 +39,7 @@ const isBondHorizontal = (angle: Number) => {
 
 const bond = (startCoord: Object, endCoord: Object,
               startAtom: Number, endAtom: Number,
-              bondOrder: Number, snapped: Boolean = false) => {
+              bondOrder: Number, bondType: String, snapped: Boolean = false) => {
     let path="";
     let startX = startCoord.x
     let startY = startCoord.y
@@ -65,40 +67,68 @@ const bond = (startCoord: Object, endCoord: Object,
     const midPoint = {x: (endX+startX)/2, y: (endY+startY)/2 };
 
     // SINGLE BOND
-    if (bondOrder === 1) {
+    if (bondOrder === 1 && bondType === "single") {
             path = ("M" + startX + "," + startY + "L" + endX + "," + endY)
     }
 
     // DOUBLE BOND - want the start and end pos to be mid point between lines (say the spacing is 10px?)
-    if (bondOrder === 2) {
+    if (bondOrder === 2 && bondType === "double") {
         // HORIZONTAL DB
         if (isBondHorizontal(angle)){
             path = ("M" + (startX) + "," + (startY-doubleBondOffset) + "L" + (endX) + "," + (endY-doubleBondOffset) +
                 "M" + (startX) + "," + (startY+doubleBondOffset) + "L" + (endX) + "," + (endY+doubleBondOffset))
         }
 
-        // DIAGONAL OR VERTICAL DB
+        // DIAGONAL OR VERTICAL
         else{
         path = ("M" + (startX-doubleBondOffset) + "," + startY + "L" + (endX-doubleBondOffset) + "," + endY +
             "M" + (startX+doubleBondOffset) + "," + startY + "L" + (endX+doubleBondOffset) + "," + endY)
         }
     }
 
-    if (bondOrder === 3) {
+    if (bondOrder === 3 && bondType === "triple") {
         if (isBondHorizontal(angle)){
-            path = ("M" + (startX) + "," + (startY-doubleBondOffset) + "L" + (endX) + "," + (endY-doubleBondOffset) +
+            path = ("M" + (startX) + "," + (startY-tripleBondOffset) + "L" + (endX) + "," + (endY-tripleBondOffset) +
                 "M" + startX + "," + startY + "L" + endX + "," + endY +
-                "M" + (startX) + "," + (startY+doubleBondOffset) + "L" + (endX) + "," + (endY+doubleBondOffset))
+                "M" + (startX) + "," + (startY+tripleBondOffset) + "L" + (endX) + "," + (endY+tripleBondOffset))
         }
 
-        // DIAGONAL OR VERTICAL DB
+        // DIAGONAL OR VERTICAL
         else{
-            path = ("M" + (startX-doubleBondOffset) + "," + startY + "L" + (endX-doubleBondOffset) + "," + endY +
+            path = ("M" + (startX-tripleBondOffset) + "," + startY + "L" + (endX-tripleBondOffset) + "," + endY +
                 "M" + startX + "," + startY + "L" + endX + "," + endY +
-                "M" + (startX+doubleBondOffset) + "," + startY + "L" + (endX+doubleBondOffset) + "," + endY)
+                "M" + (startX+tripleBondOffset) + "," + startY + "L" + (endX+tripleBondOffset) + "," + endY)
         }
     }
-    return {startCoord:{x:startX, y:startY}, endCoord: {x: endX, y:endY}, midPoint, startAtom, endAtom, bondOrder, path, angle}
+
+    if (bondOrder === 4 && bondType === "quadruple") {
+        if (isBondHorizontal(angle)){
+            path = ("M" + (startX) + "," + (startY-quadrupleBondOffset) + "L" + (endX) + "," + (endY-quadrupleBondOffset) +
+                "M" + (startX) + "," + (startY-(quadrupleBondOffset/3)) + "L" + (endX) + "," + (endY-(quadrupleBondOffset/3)) +
+                "M" + (startX) + "," + (startY+(quadrupleBondOffset/3)) + "L" + (endX) + "," + (endY+(quadrupleBondOffset/3)) +
+                "M" + (startX) + "," + (startY+quadrupleBondOffset) + "L" + (endX) + "," + (endY+quadrupleBondOffset))
+        }
+
+        // DIAGONAL OR VERTICAL
+        else{
+            path = (
+                "M" + (startX-quadrupleBondOffset) + "," + startY + "L" + (endX-quadrupleBondOffset) + "," + endY +
+                "M" + (startX-(quadrupleBondOffset/3)) + "," + startY + "L" + (endX-(quadrupleBondOffset/3)) + "," + endY +
+                "M" + (startX+(quadrupleBondOffset/3)) + "," + startY + "L" + (endX+(quadrupleBondOffset/3)) + "," + endY +
+                "M" + (startX+quadrupleBondOffset) + "," + startY + "L" + (endX+quadrupleBondOffset) + "," + endY)
+        }
+    }
+
+    return {
+        startCoord:{x:startX, y:startY},
+        endCoord: {x: endX, y:endY},
+        midPoint,
+        startAtom,
+        endAtom,
+        bondOrder,
+        bondType,
+        path,
+        angle}
 }
 
 

@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Removed Konva Image test code.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/atom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/atom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +112,7 @@
       <workItem from="1594384364375" duration="5000" />
       <workItem from="1594386478728" duration="22063000" />
       <workItem from="1595158145665" duration="25487000" />
-      <workItem from="1595335378559" duration="1986000" />
+      <workItem from="1595335378559" duration="4396000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -301,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595268976150</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render.">
+      <created>1595337465788</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1595337465788</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +330,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added a border to differentiate the panels and the header from the background." />
     <MESSAGE value="Fixed overflow bug on buttons on chrome" />
     <MESSAGE value="Lots of refactoring to tidy up App.js" />
     <MESSAGE value="Adding Konva to the Canvas component." />
@@ -346,7 +354,8 @@
     <MESSAGE value="Can now highlight bond from end to end and the bond. Snap to midpoint." />
     <MESSAGE value="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect." />
     <MESSAGE value="Removed Konva Image test code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed Konva Image test code." />
+    <MESSAGE value="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
