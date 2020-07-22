@@ -15,34 +15,26 @@ const App = () => {
     return (
         <ToolContextProvider>
             <div className='App'>
-                <div className='appContainer'>
-                    <Header/>
-                    <div className="workspace">
-                        <div className="allPanels">
-                            <div className="panelContainer">
+                <div className="wrapper">
+                    <header><Header/></header>
+                        <aside className="leftPanels">
                                 <BondWin/>
-                            </div>
-                            <div className="panelContainer">
                                 <RingStructWin/>
-                            </div>
-                            <div className="panelContainer">
                                 <ChargeWin/>
-                            </div>
-                            <div className="panelContainer">
                                 <ReactionWin/>
-                            </div>
-                        </div>
-                        <div className="canvasAndBonds">
-                            <div className="canvasArea">
-                                <DrawingArea />
-                            </div>
+                        </aside>
+                        <aside className="rightPanel">
                             <div className="atomWinContainer">
                                 <AtomsWin/>
                             </div>
-                        </div>
-                    </div>
+                        </aside>
+                        <main>
+                            <div className="canvasArea">
+                                <DrawingArea />
+                            </div>
+                        </main>
                 </div>
-            </div>
+                </div>
         </ToolContextProvider>
         )
 }

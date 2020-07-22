@@ -1,71 +1,72 @@
 import React from "react";
 import Vectors from "./assets/Vectors";
 import HeaderButton, {headerButtonStyle} from "./HeaderButton";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 const Header = (props) => {
     return (
-            <div style={headerStyle} className="ui header">
-                <div className="content" style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    width: "100%",
-                    height: "100%",
-                    wordWrap: "break-word",
-                    wordBreak: "break-all",
-                    justifyContent: "space-between"
-                }}>
-                    <div style={{
-                        display: "flex",
-                        position:"relative",
-                        margin: "10px",
-                        maxHeight:"auto",
-                        minWidth:"65px",
-                        justifyContent: "flex-start",
-                    }}>Molecule editor.
-                    </div>
-                    <div className="content" style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                        alignItems:"center",
-                    }}>
-                        <div style={headerButtonStyle}>Tools:</div>
+            <Navbar bg="white" expand="md" style={{justifyContent: "space-between", borderBottom:"2px solid #707070"}}>
+                <Navbar.Brand href="#">Molecule editor.</Navbar.Brand>
+                <Navbar>
+                    <Navbar.Text style={{margin:"0.5rem"}}>Tools:</Navbar.Text>
+                        <Nav.Item>
                         <HeaderButton tool="undo">
                             undo
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="redo">
                             redo
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="erase">
                             erase
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="clear">
                             clear
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="transform">
                             <img className="toolIcon" src={Vectors.transform} alt="" style={iconStyle}/>
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="selection">
                             <img className="toolIcon" src={Vectors.selection} alt="" style={iconStyle}/>
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="T">
                             T
                         </HeaderButton>
+                        </Nav.Item>
+                        <Nav.Item>
                         <HeaderButton tool="export">
                             Export
                         </HeaderButton>
-
-
-                </div>
-            </div>
-        </div>
+                        </Nav.Item>
+            </Navbar>
+        </Navbar>
     )
 }
 
 const headerStyle = {
     background: '#ffffff',
     padding: '10px',
-    borderBottom:"2px solid #707070"
+    borderBottom:"2px solid #707070",
+
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%",
+    height: "100%",
+    wordWrap: "break-word",
+    wordBreak: "break-all",
+    justifyContent: "space-between"
 }
 
 const iconStyle = {

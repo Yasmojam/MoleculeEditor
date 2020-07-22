@@ -542,10 +542,6 @@ const DrawingArea = () => {
             onMouseMove={onMouseMove}
 
             style={{
-                display: "flex",
-                top: "0px",
-                left: "0px",
-                right: "0px",
                 margin: "0.5em auto",
                 background: "white",
                 border: "1px solid black"

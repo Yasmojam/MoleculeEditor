@@ -1,10 +1,12 @@
 import React from "react";
 import ToolButtons from "./ToolButtons";
 import LongToolWindow from "./LongToolWindow";
+import ToolWindow from "./ToolWindow";
 
 const AtomsWin = () => {
     return (
-        <LongToolWindow heading="Atoms">
+        <ToolWindow heading="Atoms">
+            <div className="buttonRow">
             <ToolButtons tool="H">
                 <div>H</div>
             </ToolButtons>
@@ -14,6 +16,8 @@ const AtomsWin = () => {
             <ToolButtons tool="O">
                 <div>O</div>
             </ToolButtons>
+            </div>
+            <div className="buttonRow">
             <ToolButtons tool="N">
                 <div>N</div>
             </ToolButtons>
@@ -23,6 +27,8 @@ const AtomsWin = () => {
             <ToolButtons tool="S">
                 <div>S</div>
             </ToolButtons>
+            </div>
+            <div className="buttonRow">
             <ToolButtons tool="F">
                 <div>F</div>
             </ToolButtons>
@@ -32,14 +38,19 @@ const AtomsWin = () => {
             <ToolButtons tool="B">
                 <div>B</div>
             </ToolButtons>
+            </div>
+            <div className="buttonRow">
             <ToolButtons tool="I">
                 <div>I</div>
             </ToolButtons>
+            </div>
+            <div className="buttonRow">
             <ToolButtons>
                 <div>...</div>
             </ToolButtons>
+            </div>
 
-        </LongToolWindow>
+        </ToolWindow>
     )
 }
 

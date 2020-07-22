@@ -1,20 +1,15 @@
 import React from 'react';
+import Card from "react-bootstrap/Card";
 
 
 const LongToolWindow = (props) => {
     return (
-        <div className='ui card' style={{width:"640px", margin:"10px", border:"2px solid #707070"}}>
-            <div className='content' style={{padding: "12px"}}>
-                <div className='header'>{props.heading}</div>
-            </div>
-            <div className='content' style={{textAlign: "center", display: "inlineBlock"}}>
-                <div className='ui small feed'>
-                    <div className='content'>
+        <Card style={{width:"640px", margin:"10px", border:"2px solid #707070"}}>
+                <Card.Header>{props.heading}</Card.Header>
+                    <Card.Body>
                         {props.children}
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </Card.Body>
+        </Card>
     )
 }
 

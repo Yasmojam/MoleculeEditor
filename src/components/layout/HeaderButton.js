@@ -1,5 +1,6 @@
 import React from "react";
 import {useSelectedTool} from "../ToolContexProvider";
+import Button from "react-bootstrap/Button";
 
 const HeaderButton = (props) => {
     const toolContext = useSelectedTool();
@@ -11,12 +12,13 @@ const HeaderButton = (props) => {
     }
 
     return (
-        <button className="ui icon button" tool={props.tool} style={headerButtonStyle} onClick={() => {
-            clickHandler(props.tool)
-        }}>
+        <Button variant="outline-secondary"
+                tool={props.tool}
+                style={headerButtonStyle}
+                onClick={() => {clickHandler(props.tool)}}>
             {props.children}
-        </button>
-    )
+        </Button>
+        )
 }
 
 
@@ -26,9 +28,10 @@ export const headerButtonStyle = {
     fontSize: "15px",
     textAlign: "center",
     padding: "10px",
-    margin: "2px",
+    margin: "0.1rem",
     float: "right",
     position: "relative",
+    border:"2px solid #707070",
 
     justifyContent: "space-between",
     alignItems: "center"

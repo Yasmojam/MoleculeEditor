@@ -1,5 +1,6 @@
 import React from "react";
 import {useSelectedTool} from "../ToolContexProvider";
+import Button from "react-bootstrap/Button";
 
 const ToolButtons = (props) => {
     const toolContext = useSelectedTool();
@@ -17,9 +18,12 @@ const ToolButtons = (props) => {
     // )
 
     return (
-        <button className="ui icon button" tool={props.tool} style={{width: "50px", height: "50px"}} onClick={() => {clickHandler(props.tool)}}>
+        <Button variant="outline-secondary"
+                tool={props.tool}
+                style={{width: "3rem", height: "3rem", margin: "0.1rem",  border:"2px solid #707070"}}
+                onClick={() => {clickHandler(props.tool)}}>
             {props.children}
-        </button>
+        </Button>
     )
 }
 

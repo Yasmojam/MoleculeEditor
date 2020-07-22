@@ -19,11 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/BondWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/atom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/atom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/HeaderButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/HeaderButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +125,7 @@
       <workItem from="1594384364375" duration="5000" />
       <workItem from="1594386478728" duration="22063000" />
       <workItem from="1595158145665" duration="25487000" />
-      <workItem from="1595335378559" duration="4396000" />
+      <workItem from="1595335378559" duration="50231000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -310,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595337465788</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants.">
+      <created>1595340136071</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1595340136071</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +350,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed overflow bug on buttons on chrome" />
     <MESSAGE value="Lots of refactoring to tidy up App.js" />
     <MESSAGE value="Adding Konva to the Canvas component." />
     <MESSAGE value="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work." />
@@ -355,7 +374,8 @@
     <MESSAGE value="Bonds final and preview renders now snap length to extend or get smaller to close rings, ect." />
     <MESSAGE value="Removed Konva Image test code." />
     <MESSAGE value="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render." />
+    <MESSAGE value="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -386,10 +406,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593374577846" />
-    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1595268630700">
+    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1595354944000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="747" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595268630700" />
+    <state x="747" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595354944000" />
     <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594229140980" />
     <state x="217" y="203" width="998" height="708" key="SettingsEditor" timestamp="1593271420901">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -403,9 +423,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591969733884" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594336778484">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595418745657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595418745657" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594336778484" />
   </component>
 </project>

@@ -6,6 +6,8 @@ import Vectors from "./assets/Vectors";
 const ReactionWin = () => {
     return (
         <ToolWindow heading="Reaction Arrows">
+            <div className="toolWinContainer">
+                <div className="buttonRow">
             <ToolButtons tool="reaction_arrow">
                 <img className="toolIcon" src={Vectors.reaction_arrow} alt=""/>
             </ToolButtons>
@@ -15,6 +17,8 @@ const ReactionWin = () => {
             <ToolButtons tool="equilibrium">
                 <img className="toolIcon" src={Vectors.equilibrium} alt=""/>
             </ToolButtons>
+                </div>
+                <div className="buttonRow">
             <ToolButtons tool="full_curly_arrow">
                 <img className="toolIcon" src={Vectors.full_curly_arrow} alt=""/>
             </ToolButtons>
@@ -24,6 +28,8 @@ const ReactionWin = () => {
             <ToolButtons tool="retro_arrow">
                 <img className="toolIcon" src={Vectors.retro_arrow} alt=""/>
             </ToolButtons>
+                </div>
+            </div>
         </ToolWindow>
     )
 }
