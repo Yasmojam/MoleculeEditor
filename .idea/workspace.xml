@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
@@ -32,7 +29,6 @@
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/HeaderButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/HeaderButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
@@ -78,7 +74,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hooks-simple" />
+    <property name="last_opened_file_path" value="$USER_HOME$/hooks-simple" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -125,7 +121,8 @@
       <workItem from="1594384364375" duration="5000" />
       <workItem from="1594386478728" duration="22063000" />
       <workItem from="1595158145665" duration="25487000" />
-      <workItem from="1595335378559" duration="50231000" />
+      <workItem from="1595335378559" duration="52171000" />
+      <workItem from="1595508178040" duration="11054000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -330,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595340136071</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios.">
+      <created>1595438699657</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1595438699657</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +354,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Lots of refactoring to tidy up App.js" />
     <MESSAGE value="Adding Konva to the Canvas component." />
     <MESSAGE value="Konva can't convert the svg objects so have to manually encode them. Firefox has trouble rendering svg without defined height and width so these are manually set to be the same as the view box as &quot;100%&quot; does not work." />
     <MESSAGE value="Can now add images to react-konva layer element with a click. Added a zoom but it's currently broken." />
@@ -375,7 +378,8 @@
     <MESSAGE value="Removed Konva Image test code." />
     <MESSAGE value="Fixed bug where first atom added to canvas wouldn't render if nothing had been clicked already. Also removed constant rerendering of atom to canvas on first render." />
     <MESSAGE value="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added quadruple bond rendering and an extra parameter for creating a bond for creation of single bond variants." />
+    <MESSAGE value="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios." />
+    <option name="LAST_COMMIT_MESSAGE" value="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

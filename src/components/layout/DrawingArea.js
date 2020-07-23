@@ -4,14 +4,12 @@ import {useSelectedTool} from "../ToolContexProvider";
 import bond from "./bond";
 import {chemElement} from "../cheminfo/chemElement";
 import {atom, findAtomicNumBySymbol} from "./atom";
+import {Container} from "konva";
 
 /**
  * Functional component which represents the drawing canvas.
  */
 const DrawingArea = () => {
-    // can use ref to store any object that must be preserved on rerender
-    const stageRef = useRef(null)
-
     // Track all coord; used for snapping and useEffects
     const [canvasClickHistory, setCanvasClickHistory] = useState([]);
     const [bondCoordsHistory, setBondCoordsHistory] = useState([]); // Track bond coords
@@ -30,18 +28,10 @@ const DrawingArea = () => {
     const [highlightBondCoord, setHighlightBondCoord] = useState({x: 0, y: 0});
     const [highlightBondRotation, setHighlightBondRotation] = useState(0);
 
-    // track if a bond was recently created
-    const [bondRecentlyCreated, setBondRecentlyCreated] = useState(true);
-
 
     const selectedTool = useSelectedTool().tool;
 
     const snappableDistance = 15;
-
-    useEffect(() => {
-        console.log("Bond recently created:");
-        console.log(bondRecentlyCreated);
-    }, [bondRecentlyCreated])
 
     useEffect(() => {
         console.log("Atom coords:");
@@ -532,11 +522,8 @@ const DrawingArea = () => {
 
     return (
         <Stage
-
-            ref={stageRef}
-
-            width={842}
-            height={595}
+            width={750}
+            height={500}
 
             onMouseDown={onMouseClick}
             onMouseMove={onMouseMove}

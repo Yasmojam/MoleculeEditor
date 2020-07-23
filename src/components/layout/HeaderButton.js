@@ -31,7 +31,7 @@ export const headerButtonStyle = {
     margin: "0.1rem",
     float: "right",
     position: "relative",
-    border:"2px solid #707070",
+    border:"1px solid #707070",
 
     justifyContent: "space-between",
     alignItems: "center"

@@ -6,7 +6,10 @@ import Nav from "react-bootstrap/Nav";
 
 const Header = (props) => {
     return (
-            <Navbar bg="white" expand="md" style={{justifyContent: "space-between", borderBottom:"2px solid #707070"}}>
+            <Navbar bg="white" expand="md"
+                    style={{
+                        justifyContent: "space-between",
+                        borderBottom:"2px solid #707070"}}>
                 <Navbar.Brand href="#">Molecule editor.</Navbar.Brand>
                 <Navbar>
                     <Navbar.Text style={{margin:"0.5rem"}}>Tools:</Navbar.Text>

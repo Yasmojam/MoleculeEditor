@@ -10,7 +10,6 @@ const BondWin = () => {
     return (
         <ToolWindow heading="Bonds">
             <div className="toolWinContainer">
-                <div className="buttonRow">
             <ToolButtons tool="single">
                 <img className="toolIcon" src={Vectors.single} alt=""/>
             </ ToolButtons>
@@ -20,8 +19,6 @@ const BondWin = () => {
             <ToolButtons tool="triple">
                 <img className="toolIcon" src={Vectors.triple} alt=""/>
             </ ToolButtons>
-                </div>
-                <div className="buttonRow">
             <ToolButtons tool="quadruple">
                 <img className="toolIcon" src={Vectors.quadruple} alt=""/>
             </ ToolButtons>
@@ -31,8 +28,6 @@ const BondWin = () => {
             <ToolButtons tool="backward_plane">
                 <img className="toolIcon" src={Vectors.backward_plane} alt=""/>
             </ ToolButtons>
-                </div>
-                <div className="buttonRow">
             <ToolButtons tool="unspecified_plane">
                 <img className="toolIcon" src={Vectors.unspecified_plane} alt=""/>
             </ ToolButtons>
@@ -42,7 +37,6 @@ const BondWin = () => {
             <ToolButtons tool="intermediate">
                 <img className="toolIcon" src={Vectors.intermediate} alt=""/>
             </ ToolButtons>
-                </div>
             </div>
         </ToolWindow>
 
