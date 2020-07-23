@@ -1,6 +1,6 @@
 import React from "react";
 import Vectors from "./assets/Vectors";
-import HeaderButton, {headerButtonStyle} from "./HeaderButton";
+import HeaderButton from "./HeaderButton";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
@@ -8,12 +8,14 @@ const Header = (props) => {
     return (
             <Navbar bg="white" expand="md"
                     style={{
-                        justifyContent: "space-between",
-                        borderBottom:"2px solid #707070"}}>
+                        justifyContent: "space-around",
+                        borderBottom:"2px solid #707070",
+                        padding: "0.1rem"}}>
                 <Navbar.Brand href="#">Molecule editor.</Navbar.Brand>
-                <Navbar>
+                <Navbar style={{flexWrap: "wrap", justifyContent: "center"}}>
                     <Navbar.Text style={{margin:"0.5rem"}}>Tools:</Navbar.Text>
-                        <Nav.Item>
+                    <div className="headerButtonHolder" style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
+                    <Nav.Item>
                         <HeaderButton tool="undo">
                             undo
                         </HeaderButton>
@@ -53,7 +55,8 @@ const Header = (props) => {
                             Export
                         </HeaderButton>
                         </Nav.Item>
-            </Navbar>
+                    </div>
+                </Navbar>
         </Navbar>
     )
 }

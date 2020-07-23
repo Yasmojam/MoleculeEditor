@@ -20,22 +20,22 @@ const App = () => {
             <div className='App'>
                 <Container fluid>
                     <Row>
-                    <Col className="headerCol" lg={{span:12}}><Header/></Col>
+                    <Col className="headerCol" md={{span:12}}><Header/></Col>
                     </Row>
                     <Row>
-                        <Col lg={{order: 1}} className="drawablePanel">
+                        <Col md={{order: 1}} className="drawablePanel">
                                 <BondWin/>
                         </Col>
-                        <Col lg={{order: 2}} className="drawablePanel">
+                        <Col md={{order: 2}} className="drawablePanel">
                                 <RingStructWin/>
                         </Col>
-                        <Col lg={{order: 3}} className="drawablePanel">
+                        <Col md={{order: 3}} className="drawablePanel">
                                 <ChargeWin/>
                         </Col>
-                        <Col lg={{order: 4}} className="drawablePanel">
+                        <Col md={{order: 4}} className="drawablePanel">
                                 <ReactionWin/>
                         </Col>
-                        <Col lg={{order: 5}} className="drawablePanel">
+                        <Col md={{order: 5}} className="drawablePanel">
                         <AtomsWin/>
                     </Col>
                     </Row>
