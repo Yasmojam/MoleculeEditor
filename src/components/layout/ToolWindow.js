@@ -1,18 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 
 const ToolWindow = (props) => {
+
+    const toggleUp = "▲";
+    const toggleDown = "▼";
+
+    const [toggleIcon, setToggleIcon] = useState(toggleUp);
+
+    const iconToggle = () => {
+        if (toggleIcon === toggleUp) {
+            setToggleIcon(toggleDown)
+        }
+        else if(toggleIcon === toggleDown){
+            setToggleIcon(toggleUp)
+        }
+    }
+
     return (
         <Accordion defaultActiveKey="0">
         <Card style={{border:"2px solid #707070"}}>
-                <Accordion.Toggle as={Card.Header} eventKey="0"
+                <Accordion.Toggle
+                    onMouseDown={iconToggle}
+                    as={Card.Header}
+                    eventKey="0"
                     style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        paddingLeft: "1rem",
+                        paddingRight: "1rem",
                         backgroundColor: "white",
                         fontFamily: 'Lato, sans-serif',
                         fontWeight:"bold",
                         fontSize:"16px"}}>
-                    {props.heading}
+                    <div>{props.heading}</div>
+                    <div style={{color:"#9e9e9e"}}>{toggleIcon}</div>
             </Accordion.Toggle>
 
             <Accordion.Collapse eventKey="0">

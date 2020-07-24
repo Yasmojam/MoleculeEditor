@@ -20,10 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios.">
+      <change afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/BondWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ButtonStyle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.c5f240a7.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.c5f240a7.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/2.bbfbc78c.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/2.bbfbc78c.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/2.bbfbc78c.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.32c89d2c.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.32c89d2c.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/runtime-main.0924fdd0.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/runtime-main.0924fdd0.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +82,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/hooks-simple" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,16 +94,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yasmo\MoleculeEditor\src" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout\assets" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src\components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -114,6 +132,7 @@
       <workItem from="1595158145665" duration="25487000" />
       <workItem from="1595335378559" duration="52171000" />
       <workItem from="1595508178040" duration="13698000" />
+      <workItem from="1595608566005" duration="6163000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -381,9 +400,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="425" y="420" key="#ESLint/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593513946619" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594073848277">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595610632422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595610632422" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594073848277" />
     <state x="729" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592234565658">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -401,6 +421,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593374577846" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1595608673811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595608673811" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1595608673810">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595608673810" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1595608673810">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595608673810" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1595608673810">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595608673810" />
     <state x="747" y="222" key="RollbackChangesDialog" timestamp="1595520997382">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -414,9 +450,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="338" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594229136570" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1591969733884">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1595610623112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595610623112" />
     <state x="616" y="240" key="run.anything.popup/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591969733884" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595418745657">
       <screen x="0" y="0" width="1920" height="1040" />

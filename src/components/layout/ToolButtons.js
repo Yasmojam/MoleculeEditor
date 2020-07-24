@@ -20,7 +20,7 @@ const ToolButtons = (props) => {
     return (
         <Button variant="outline-secondary"
                 tool={props.tool}
-                style={{width: "3rem", height: "3rem", margin: "0.1rem",  border:"1px solid #707070"}}
+                style={{display: "flex", justifyContent: "center", alignItems:"center", width: "3rem", height: "3rem", margin: "0.1rem",  border:"1px solid #707070"}}
                 onClick={() => {clickHandler(props.tool)}}>
             {props.children}
         </Button>

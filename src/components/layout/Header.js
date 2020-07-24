@@ -13,7 +13,7 @@ const Header = (props) => {
                         padding: "0.1rem"}}>
                 <Navbar.Brand href="#">Molecule editor.</Navbar.Brand>
                 <Navbar style={{flexWrap: "wrap", justifyContent: "center"}}>
-                    <Navbar.Text style={{margin:"0.5rem"}}>Tools:</Navbar.Text>
+                    <Navbar.Text style={{margin:"0.5rem", color:"black"}}>Tools:</Navbar.Text>
                     <div className="headerButtonHolder" style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}>
                     <Nav.Item>
                         <HeaderButton tool="undo">
@@ -59,20 +59,6 @@ const Header = (props) => {
                 </Navbar>
         </Navbar>
     )
-}
-
-const headerStyle = {
-    background: '#ffffff',
-    padding: '10px',
-    borderBottom:"2px solid #707070",
-
-    display: "flex",
-    flexWrap: "wrap",
-    width: "100%",
-    height: "100%",
-    wordWrap: "break-word",
-    wordBreak: "break-all",
-    justifyContent: "space-between"
 }
 
 const iconStyle = {
