@@ -486,12 +486,6 @@ const DrawingArea = () => {
         }
     }
 
-    const onTap = (event) => {
-        console.log("tap")
-        let currentCoord = {x: event.evt.layerX, y: event.evt.layerY};
-        setPreviewCoord(currentCoord);
-    }
-
     // Currently adds image to layer
     const onMouseClick = (event) => {
         // console.log("click");
@@ -542,9 +536,7 @@ const DrawingArea = () => {
             width={750}
             height={500}
 
-            onTap={onTap}
             onClick={onMouseClick}
-            // onMouseDown={onMouseClick}
             onMouseMove={onMouseMove}
 
 
