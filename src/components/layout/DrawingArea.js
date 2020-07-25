@@ -536,7 +536,7 @@ const DrawingArea = () => {
             width={750}
             height={500}
 
-            onClick={onMouseClick}
+            onMouseDown={onMouseClick}
             onMouseMove={onMouseMove}
 
 
