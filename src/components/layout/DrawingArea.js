@@ -19,8 +19,9 @@ const DrawingArea = () => {
     const [bondRenders, setBondRenders] = useState([]); // list of bond specifications
     const [atomRenders, setAtomRenders] = useState([]) // list of atom specifications
 
-    const [previewRender, setPreviewRenders] = useState({path: ""});
+    const [previewRender, setPreviewRenders] = useState({bondType:"", path: ""});
     const [previewCoord, setPreviewCoord] = useState({x: null, y: null});
+    let preview;
 
     const [highlighAtomOpacity, setHighlightAtomOpacity] = useState(0);
     const [highlightAtomCoord, setHighlightAtomCoord] = useState({x: 0, y: 0});
@@ -260,6 +261,39 @@ const DrawingArea = () => {
             }
         }
     }, [previewCoord])
+
+    /**
+     * Function which handles which preview should be rendered to the screen.
+     */
+    const handlePreview = () => {
+        if (previewRender.bondType === "backward_plane"){
+            return (<Path
+                key={bondRenders.indexOf(bond)}
+                stroke="black"
+                strokeWidth={10}
+                dashEnabled={true}
+                dash={[2]}
+                fill="black"
+                data={previewRender.path}
+            />)
+        }
+        if (previewRender.bondType === "intermediate"){
+            return (<Path
+                stroke="black"
+                dashEnabled={true}
+                dash={[5]}
+                fill="black"
+                data={previewRender.path}
+            />)
+        }
+        else {
+            return (<Path
+                stroke="black"
+                fill="black"
+                data={previewRender.path}
+            />)
+    }
+    }
 
     /**
      * Highlight the closest previously clicked coord to preview coord.
@@ -578,14 +612,41 @@ const DrawingArea = () => {
             }}>
             <Layer>
                 {bondRenders.map(bond => {
+                    if (bond.bondType === "backward_plane"){
+                        return (
+                            <Path
+                                key={bondRenders.indexOf(bond)}
+                                stroke="black"
+                                strokeWidth={10}
+                                dashEnabled={true}
+                                dash={[2]}
+                                fill="black"
+                                data={bond.path}
+                            />
+                        )
+                    }
+                    if (bond.bondType === "intermediate"){
+                        return (
+                            <Path
+                                key={bondRenders.indexOf(bond)}
+                                stroke="black"
+                                dashEnabled={true}
+                                dash={[5]}
+                                fill="black"
+                                data={bond.path}
+                            />
+                        )
+                    }
+                    else{
                     return (
                         <Path
                             key={bondRenders.indexOf(bond)}
                             stroke="black"
+                            fill="black"
                             data={bond.path}
                         />
                     )
-                })}
+                }})}
                 {atomRenders.map(atom => {
                     return (
                         <Text
@@ -598,10 +659,11 @@ const DrawingArea = () => {
                         />
                     )
                 })}
-                <Path
-                    stroke="black"
-                    data={previewRender.path}
-                />
+
+                {/*PREVIEW RENDERS*/}
+                {handlePreview()}
+
+
                 <Circle
                     x={highlightAtomCoord.x}
                     y={highlightAtomCoord.y}

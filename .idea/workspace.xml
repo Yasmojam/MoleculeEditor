@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Separated master from touch changes.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now download .png of canvas content by clicking &quot;export to .png&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +116,7 @@
       <workItem from="1595508178040" duration="13698000" />
       <workItem from="1595608566005" duration="7155000" />
       <workItem from="1595635235786" duration="3150000" />
-      <workItem from="1596043449728" duration="3070000" />
+      <workItem from="1596043449728" duration="14174000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -342,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595694885340</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Can now download .png of canvas content by clicking &quot;export to .png&quot;">
+      <created>1596048642366</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1596048642366</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +369,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Can now add images to react-konva layer element with a click. Added a zoom but it's currently broken." />
     <MESSAGE value="Can now add images to react-konva layer element with a click. Added a canvas zoom but it's currently broken." />
     <MESSAGE value="Context handler for selected tool added." />
     <MESSAGE value="Created switch statement to handle tool selection." />
@@ -387,7 +393,8 @@
     <MESSAGE value="Converted semantic UI to bootstrap. Should work on most desktop/tablet screen ratios." />
     <MESSAGE value="General refactoring. Added a toggle indicator which switches on expansion of accordions." />
     <MESSAGE value="Separated master from touch changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Separated master from touch changes." />
+    <MESSAGE value="Can now download .png of canvas content by clicking &quot;export to .png&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Can now download .png of canvas content by clicking &quot;export to .png&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

@@ -2,6 +2,8 @@ const maxDistance = 50;
 const doubleBondOffset=5;
 const tripleBondOffset= doubleBondOffset*1.5;
 const quadrupleBondOffset=doubleBondOffset*2;
+const backwardPlaneOffset = 1;
+
 
 const pathDistance = (startCoord: Object, endCoord: Object) => {
     const dx = endCoord.x - startCoord.x;
@@ -67,7 +69,9 @@ const bond = (startCoord: Object, endCoord: Object,
     const midPoint = {x: (endX+startX)/2, y: (endY+startY)/2 };
 
     // SINGLE BOND
-    if (bondOrder === 1 && bondType === "single") {
+    if ((bondOrder === 1 && bondType === "single") ||
+        (bondOrder === 1 && bondType === "backward_plane") ||
+        (bondOrder === 1 && bondType === "intermediate") ) {
             path = ("M" + startX + "," + startY + "L" + endX + "," + endY)
     }
 
@@ -86,6 +90,7 @@ const bond = (startCoord: Object, endCoord: Object,
         }
     }
 
+    // TRIPLE BOND
     if (bondOrder === 3 && bondType === "triple") {
         if (isBondHorizontal(angle)){
             path = ("M" + (startX) + "," + (startY-tripleBondOffset) + "L" + (endX) + "," + (endY-tripleBondOffset) +
@@ -101,6 +106,7 @@ const bond = (startCoord: Object, endCoord: Object,
         }
     }
 
+    // QUADRUPLE BOND
     if (bondOrder === 4 && bondType === "quadruple") {
         if (isBondHorizontal(angle)){
             path = ("M" + (startX) + "," + (startY-quadrupleBondOffset) + "L" + (endX) + "," + (endY-quadrupleBondOffset) +
@@ -118,6 +124,22 @@ const bond = (startCoord: Object, endCoord: Object,
                 "M" + (startX+quadrupleBondOffset) + "," + startY + "L" + (endX+quadrupleBondOffset) + "," + endY)
         }
     }
+
+    if (bondOrder === 1 && bondType === "forward_plane") {
+        if (isBondHorizontal(angle)) {
+            path = ("M" + (startX) + "," + (startY) +
+                    "L" + (endX) + "," + (endY-doubleBondOffset) +
+                    "L" + (endX) + "," + (endY+doubleBondOffset) + "Z")
+        }
+
+        // DIAGONAL OR VERTICAL
+        else{
+            path = ("M" + (startX) + "," + (startY) +
+                "L" + (endX-doubleBondOffset) + "," + (endY) +
+                "L" + (endX+doubleBondOffset) + "," + (endY) + "Z")
+        }
+    }
+
 
     return {
         startCoord:{x:startX, y:startY},
