@@ -52,7 +52,7 @@ const Header = (props) => {
                         </Nav.Item>
                         <Nav.Item>
                         <HeaderButton tool="export">
-                            Export
+                            Export .png
                         </HeaderButton>
                         </Nav.Item>
                     </div>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Circle, Ellipse, Layer, Path, Stage, Text} from "react-konva";
 import {useSelectedTool} from "../ToolContexProvider";
 import bond from "./bond";
@@ -9,6 +9,8 @@ import {atom, findAtomicNumBySymbol} from "./atom";
  * Functional component which represents the drawing canvas.
  */
 const DrawingArea = () => {
+    const stageRef = useRef(null);
+
     // Track all coord; used for snapping and useEffects
     const [canvasClickHistory, setCanvasClickHistory] = useState([]);
     const [bondCoordsHistory, setBondCoordsHistory] = useState([]); // Track bond coords
@@ -320,7 +322,9 @@ const DrawingArea = () => {
     }, [selectedTool])
 
     /**
-     * Hook which clears and refreshes state.
+     * Hook which triggers action based on selected header tools.
+     * When clear tool: clears and refreshes state.
+     * When export tool: prompts user to download png of canvas.
      * Triggers on selected tool change.
      */
     useEffect(() => {
@@ -334,8 +338,33 @@ const DrawingArea = () => {
             setHighlightAtomOpacity(0);
             setHighlightAtomCoord({x: 0, y: 0});
         }
+        if (selectedTool === "export") {
+            handleExport();
+        }
     }, [selectedTool])
 
+    /**
+     * Function which prompts user to download .png/
+     */
+    const downloadURI = (uri: String, name: String) => {
+        const downloadPrompt = document.createElement("a");
+        downloadPrompt.download = name;
+        downloadPrompt.href = uri;
+        document.body.appendChild(downloadPrompt);
+        downloadPrompt.click();
+        document.body.removeChild(downloadPrompt);
+    }
+
+    /**
+     * Function which converts canvas renders to a dataURI.
+     * Prompts user to download png.
+     */
+    const handleExport = () => {
+        const stage = stageRef.current;
+        // console.log(stage.toDataURL());
+        const dataURI = stage.toDataURL();
+        downloadURI(dataURI, "molecule.png");
+    }
 
     /**
      * Hook which logs angles of bonds and updates the list of mid points.
@@ -539,6 +568,7 @@ const DrawingArea = () => {
             onMouseDown={onMouseClick}
             onMouseMove={onMouseMove}
 
+            ref={stageRef}
 
             style={{
                 margin: "0.5em auto",
