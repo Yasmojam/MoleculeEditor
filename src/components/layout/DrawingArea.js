@@ -21,7 +21,8 @@ const DrawingArea = () => {
 
     const [previewRender, setPreviewRenders] = useState({bondType:"", path: ""});
     const [previewCoord, setPreviewCoord] = useState({x: null, y: null});
-    let preview;
+
+    const [entityToErase, setEntityToErase] = useState({x: null, y: null});
 
     const [highlighAtomOpacity, setHighlightAtomOpacity] = useState(0);
     const [highlightAtomCoord, setHighlightAtomCoord] = useState({x: 0, y: 0});
@@ -549,6 +550,40 @@ const DrawingArea = () => {
         }
     }
 
+    /**
+     * Function which erases entity if it is snapped to with eraser on.
+     */
+    const eraseEntity = (coord: Object) => {
+        for (let atom of atomRenders){
+            if (atom.coord.x === coord.x && atom.coord.y === coord.y){
+                const indexRemove = atomRenders.indexOf(atom);
+                atomRenders.splice(indexRemove, 1);
+                setAtomRenders(atomRenders);
+                return;
+            }
+        }
+        for (let bond of bondRenders) {
+            if (bond.midPoint.x === coord.x && bond.midPoint.y === coord.y){
+                const indexRemove = bondRenders.indexOf(bond);
+                bondRenders.splice(indexRemove, 1);
+                setBondRenders(bondRenders);
+                return;
+            }
+            if (bond.startCoord.x === coord.x && bond.startCoord.y === coord.y){
+                const indexRemove = bondRenders.indexOf(bond);
+                bondRenders.splice(indexRemove, 1);
+                setBondRenders(bondRenders);
+                return;
+            }
+            if (bond.endCoord.x === coord.x && bond.endCoord.y === coord.y){
+                const indexRemove = bondRenders.indexOf(bond);
+                bondRenders.splice(indexRemove, 1);
+                setBondRenders(bondRenders);
+                return;
+            }
+        }
+    }
+
     // Currently adds image to layer
     const onMouseClick = (event) => {
         // console.log("click");
@@ -570,7 +605,12 @@ const DrawingArea = () => {
             if (isToolBond(selectedTool)) {
                 setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
             }
+            // Erase bond
+            if (selectedTool === "erase"){
+                eraseEntity(snappableCoord(currentCoord));
+            }
             setCanvasClickHistory([...canvasClickHistory, currentCoord]);
+
         } else if (!isCoordSnappable(currentCoord)) {
             // Add currentCoord to list of coord
             if (isToolAtom(selectedTool)) {
