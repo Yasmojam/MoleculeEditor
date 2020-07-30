@@ -632,17 +632,6 @@ const DrawingArea = () => {
 
     }
 
-    const [cursor, setCursor] = useState("default");
-
-    useEffect(() => {
-        setCursor(selectedTool);
-    }, [selectedTool])
-
-    useEffect(() => {
-        console.log("cursor")
-        console.log(cursor)
-    }, [cursor])
-
     return (
         <Stage
             width={750}
@@ -656,8 +645,6 @@ const DrawingArea = () => {
             style={{
                 margin: "0.5em auto",
                 background: "white",
-                cursor:`url(..\\..\\..\\assets\\svg\\${cursor}.svg)`
-
             }}>
             <Layer>
                 {bondRenders.map(bond => {
