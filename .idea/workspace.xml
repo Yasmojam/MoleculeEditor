@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now draw and preview forward/backward and intermediate single bonds.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Can now erase individual atoms and bonds from canvas.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +77,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\yasmo\MoleculeEditor\src" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout\assets" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src\components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src" />
+      <recent name="C:\Users\yasmo\MoleculeEditor\src" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -115,7 +118,7 @@
       <workItem from="1595508178040" duration="13698000" />
       <workItem from="1595608566005" duration="7155000" />
       <workItem from="1595635235786" duration="3150000" />
-      <workItem from="1596043449728" duration="18633000" />
+      <workItem from="1596043449728" duration="26584000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -355,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596060009890</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Can now erase individual atoms and bonds from canvas.">
+      <created>1596064976606</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1596064976606</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +385,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Context handler for selected tool added." />
     <MESSAGE value="Created switch statement to handle tool selection." />
     <MESSAGE value="Can now draw bonds on clicking a start and end point. Works for bond orders of 1 and 2." />
     <MESSAGE value="Added consistent path length, angle calc function, detect if bond is horizontal, and change the path calculations. Also added triple bond path. Refactored some drawing area rendering." />
@@ -400,7 +409,8 @@
     <MESSAGE value="Separated master from touch changes." />
     <MESSAGE value="Can now download .png of canvas content by clicking &quot;export to .png&quot;" />
     <MESSAGE value="Can now draw and preview forward/backward and intermediate single bonds." />
-    <option name="LAST_COMMIT_MESSAGE" value="Can now draw and preview forward/backward and intermediate single bonds." />
+    <MESSAGE value="Can now erase individual atoms and bonds from canvas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Can now erase individual atoms and bonds from canvas." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -428,10 +438,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591801436712" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1593374577846">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1596065936388">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1593374577846" />
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596065936388" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1595620100792">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -448,11 +458,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595620100792" />
-    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1595520997382">
+    <state x="747" y="222" key="RollbackChangesDialog" timestamp="1596111660308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595520997382" />
-    <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1594229140980" />
+    <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596111660308" />
     <state x="217" y="203" width="998" height="708" key="SettingsEditor" timestamp="1593271420901">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

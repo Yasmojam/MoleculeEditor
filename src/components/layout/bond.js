@@ -31,10 +31,10 @@ const calculateAngle = (startCoord: Object, endCoord: Object) => {
 
 // Returns true if DB is horizontal
 const isBondHorizontal = (angle: Number) => {
-    if (( 175 <= angle && angle <= 180 ) ||
-        ( 180 <= angle && angle <= 190 ) ||
-        ( 350 <= angle && angle <= 360 ) ||
-        ( 0 <= angle && angle <= 15)) {
+    if (( 130 <= angle && angle <= 180 ) ||
+        ( 180 <= angle && angle <= 210 ) ||
+        ( 310 <= angle && angle <= 360 ) ||
+        ( 0 <= angle && angle <= 30)) {
         return true;
     }
 }

@@ -22,8 +22,6 @@ const DrawingArea = () => {
     const [previewRender, setPreviewRenders] = useState({bondType:"", path: ""});
     const [previewCoord, setPreviewCoord] = useState({x: null, y: null});
 
-    const [entityToErase, setEntityToErase] = useState({x: null, y: null});
-
     const [highlighAtomOpacity, setHighlightAtomOpacity] = useState(0);
     const [highlightAtomCoord, setHighlightAtomCoord] = useState({x: 0, y: 0});
 
@@ -634,6 +632,17 @@ const DrawingArea = () => {
 
     }
 
+    const [cursor, setCursor] = useState("default");
+
+    useEffect(() => {
+        setCursor(selectedTool);
+    }, [selectedTool])
+
+    useEffect(() => {
+        console.log("cursor")
+        console.log(cursor)
+    }, [cursor])
+
     return (
         <Stage
             width={750}
@@ -647,7 +656,7 @@ const DrawingArea = () => {
             style={{
                 margin: "0.5em auto",
                 background: "white",
-                border: "1px solid black"
+                cursor:`url(..\\..\\..\\assets\\svg\\${cursor}.svg)`
 
             }}>
             <Layer>
