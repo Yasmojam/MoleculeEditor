@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+    <g id="dipole" transform="matrix(0.458722,0,0,0.458722,-2.62032,-2.59832)">
+        <g id="dipole1" serif:id="dipole" transform="matrix(0.951185,0,0,1,2.79468,-1.95934)">
+            <g transform="matrix(2.29185,-0,-0,2.17997,3.06727,7.6236)">
+                <path d="M15.763,8.607L21.388,12.357L15.763,16.107" style="fill:none;stroke:rgb(112,112,112);stroke-width:2.5px;"/>
+                <path d="M1.358,12.357L21.388,12.357" style="fill:none;stroke:rgb(112,112,112);stroke-width:2.5px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+            </g>
+        </g>
+        <g id="dipole--" serif:id="dipole |" transform="matrix(1,0,0,1.11247,4.34625,-3.04697)">
+            <path d="M9.596,25.86L9.596,38.79" style="fill:none;stroke:rgb(112,112,112);stroke-width:5.15px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+        </g>
+    </g>
+</svg>

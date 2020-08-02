@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.390625,0,0,0.390625,-1.23175,-0.282962)">
+        <g id="cyclopentane">
+            <path d="M36.634,11.599C35.744,10.93 34.519,10.931 33.63,11.601L13.701,26.601C12.924,27.185 12.556,28.168 12.759,29.119L17.715,52.372C17.96,53.526 18.98,54.351 20.16,54.351L50.147,54.351C51.327,54.351 52.346,53.526 52.592,52.372L57.548,29.119C57.75,28.167 57.382,27.184 56.604,26.599L36.634,11.599ZM35.133,13.598L55.102,28.598L50.147,51.851L20.16,51.851L15.204,28.598L35.133,13.598Z" style="fill:rgb(112,112,112);"/>
+        </g>
+    </g>
+</svg>

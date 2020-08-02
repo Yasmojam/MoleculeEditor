@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="cyclopropane" transform="matrix(0.487389,0,0,0.553268,-1.46498,0.100969)">
+        <path d="M30.29,8.893C29.914,8.424 29.304,8.145 28.653,8.145C28.001,8.145 27.391,8.424 27.016,8.893L6.99,33.893C6.559,34.432 6.504,35.137 6.848,35.723C7.193,36.308 7.879,36.676 8.627,36.676L48.678,36.676C49.427,36.676 50.113,36.308 50.457,35.723C50.801,35.137 50.747,34.432 50.315,33.893L30.29,8.893ZM28.653,9.911L48.678,34.911L8.627,34.911L28.653,9.911Z" style="fill:rgb(112,112,112);"/>
+    </g>
+</svg>
