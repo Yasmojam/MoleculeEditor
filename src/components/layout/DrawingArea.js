@@ -116,6 +116,10 @@ const DrawingArea = () => {
         }
     }
 
+    const shortenBond = (coord: Object) => {
+
+    }
+
     /**
      * Function which adds bond to list of bonds to be rendered to canvas.
      * Todo replace start and end atom if snaps to atom on either end.
