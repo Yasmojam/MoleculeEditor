@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Circle, Ellipse, Layer, Path, Stage, Text} from "react-konva";
 import {useSelectedTool} from "../ToolContexProvider";
-import bond from "./bond";
+import bond, {pathDistance} from "./bond";
 import {chemElement} from "../cheminfo/chemElement";
 import {atom, findAtomicNumBySymbol} from "./atom";
 
@@ -32,6 +32,7 @@ const DrawingArea = () => {
 
     const selectedTool = useSelectedTool().tool;
 
+    const bondRatio = 0.5;
     const snappableDistance = 15;
 
     useEffect(() => {
@@ -100,10 +101,12 @@ const DrawingArea = () => {
 
         setAtomRenders(newAtomRenders);
 
+        // Update bond lengths
+        shortenBondsOnAtomAdd(coord);
+
         // only update canvas history as atom history is updated by {mouseDown}.
         setCanvasClickHistory([...canvasClickHistory, coord]);
     }
-
 
     /**
      * Function which returns true if the length of list of previous coords is even and
@@ -116,8 +119,83 @@ const DrawingArea = () => {
         }
     }
 
-    const shortenBond = (coord: Object) => {
+    /**
+     * Function which returns a shortened bond start.
+     */
+    const shortenBondOnBondAddStart = (bondStartCoord: Object, bondEndCoord: Object) => {
+        // m + n
+        const oldPathDist = pathDistance(bondStartCoord, bondEndCoord);
+        // m
+        const m = 10;
+        // n
+        const n = oldPathDist - 10
 
+        const newstartX = (((m*bondEndCoord.x)+(n*bondStartCoord.x))/oldPathDist);
+        const newstartY = (((m*bondEndCoord.y)+(n*bondStartCoord.y))/oldPathDist);
+        const newStartPoint = {x: newstartX, y: newstartY};
+
+        return newStartPoint;
+    }
+
+    /**
+     * Function which returns a shortened bond end.
+     */
+    const shortenBondOnBondAddEnd = (bondStartCoord: Object, bondEndCoord: Object) => {
+        // m + n
+        const oldPathDist = pathDistance(bondStartCoord, bondEndCoord);
+        // m
+        const m = oldPathDist - 10;
+        // n
+        const n = 10;
+
+        const newEndX = (((m*bondEndCoord.x)+(n*bondStartCoord.x))/oldPathDist);
+        const newEndY = (((m*bondEndCoord.y)+(n*bondStartCoord.y))/oldPathDist);
+        const newEndPoint = {x: newEndX, y: newEndY};
+
+        return newEndPoint;
+    }
+
+
+
+    /**
+     * Function which shortens bond length for bond which has a start/end coord which matches parameter.
+     */
+    const shortenBondsOnAtomAdd = (coord: Object) => {
+        // must update bondRenders to rerender to canvas
+        for (let tryBond of bondRenders){
+            if ((tryBond.startCoord.x === coord.x) && (tryBond.startCoord.y === coord.y)){
+                bondRenders[bondRenders.indexOf(tryBond)] =
+                    bond(
+                        shortenBondOnBondAddStart(tryBond.startCoord, tryBond.endCoord),
+                        tryBond.endCoord,
+                        tryBond.startAtom,
+                        tryBond.endAtom,
+                        tryBond.bondOrder,
+                        tryBond.bondType,
+                        true);
+            }
+            if ((tryBond.endCoord.x === coord.x) && (tryBond.endCoord.y === coord.y)){
+                // m + n
+                const oldPathDist = pathDistance(tryBond.startCoord, tryBond.endCoord);
+                // m
+                const m = oldPathDist * 0.8;
+                // n
+                const n = oldPathDist * 0.2;
+
+                const newEndX = (((m*tryBond.endCoord.x)+(n*tryBond.startCoord.x))/oldPathDist);
+                const newEndY = (((m*tryBond.endCoord.y)+(n*tryBond.startCoord.y))/oldPathDist);
+                const newEndPoint = {x: newEndX, y: newEndY};
+                bondRenders[bondRenders.indexOf(tryBond)] =
+                    bond(
+                        tryBond.startCoord,
+                        shortenBondOnBondAddEnd(tryBond.startCoord, tryBond.endCoord),
+                        tryBond.startAtom,
+                        tryBond.endAtom,
+                        tryBond.bondOrder,
+                        tryBond.bondType,
+                        true);
+            }
+        }
     }
 
     /**
@@ -127,19 +205,43 @@ const DrawingArea = () => {
     const bondRenderToCanvas = (bondOrder: Number) => {
         const newBondRenders = bondRenders.slice();
         const bondType = selectedTool;
+        let snappedBond = false;
 
-        const startCoord =
+        let startCoord =
             {
                 x: bondCoordsHistory[bondCoordsHistory.length - 2].x,
                 y: bondCoordsHistory[bondCoordsHistory.length - 2].y
             };
-        const endCoord =
+        let endCoord =
             {
                 x: bondCoordsHistory[bondCoordsHistory.length - 1].x,
                 y: bondCoordsHistory[bondCoordsHistory.length - 1].y
             };
+
+        if (isCoordSnappable(startCoord) || isCoordSnappable(endCoord)){
+            snappedBond = true;
+        }
+
+        if (isCoordSnappable(startCoord) && atomRenders.length > 0){
+            for (let atom of atomRenders) {
+                if (atom.coord.x === startCoord.x && atom.coord.y === startCoord.y){
+                   const newStartCoord = shortenBondOnBondAddStart(startCoord, endCoord);
+                   startCoord = newStartCoord;
+                }
+            }
+        }
+        if (isCoordSnappable(endCoord) && atomRenders.length > 0){
+            for (let atom of atomRenders) {
+                if (atom.coord.x === endCoord.x && atom.coord.y === endCoord.y){
+                    const newEndCoord = shortenBondOnBondAddEnd(startCoord, endCoord);
+                    endCoord = newEndCoord;
+                }
+            }
+        }
+
+
         newBondRenders.push(
-            bond(startCoord, endCoord, 6, 6, bondOrder, bondType, isCoordSnappable(endCoord))
+            bond(startCoord, endCoord, 6, 6, bondOrder, bondType, snappedBond)
         )
 
         setBondRenders(newBondRenders);

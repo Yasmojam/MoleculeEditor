@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Header from "./components/layout/Header";
 import './App.css';
 import DrawingArea from "./components/layout/DrawingArea";
@@ -11,7 +11,6 @@ import {ToolContextProvider} from "./components/ToolContexProvider";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Vectors from "./components/layout/assets/Vectors";
 import CurrentToolIndicator from "./components/CurrentToolIndicator";
 
 

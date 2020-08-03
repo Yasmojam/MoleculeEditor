@@ -19,10 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added current tool indicator.">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/KonvaImage.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +120,7 @@
       <workItem from="1595508178040" duration="13698000" />
       <workItem from="1595608566005" duration="7155000" />
       <workItem from="1595635235786" duration="3150000" />
-      <workItem from="1596043449728" duration="37215000" />
+      <workItem from="1596043449728" duration="49897000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -385,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596231824295</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore.">
+      <created>1596382640142</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1596382640142</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +415,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed small horizontal DB bug." />
     <MESSAGE value="Bonds now preview before finalising their path. List of previousCoords now removes last entry and preview is reset if tool is switched before finalising bond." />
     <MESSAGE value="Can now highlight bond ends and snap bonds to bond ends." />
     <MESSAGE value="Added clear canvas functionality to header button." />
@@ -430,7 +439,8 @@
     <MESSAGE value="Tweaked the isBondHorizontal angle break points so bonds made of multiple paths should be more consistent." />
     <MESSAGE value="Removed broken cursor methods." />
     <MESSAGE value="Added current tool indicator." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added current tool indicator." />
+    <MESSAGE value="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore." />
+    <option name="LAST_COMMIT_MESSAGE" value="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

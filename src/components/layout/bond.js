@@ -5,7 +5,7 @@ const quadrupleBondOffset=doubleBondOffset*2;
 const backwardPlaneOffset = 1;
 
 
-const pathDistance = (startCoord: Object, endCoord: Object) => {
+export const pathDistance = (startCoord: Object, endCoord: Object) => {
     const dx = endCoord.x - startCoord.x;
     const dy = endCoord.y - startCoord.y;
     const distance = Math.sqrt((dx**2) + (dy**2))
@@ -150,7 +150,8 @@ const bond = (startCoord: Object, endCoord: Object,
         bondOrder,
         bondType,
         path,
-        angle}
+        angle
+    }
 }
 
 
