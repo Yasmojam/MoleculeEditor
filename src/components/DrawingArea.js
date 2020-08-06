@@ -6,9 +6,10 @@ import {chemElement} from "../cheminfo/chemElement";
 import Atom from "../classes/Atom";
 import findAtomicNumBySymbol from "../functions/findAtomicNumBySymbol";
 import {handleExport} from "../functions/downloadPNG";
+import "./DrawingArea.css"
 
 /**
- * Functional component which represents the drawing canvas.
+ * Component which represents the drawing area
  */
 const DrawingArea = () => {
     const stageRef = useRef(null);
@@ -34,7 +35,6 @@ const DrawingArea = () => {
 
     const selectedTool = useSelectedTool().tool;
 
-    const bondRatio = 0.5;
     const snappableDistance = 15;
 
     useEffect(() => {
@@ -96,13 +96,28 @@ const DrawingArea = () => {
                 x: atomCoordsHistory[atomCoordsHistory.length - 1].x,
                 y: atomCoordsHistory[atomCoordsHistory.length - 1].y
             };
-        newAtomRenders.push(
-           new Atom(atomicNum, coord)
-        )
+
+        // If click an atom, replace it
+        if (atomRenders.length > 0){
+            for (let atom of atomRenders){
+                if (atom.coord.x === coord.x && atom.coord.y === coord.y){
+                    atomRenders[atomRenders.indexOf(atom)] = new Atom(atomicNum, coord);
+                    return;
+                }
+                else{
+                    newAtomRenders.push(
+                        new Atom(atomicNum, coord)
+                    )
+                }
+            }
+        }
+        else {
+            newAtomRenders.push(
+                new Atom(atomicNum, coord)
+            )
+        }
 
         setAtomRenders(newAtomRenders);
-
-
 
         // only update canvas history as atom history is updated by {mouseDown}.
         setCanvasClickHistory([...canvasClickHistory, coord]);
@@ -179,7 +194,7 @@ const DrawingArea = () => {
          for (let atom of atomRenders) {
              if (atom.coord.x === bond.startCoord.x && atom.coord.y === bond.startCoord.y){
                 bond.shortenBondStart();
-                bond.startAtom = atom;
+                bond.startAtom = atom.atomicNum;
                 bond.startAtomVis = true;
              }
          }
@@ -188,7 +203,7 @@ const DrawingArea = () => {
          for (let atom of atomRenders) {
              if (atom.coord.x === bond.endCoord.x && atom.coord.y === bond.endCoord.y){
                  bond.shortenBondEnd();
-                 bond.endAtom = atom;
+                 bond.endAtom = atom.atomicNum;
                  bond.endAtomVis = true;
              }
          }
@@ -742,6 +757,9 @@ const DrawingArea = () => {
 
     return (
         <Stage
+
+            className="canvas"
+
             width={750}
             height={500}
 
@@ -750,10 +768,11 @@ const DrawingArea = () => {
 
             ref={stageRef}
 
-            style={{
-                margin: "0.5em auto",
-                background: "white",
-            }}>
+            // style={{
+            //     margin: "0.5em auto",
+            //     background: "white",
+            // }}
+        >
             <Layer>
                 {bondRenders.map(bond => {
                     if (bond.bondType === "backward_plane"){

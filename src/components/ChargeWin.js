@@ -1,30 +1,33 @@
 import ToolWindow from "./ToolWindow";
-import ToolButtons from "./ToolButtons";
+import ToolButton from "./ToolButton";
 import Vectors from "../assets/Vectors";
 import React from "react";
 
+/**
+ * Component which represents the charge menu
+ * */
 const ChargeWin = () => {
     return (
         <ToolWindow heading="Charge">
             <div className="toolWinContainer">
-            <ToolButtons tool="radical">
+            <ToolButton tool="radical">
                 <img className="toolIcon" src={Vectors.radical} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="minus">
+            </ToolButton>
+            <ToolButton tool="minus">
                 <img className="toolIcon" src={Vectors.minus} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="plus">
+            </ToolButton>
+            <ToolButton tool="plus">
                 <img className="toolIcon" src={Vectors.plus} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="neg_dipole">
+            </ToolButton>
+            <ToolButton tool="neg_dipole">
                 <img className="toolIcon" src={Vectors.neg_dipole} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="pos_dipole">
+            </ToolButton>
+            <ToolButton tool="pos_dipole">
                 <img className="toolIcon" src={Vectors.pos_dipole} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="dipole">
+            </ToolButton>
+            <ToolButton tool="dipole">
                 <img className="toolIcon" src={Vectors.dipole} alt=""/>
-            </ToolButtons>
+            </ToolButton>
             </div>
         </ToolWindow>
     )

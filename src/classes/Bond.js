@@ -8,7 +8,7 @@ class Bond {
                 endAtom: Number,
                 bondOrder: Number,
                 bondType: String,
-                snapped: Boolean = false,
+                stretchedSnapped: Boolean = false,
                 startAtomVis: Boolean = false,
                 endAtomVis: Boolean = false
                 )
@@ -23,7 +23,7 @@ class Bond {
         this._bondType = bondType;
         this._startAtomVis = startAtomVis;
         this._endAtomVis = endAtomVis;
-        this._snapped = snapped;
+        this._stretchedSnapped = stretchedSnapped;
 
 
         this._ratio = this.pathDisRatio(this.pathDistance(this.startCoord, clickEndCoord))
@@ -120,11 +120,11 @@ class Bond {
     }
 
     get snapped(): Boolean {
-        return this._snapped;
+        return this._stretchedSnapped;
     }
 
     set snapped(value: Boolean) {
-        this._snapped = value;
+        this._stretchedSnapped = value;
     }
 
     get pathdist() {
@@ -167,6 +167,9 @@ class Bond {
         this._path = value;
     }
 
+    /**
+     * Function which returns the path distance of a bond
+     * */
     pathDistance = (startCoord: Object, endCoord: Object) => {
         const dx = endCoord.x - startCoord.x;
         const dy = endCoord.y - startCoord.y;
@@ -175,12 +178,18 @@ class Bond {
         return distance;
     }
 
+    /**
+     * Function which returns the path distance radio of a bond from max distance of 50px
+     * */
     pathDisRatio = (clickedDistance: Number) => {
         const maxDistance = 50;
         const ratio = maxDistance/clickedDistance;
         return ratio;
     }
 
+    /**
+     * Function which returns the angle of a bond
+     * */
     calculateAngle = (startCoord: Object, endCoord: Object) => {
         const dx = endCoord.x - startCoord.x;
         const dy = endCoord.y - startCoord.y;
@@ -192,7 +201,9 @@ class Bond {
         return theta_deg;
     }
 
-    // Returns true if DB is horizontal
+    /**
+     * Function which returns true if the bond is considered horizontal
+     * */
     isBondHorizontal = (angle: Number) => {
         if (( 130 <= angle && angle <= 180 ) ||
             ( 180 <= angle && angle <= 210 ) ||

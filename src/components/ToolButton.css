@@ -1,0 +1,14 @@
+.menuButton {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 3rem;
+    height: 3rem;
+    margin: 0.1rem;
+    border: 1px solid #707070;
+}
+
+.toolIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+}

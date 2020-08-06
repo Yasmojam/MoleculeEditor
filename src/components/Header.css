@@ -1,0 +1,26 @@
+.mainNav {
+    justify-content: space-around;
+    border-bottom: 2px solid #707070;
+    padding: 0.1rem
+}
+
+.toolNav {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navbar-light .navbar-text {
+    margin: 0.5rem;
+    color: black;
+}
+
+.headerButtonHolder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.toolIconHeader {
+    width: 16px;
+    height: 16px;
+}

@@ -1,30 +1,33 @@
 import React from "react";
 import ToolWindow from "./ToolWindow";
-import ToolButtons from "./ToolButtons";
+import ToolButton from "./ToolButton";
 import Vectors from "../assets/Vectors";
 
+/**
+ * Component which represents the reaction arrow menu
+ * */
 const ReactionWin = () => {
     return (
         <ToolWindow heading="Reaction Arrows">
             <div className="toolWinContainer">
-            <ToolButtons tool="reaction_arrow">
+            <ToolButton tool="reaction_arrow">
                 <img className="toolIcon" src={Vectors.reaction_arrow} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="half_equilibrium">
+            </ToolButton>
+            <ToolButton tool="half_equilibrium">
                 <img className="toolIcon" src={Vectors.half_equilibrium} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="equilibrium">
+            </ToolButton>
+            <ToolButton tool="equilibrium">
                 <img className="toolIcon" src={Vectors.equilibrium} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="full_curly_arrow">
+            </ToolButton>
+            <ToolButton tool="full_curly_arrow">
                 <img className="toolIcon" src={Vectors.full_curly_arrow} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="half_curly_arrow">
+            </ToolButton>
+            <ToolButton tool="half_curly_arrow">
                 <img className="toolIcon" src={Vectors.half_curly_arrow} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="retro_arrow">
+            </ToolButton>
+            <ToolButton tool="retro_arrow">
                 <img className="toolIcon" src={Vectors.retro_arrow} alt=""/>
-            </ToolButtons>
+            </ToolButton>
             </div>
         </ToolWindow>
     )

@@ -1,8 +1,12 @@
 import React from "react";
 import {useSelectedTool} from "./ToolContexProvider";
 import Button from "react-bootstrap/Button";
+import "./ToolButton.css";
 
-const ToolButtons = (props) => {
+/**
+ * Component which represents a tool menu button
+ * */
+const ToolButton = (props) => {
     const toolContext = useSelectedTool();
 
     const clickHandler = (tool) => {
@@ -12,15 +16,10 @@ const ToolButtons = (props) => {
     }
 
     return (
-        <Button variant="outline-secondary"
+        <Button
+                className="menuButton"
+                variant="outline-secondary"
                 tool={props.tool}
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems:"center",
-                    width: "3rem", height: "3rem",
-                    margin: "0.1rem",
-                    border:"1px solid #707070"}}
                 onClick={() => {clickHandler(props.tool)}}>
             {props.children}
         </Button>
@@ -28,4 +27,4 @@ const ToolButtons = (props) => {
 }
 
 
-export default ToolButtons;
+export default ToolButton;

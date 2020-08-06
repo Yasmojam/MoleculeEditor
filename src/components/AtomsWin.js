@@ -1,44 +1,50 @@
 import React from "react";
-import ToolButtons from "./ToolButtons";
+import ToolButton from "./ToolButton";
 import ToolWindow from "./ToolWindow";
 
+/**
+ * Component which represents the atom and functional groups menu
+ * */
 const AtomsWin = () => {
     return (
-        <ToolWindow heading="Atoms">
+        <ToolWindow heading="Atoms & FGs">
             <div className="toolWinContainer">
-            <ToolButtons tool="H">
+            <ToolButton tool="H">
                 <div>H</div>
-            </ToolButtons>
-            <ToolButtons tool="C">
+            </ToolButton>
+            <ToolButton tool="C">
                 <div>C</div>
-            </ToolButtons>
-            <ToolButtons tool="O">
+            </ToolButton>
+            <ToolButton tool="O">
                 <div>O</div>
-            </ToolButtons>
-            <ToolButtons tool="N">
+            </ToolButton>
+            <ToolButton tool="N">
                 <div>N</div>
-            </ToolButtons>
-            <ToolButtons tool="P">
+            </ToolButton>
+            <ToolButton tool="P">
                 <div>P</div>
-            </ToolButtons>
-            <ToolButtons tool="S">
+            </ToolButton>
+            <ToolButton tool="S">
                 <div>S</div>
-            </ToolButtons>
-            <ToolButtons tool="F">
+            </ToolButton>
+            <ToolButton tool="F">
                 <div>F</div>
-            </ToolButtons>
-            <ToolButtons tool="Cl">
+            </ToolButton>
+            <ToolButton tool="Cl">
                 <div>Cl</div>
-            </ToolButtons>
-            <ToolButtons tool="Br">
+            </ToolButton>
+            <ToolButton tool="Br">
                 <div>Br</div>
-            </ToolButtons>
-            <ToolButtons tool="I">
+            </ToolButton>
+            <ToolButton tool="I">
                 <div>I</div>
-            </ToolButtons>
-            <ToolButtons>
-                <div>...</div>
-            </ToolButtons>
+            </ToolButton>
+            <ToolButton tool="more atoms">
+                <div style={{fontSize:"12px"}}>more atoms</div>
+            </ToolButton>
+            <ToolButton tool="functional groups">
+                <div>FGs</div>
+             </ToolButton>
             </div>
         </ToolWindow>
     )
