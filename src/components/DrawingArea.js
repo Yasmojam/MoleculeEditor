@@ -1,9 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Circle, Ellipse, Layer, Path, Stage, Text} from "react-konva";
-import {useSelectedTool} from "../ToolContexProvider";
-import Bond from "./bond";
+import {useSelectedTool} from "./ToolContexProvider";
+import Bond from "../classes/Bond";
 import {chemElement} from "../cheminfo/chemElement";
-import {atom, findAtomicNumBySymbol} from "./atom";
+import Atom from "../classes/Atom";
+import findAtomicNumBySymbol from "../functions/findAtomicNumBySymbol";
+import {handleExport} from "../functions/downloadPNG";
 
 /**
  * Functional component which represents the drawing canvas.
@@ -85,7 +87,6 @@ const DrawingArea = () => {
 
     /**
      * Function which adds atom to list of atoms to be rendered to canvas.
-     * Todo allow for checking associated bonds and adding them to atom if snaps to bond.
      */
     const atomRenderToCanvas = (atomicNum: Number) => {
         const newAtomRenders = atomRenders.slice()
@@ -96,7 +97,7 @@ const DrawingArea = () => {
                 y: atomCoordsHistory[atomCoordsHistory.length - 1].y
             };
         newAtomRenders.push(
-            atom(atomicNum, coord)
+           new Atom(atomicNum, coord)
         )
 
         setAtomRenders(newAtomRenders);
@@ -420,32 +421,10 @@ const DrawingArea = () => {
             setHighlightAtomCoord({x: 0, y: 0});
         }
         if (selectedTool === "export") {
-            handleExport();
+            handleExport(stageRef);
         }
     }, [selectedTool])
 
-    /**
-     * Function which prompts user to download .png/
-     */
-    const downloadURI = (uri: String, name: String) => {
-        const downloadPrompt = document.createElement("a");
-        downloadPrompt.download = name;
-        downloadPrompt.href = uri;
-        document.body.appendChild(downloadPrompt);
-        downloadPrompt.click();
-        document.body.removeChild(downloadPrompt);
-    }
-
-    /**
-     * Function which converts canvas renders to a dataURI.
-     * Prompts user to download png.
-     */
-    const handleExport = () => {
-        const stage = stageRef.current;
-        // console.log(stage.toDataURL());
-        const dataURI = stage.toDataURL();
-        downloadURI(dataURI, "molecule.png");
-    }
 
     /**
      * Hook which logs angles of bonds and updates the list of mid points.
@@ -599,38 +578,6 @@ const DrawingArea = () => {
     }
 
     /**
-     * Function which returns true if bond start has not got a visible atom connected.
-     * */
-    const isBondFromStartCoordSnappable = (tryCoord: Object) => {
-        for (let bond of bondRenders) {
-            if (bond.startCoord.x === tryCoord.x && bond.startCoord.y === tryCoord.y){
-                if (bond.startAtomVis === true) {
-                    return false;
-                }
-            }
-            else {
-                return true;
-            }
-        }
-    }
-    /**
-     * Function which returns true if bond end has not got a visible atom connected.
-     * */
-    const isBondFromEndCoordSnappable = (tryCoord: Object) => {
-        for (let bond of bondRenders) {
-            if (bond.endCoord.x === tryCoord.x && bond.endCoord.y === tryCoord.y){
-                if (bond.endAtomVis === true) {
-                    return false;
-                }
-            }
-            else {
-                return true;
-            }
-        }
-    }
-
-
-    /**
      * Function which returns true if coord is a atom.
      */
     const isCoordAtom = (tryCoord: Object) => {
@@ -686,33 +633,9 @@ const DrawingArea = () => {
                 const newEndX = (((nEnd * atomCoord.x) + (m * bondStartCoord.x)) / startToAtom);
                 const newEndY = (((nEnd * atomCoord.y) + (m * bondStartCoord.y)) / startToAtom);
 
-                //
-                // // m + n
-                // const pathDistStart = pathDistance(bondEndCoord, atomCoord);
-                // console.log("start dist");
-                // console.log(pathDistStart);
-                // const pathDistEnd = pathDistance(bondStartCoord, atomCoord);
-                // console.log("end dist");
-                // console.log(pathDistEnd);
-                // // m
-                // const m = 10;
-                // // n
-                // const nStart = pathDistStart - 10;
-                // const nEnd = pathDistEnd - 10;
-                //
-                //
-                // //ORIGINAL
-                // const newStartX = (((m * bondEndCoord.x) + (nStart * bondStartCoord.x)) / pathDistStart);
-                // const newStartY = (((m * bondEndCoord.y) + (nStart * bondStartCoord.y)) / pathDistStart);
-                // const newEndX = (((nEnd * bondEndCoord.x) + (m * bondStartCoord.x)) / pathDistEnd);
-                // const newEndY = (((nEnd * bondEndCoord.y) + (m * bondStartCoord.y)) / pathDistEnd);
-                //
                 console.log("CalculatedStart:")
                 console.log({x: newStartX, y: newStartY});
-                //
-                // console.log("CalculatedEnd:")
-                // console.log({x: newEndX, y: newEndY});
-                //
+
                 console.log("BondRenders:");
                 console.log(bondRenders);
 

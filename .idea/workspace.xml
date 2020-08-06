@@ -20,10 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore.">
+      <change afterPath="$PROJECT_DIR$/src/classes/Atom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/downloadPNG.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/functions/findAtomicNumBySymbol.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/bond.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/REACTREADME.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cheminfo/chemElement.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cheminfo/chemElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AtomsWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BondWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ChargeWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChargeWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/HeaderButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/LongToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LongToolWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReactionWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/RingStructWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RingStructWin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolWindow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/assets/Vectors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/Vectors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/atom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bond.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,18 +99,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout\assets" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor" />
-      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src\components" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src" />
       <recent name="C:\Users\yasmo\MoleculeEditor\src" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\public" />
       <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\molecule_editor\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\assets" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout\classes" />
+      <recent name="C:\Users\yasmo\my repos\react\MoleculeEditor\src\components\layout\functions" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -464,10 +481,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="729" y="322" key="#com.intellij.fileTypes.FileTypeChooser/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1592234565658" />
-    <state x="285" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1596547017631">
+    <state x="285" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1596745242113">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="285" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1596547017631" />
+    <state x="285" y="236" key="#com.intellij.ide.util.MemberChooser/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596745242113" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593447780353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

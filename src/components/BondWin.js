@@ -1,7 +1,7 @@
 import React from "react";
 import ToolWindow from "./ToolWindow";
 import ToolButtons from "./ToolButtons";
-import Vectors from "./assets/Vectors";
+import Vectors from "../assets/Vectors";
 
 const BondWin = () => {
     return (

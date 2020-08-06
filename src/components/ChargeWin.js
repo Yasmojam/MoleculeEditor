@@ -1,6 +1,6 @@
 import ToolWindow from "./ToolWindow";
 import ToolButtons from "./ToolButtons";
-import Vectors from "./assets/Vectors";
+import Vectors from "../assets/Vectors";
 import React from "react";
 
 const ChargeWin = () => {

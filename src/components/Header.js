@@ -1,9 +1,9 @@
 import React from "react";
-import Vectors from "./assets/Vectors";
+import Vectors from "../assets/Vectors";
 import HeaderButton from "./HeaderButton";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import {useSelectedTool} from "../ToolContexProvider";
+import {useSelectedTool} from "./ToolContexProvider";
 
 const Header = (props) => {
     return (

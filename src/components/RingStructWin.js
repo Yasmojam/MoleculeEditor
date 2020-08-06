@@ -1,6 +1,6 @@
 import React from "react";
 import ToolButtons from "./ToolButtons";
-import Vectors from "./assets/Vectors";
+import Vectors from "../assets/Vectors";
 import ToolWindow from "./ToolWindow";
 
 const RingStructWin = () => {
