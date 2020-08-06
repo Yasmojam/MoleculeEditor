@@ -30,8 +30,8 @@ const AtomsWin = () => {
             <ToolButtons tool="Cl">
                 <div>Cl</div>
             </ToolButtons>
-            <ToolButtons tool="B">
-                <div>B</div>
+            <ToolButtons tool="Br">
+                <div>Br</div>
             </ToolButtons>
             <ToolButtons tool="I">
                 <div>I</div>

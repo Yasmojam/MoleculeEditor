@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Circle, Ellipse, Layer, Path, Stage, Text} from "react-konva";
 import {useSelectedTool} from "../ToolContexProvider";
-import bond, {pathDistance} from "./bond";
+import Bond from "./bond";
 import {chemElement} from "../cheminfo/chemElement";
 import {atom, findAtomicNumBySymbol} from "./atom";
 
@@ -101,8 +101,7 @@ const DrawingArea = () => {
 
         setAtomRenders(newAtomRenders);
 
-        // Update bond lengths
-        shortenBondsOnAtomAdd(coord);
+
 
         // only update canvas history as atom history is updated by {mouseDown}.
         setCanvasClickHistory([...canvasClickHistory, coord]);
@@ -119,81 +118,23 @@ const DrawingArea = () => {
         }
     }
 
-    /**
-     * Function which returns a shortened bond start.
-     */
-    const shortenBondOnBondAddStart = (bondStartCoord: Object, bondEndCoord: Object) => {
-        // m + n
-        const oldPathDist = pathDistance(bondStartCoord, bondEndCoord);
-        // m
-        const m = 10;
-        // n
-        const n = oldPathDist - 10
-
-        const newstartX = (((m*bondEndCoord.x)+(n*bondStartCoord.x))/oldPathDist);
-        const newstartY = (((m*bondEndCoord.y)+(n*bondStartCoord.y))/oldPathDist);
-        const newStartPoint = {x: newstartX, y: newstartY};
-
-        return newStartPoint;
-    }
-
-    /**
-     * Function which returns a shortened bond end.
-     */
-    const shortenBondOnBondAddEnd = (bondStartCoord: Object, bondEndCoord: Object) => {
-        // m + n
-        const oldPathDist = pathDistance(bondStartCoord, bondEndCoord);
-        // m
-        const m = oldPathDist - 10;
-        // n
-        const n = 10;
-
-        const newEndX = (((m*bondEndCoord.x)+(n*bondStartCoord.x))/oldPathDist);
-        const newEndY = (((m*bondEndCoord.y)+(n*bondStartCoord.y))/oldPathDist);
-        const newEndPoint = {x: newEndX, y: newEndY};
-
-        return newEndPoint;
-    }
-
-
 
     /**
      * Function which shortens bond length for bond which has a start/end coord which matches parameter.
+     * Sets the bond's new atoms and the visability.
      */
-    const shortenBondsOnAtomAdd = (coord: Object) => {
+    const atomShortenBondCoord = (atom: Object) => {
         // must update bondRenders to rerender to canvas
         for (let tryBond of bondRenders){
-            if ((tryBond.startCoord.x === coord.x) && (tryBond.startCoord.y === coord.y)){
-                bondRenders[bondRenders.indexOf(tryBond)] =
-                    bond(
-                        shortenBondOnBondAddStart(tryBond.startCoord, tryBond.endCoord),
-                        tryBond.endCoord,
-                        tryBond.startAtom,
-                        tryBond.endAtom,
-                        tryBond.bondOrder,
-                        tryBond.bondType,
-                        true);
+            if ((tryBond.startCoord.x === atom.coord.x) && (tryBond.startCoord.y === atom.coord.y)){
+                tryBond.shortenBondStart();
+                tryBond.startAtom = atom.atomicNum;
+                tryBond.startAtomVis = true;
             }
-            if ((tryBond.endCoord.x === coord.x) && (tryBond.endCoord.y === coord.y)){
-                // m + n
-                const oldPathDist = pathDistance(tryBond.startCoord, tryBond.endCoord);
-                // m
-                const m = oldPathDist * 0.8;
-                // n
-                const n = oldPathDist * 0.2;
-
-                const newEndX = (((m*tryBond.endCoord.x)+(n*tryBond.startCoord.x))/oldPathDist);
-                const newEndY = (((m*tryBond.endCoord.y)+(n*tryBond.startCoord.y))/oldPathDist);
-                const newEndPoint = {x: newEndX, y: newEndY};
-                bondRenders[bondRenders.indexOf(tryBond)] =
-                    bond(
-                        tryBond.startCoord,
-                        shortenBondOnBondAddEnd(tryBond.startCoord, tryBond.endCoord),
-                        tryBond.startAtom,
-                        tryBond.endAtom,
-                        tryBond.bondOrder,
-                        tryBond.bondType,
-                        true);
+            if ((tryBond.endCoord.x === atom.coord.x) && (tryBond.endCoord.y === atom.coord.y)){
+                tryBond.shortenBondEnd();
+                tryBond.endAtom = atom.atomicNum;
+                tryBond.endAtomVis = true;
             }
         }
     }
@@ -205,7 +146,6 @@ const DrawingArea = () => {
     const bondRenderToCanvas = (bondOrder: Number) => {
         const newBondRenders = bondRenders.slice();
         const bondType = selectedTool;
-        let snappedBond = false;
 
         let startCoord =
             {
@@ -218,30 +158,9 @@ const DrawingArea = () => {
                 y: bondCoordsHistory[bondCoordsHistory.length - 1].y
             };
 
-        if (isCoordSnappable(startCoord) || isCoordSnappable(endCoord)){
-            snappedBond = true;
-        }
-
-        if (isCoordSnappable(startCoord) && atomRenders.length > 0){
-            for (let atom of atomRenders) {
-                if (atom.coord.x === startCoord.x && atom.coord.y === startCoord.y){
-                   const newStartCoord = shortenBondOnBondAddStart(startCoord, endCoord);
-                   startCoord = newStartCoord;
-                }
-            }
-        }
-        if (isCoordSnappable(endCoord) && atomRenders.length > 0){
-            for (let atom of atomRenders) {
-                if (atom.coord.x === endCoord.x && atom.coord.y === endCoord.y){
-                    const newEndCoord = shortenBondOnBondAddEnd(startCoord, endCoord);
-                    endCoord = newEndCoord;
-                }
-            }
-        }
-
 
         newBondRenders.push(
-            bond(startCoord, endCoord, 6, 6, bondOrder, bondType, snappedBond)
+            new Bond(startCoord, endCoord, 6, 6, bondOrder, bondType, isCoordSnappable(endCoord))
         )
 
         setBondRenders(newBondRenders);
@@ -251,6 +170,29 @@ const DrawingArea = () => {
         setCanvasClickHistory([...canvasClickHistory, endCoord]);
     }
 
+    /**
+     * Function which shortens bond starts/ends if there are atoms attached
+     * */
+ const bondShortenOnRender = (bond: Class) => {
+     if (isCoordSnappable(bond.startCoord) && atomRenders.length > 0){
+         for (let atom of atomRenders) {
+             if (atom.coord.x === bond.startCoord.x && atom.coord.y === bond.startCoord.y){
+                bond.shortenBondStart();
+                bond.startAtom = atom;
+                bond.startAtomVis = true;
+             }
+         }
+     }
+     if (isCoordSnappable(bond.endCoord) && atomRenders.length > 0){
+         for (let atom of atomRenders) {
+             if (atom.coord.x === bond.endCoord.x && atom.coord.y === bond.endCoord.y){
+                 bond.shortenBondEnd();
+                 bond.endAtom = atom;
+                 bond.endAtomVis = true;
+             }
+         }
+     }
+ }
 
     /**
      * Hook which updates list of bond objects for rendering to canvas.
@@ -328,7 +270,7 @@ const DrawingArea = () => {
         const endCoord =
             {x: previewCoord.x, y: previewCoord.y};
         setPreviewRenders(
-            bond(startCoord, endCoord, 6, 6, bondOrder, bondType, isCoordSnappable(endCoord))
+            new Bond(startCoord, endCoord, 6, 6, bondOrder, bondType, isCoordSnappable(endCoord))
         )
     }
 
@@ -373,7 +315,6 @@ const DrawingArea = () => {
     const handlePreview = () => {
         if (previewRender.bondType === "backward_plane"){
             return (<Path
-                key={bondRenders.indexOf(bond)}
                 stroke="black"
                 strokeWidth={10}
                 dashEnabled={true}
@@ -400,11 +341,12 @@ const DrawingArea = () => {
     }
     }
 
+
     /**
      * Highlight the closest previously clicked coord to preview coord.
      */
     useEffect(() => {
-        if ((isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "end") ||
+        if ((isCoordSnappable(previewCoord) && isBondCoorEndorMid(previewCoord) === "end")  ||
             (isCoordSnappable(previewCoord) && isCoordAtom(snappableCoord(previewCoord)))) {
             setHighlightAtomCoord(
                 {
@@ -507,9 +449,14 @@ const DrawingArea = () => {
 
     /**
      * Hook which logs angles of bonds and updates the list of mid points.
+     * Also adjusts bond lengths.
      * Triggers on bondRenders change.
      */
     useEffect(() => {
+        if (bondRenders.length>0) {
+            // Check if this bond needs shortend and if so shorten
+            bondShortenOnRender(bondRenders[bondRenders.length - 1]);
+        }
         console.log("Bond Renders")
         console.log(bondRenders)
         if (bondRenders.length >= 1) {
@@ -521,6 +468,8 @@ const DrawingArea = () => {
     // log Atoms
     useEffect(() => {
         if (atomRenders.length > 0) {
+            // Update bond lengths
+            atomShortenBondCoord(atomRenders[atomRenders.length-1]);
             console.log("Atom Renders:");
             console.log(atomRenders);
         }
@@ -549,10 +498,18 @@ const DrawingArea = () => {
                 // if within +- 5 of start/end x and start/end y coord
                 if ((startX - snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
                     (startY - snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)) {
+                    // check bond does not have vis atom at the end
+                    // if (isBondFromStartCoordSnappable(snappableCoord(tryCoord))) {
+                    //     return true;
+                    // }
                     return true;
                 }
                 if ((endX - snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
                     (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
+                    // check bond does not have vis atom at the end
+                    // if (isBondFromEndCoordSnappable(snappableCoord(tryCoord))) {
+                    //     return true;
+                    // }
                     return true;
                 }
                 // midpoint check
@@ -576,6 +533,16 @@ const DrawingArea = () => {
      * Function which returns a coordinate object if parameter coordinate is within a snappable distance of it.
      */
     const snappableCoord = (tryCoord: Object) => {
+        for (let atom of atomRenders) {
+            const atomX = atom.coord.x;
+            const atomY = atom.coord.y;
+
+            if ((atomX - snappableDistance <= tryCoord.x && tryCoord.x <= atomX + snappableDistance) &&
+                (atomY - snappableDistance <= tryCoord.y && tryCoord.y <= atomY + snappableDistance)) {
+                return  {x: atomX, y: atomY};
+            }
+        }
+
         for (let bond of bondRenders) {
             // if within +- 5 of x and y coord
             const startX = bond.startCoord.x;
@@ -587,26 +554,17 @@ const DrawingArea = () => {
 
             if ((startX - snappableDistance <= tryCoord.x && tryCoord.x <= startX + snappableDistance) &&
                 (startY - snappableDistance <= tryCoord.y && tryCoord.y <= startY + snappableDistance)) {
-                return {x: startX, y: startY};
+                    return  {x: startX, y: startY};
+
             }
-            if ((endX - snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
+            else if ((endX - snappableDistance <= tryCoord.x && tryCoord.x <= endX + snappableDistance) &&
                 (endY - snappableDistance <= tryCoord.y && tryCoord.y <= endY + snappableDistance)) {
-                return {x: endX, y: endY};
+                    return {x: endX, y: endY};
             }
             // midpoint check
-            if ((midpointX - snappableDistance <= tryCoord.x && tryCoord.x <= midpointX + snappableDistance) &&
+            else if ((midpointX - snappableDistance <= tryCoord.x && tryCoord.x <= midpointX + snappableDistance) &&
                 (midpointY - snappableDistance <= tryCoord.y && tryCoord.y <= midpointY + snappableDistance)) {
-                return {x: midpointX, y: midpointY};
-            }
-        }
-
-        for (let atom of atomRenders) {
-            const atomX = atom.coord.x;
-            const atomY = atom.coord.y;
-
-            if ((atomX - snappableDistance <= tryCoord.x && tryCoord.x <= atomX + snappableDistance) &&
-                (atomY - snappableDistance <= tryCoord.y && tryCoord.y <= atomY + snappableDistance)) {
-                return {x: atomX, y: atomY};
+               return  {x: midpointX, y: midpointY};
             }
         }
     }
@@ -641,6 +599,38 @@ const DrawingArea = () => {
     }
 
     /**
+     * Function which returns true if bond start has not got a visible atom connected.
+     * */
+    const isBondFromStartCoordSnappable = (tryCoord: Object) => {
+        for (let bond of bondRenders) {
+            if (bond.startCoord.x === tryCoord.x && bond.startCoord.y === tryCoord.y){
+                if (bond.startAtomVis === true) {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    /**
+     * Function which returns true if bond end has not got a visible atom connected.
+     * */
+    const isBondFromEndCoordSnappable = (tryCoord: Object) => {
+        for (let bond of bondRenders) {
+            if (bond.endCoord.x === tryCoord.x && bond.endCoord.y === tryCoord.y){
+                if (bond.endAtomVis === true) {
+                    return false;
+                }
+            }
+            else {
+                return true;
+            }
+        }
+    }
+
+
+    /**
      * Function which returns true if coord is a atom.
      */
     const isCoordAtom = (tryCoord: Object) => {
@@ -655,6 +645,94 @@ const DrawingArea = () => {
     }
 
     /**
+     * Function which returns path distance.
+     */
+    const pathDistance = (startCoord: Object, endCoord: Object) => {
+        const dx = endCoord.x - startCoord.x;
+        const dy = endCoord.y - startCoord.y;
+        const distance = Math.sqrt((dx**2) + (dy**2))
+
+        return distance;
+    }
+
+    /**
+     * Function which lengthens bond starts/ends on connected atom erase
+     */
+    const lengthenBondsOnAtomErase = (atomCoord: Object) => {
+        // bond starts
+        if (bondRenders.length > 0) {
+            for (let bond of bondRenders) {
+                console.log("lengthen fire");
+                const bondStartCoord = bond.startCoord;
+                const bondEndCoord = bond.endCoord;
+
+                // m + n (original bond distance will be the opposite end to the atom)
+                // START EVENT
+                const atomToEnd = pathDistance(atomCoord, bondEndCoord);
+                console.log("path atom to end");
+                console.log(atomToEnd);
+                // END EVENT
+                const startToAtom = pathDistance(bondStartCoord, atomCoord);
+
+                const m = 10;
+
+                const nStart = atomToEnd - 10;
+                const nEnd = startToAtom - 10;
+
+                // calculate shortened start
+                const newStartX = (((m*bondEndCoord.x)+(nStart*atomCoord.x))/atomToEnd);
+                const newStartY = (((m*bondEndCoord.y)+(nStart*atomCoord.y))/atomToEnd);
+                // calculate shortened end
+                const newEndX = (((nEnd * atomCoord.x) + (m * bondStartCoord.x)) / startToAtom);
+                const newEndY = (((nEnd * atomCoord.y) + (m * bondStartCoord.y)) / startToAtom);
+
+                //
+                // // m + n
+                // const pathDistStart = pathDistance(bondEndCoord, atomCoord);
+                // console.log("start dist");
+                // console.log(pathDistStart);
+                // const pathDistEnd = pathDistance(bondStartCoord, atomCoord);
+                // console.log("end dist");
+                // console.log(pathDistEnd);
+                // // m
+                // const m = 10;
+                // // n
+                // const nStart = pathDistStart - 10;
+                // const nEnd = pathDistEnd - 10;
+                //
+                //
+                // //ORIGINAL
+                // const newStartX = (((m * bondEndCoord.x) + (nStart * bondStartCoord.x)) / pathDistStart);
+                // const newStartY = (((m * bondEndCoord.y) + (nStart * bondStartCoord.y)) / pathDistStart);
+                // const newEndX = (((nEnd * bondEndCoord.x) + (m * bondStartCoord.x)) / pathDistEnd);
+                // const newEndY = (((nEnd * bondEndCoord.y) + (m * bondStartCoord.y)) / pathDistEnd);
+                //
+                console.log("CalculatedStart:")
+                console.log({x: newStartX, y: newStartY});
+                //
+                // console.log("CalculatedEnd:")
+                // console.log({x: newEndX, y: newEndY});
+                //
+                console.log("BondRenders:");
+                console.log(bondRenders);
+
+                if (newStartX === bond.startCoord.x && newStartY === bond.startCoord.y) {
+                    console.log("start erase fire");
+                    bond.lengthenBond("start", atomCoord);
+                    bond.startAtom = 6;
+                    bond.startAtomVis = false;
+                }
+                else if (newEndX === bond.endCoord.x && newEndY === bond.endCoord.y) {
+                    console.log("end erase fire");
+                    bond.lengthenBond("end", atomCoord);
+                    bond.endAtom = 6;
+                    bond.endAtomVis = false;
+                }
+            }
+        }
+    }
+
+    /**
      * Function which erases entity if it is snapped to with eraser on.
      */
     const eraseEntity = (coord: Object) => {
@@ -663,6 +741,7 @@ const DrawingArea = () => {
                 const indexRemove = atomRenders.indexOf(atom);
                 atomRenders.splice(indexRemove, 1);
                 setAtomRenders(atomRenders);
+                lengthenBondsOnAtomErase(atom.coord);
                 return;
             }
         }
@@ -702,7 +781,7 @@ const DrawingArea = () => {
         // Todo update with isArrow()/isCharge() later when these are implemented with states
         if (isCoordSnappable(currentCoord)) {
             // Add snappable coord to list of previous coords instead
-            currentCoord = snappableCoord(currentCoord)
+            currentCoord = snappableCoord(currentCoord);
             if (isToolAtom(selectedTool)) {
                 setAtomCoordsHistory([...atomCoordsHistory, currentCoord]);
             }
