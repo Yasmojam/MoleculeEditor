@@ -1,39 +1,42 @@
 import React from "react";
 import ToolWindow from "./ToolWindow";
-import ToolButtons from "./ToolButtons";
-import Vectors from "./assets/Vectors";
+import ToolButton from "./ToolButton";
+import Vectors from "../assets/Vectors";
 
+/**
+ * Component which represents the bond menu
+ * */
 const BondWin = () => {
     return (
         <ToolWindow heading="Bonds">
             <div className="toolWinContainer">
-            <ToolButtons tool="single">
+            <ToolButton tool="single">
                 <img className="toolIcon" src={Vectors.single} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="double">
+            </ToolButton>
+            <ToolButton tool="double">
                 <img className="toolIcon" src={Vectors.double} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="triple">
+            </ToolButton>
+            <ToolButton tool="triple">
                 <img className="toolIcon" src={Vectors.triple} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="quadruple">
+            </ToolButton>
+            <ToolButton tool="quadruple">
                 <img className="toolIcon" src={Vectors.quadruple} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="forward_plane">
+            </ToolButton>
+            <ToolButton tool="forward_plane">
                 <img className="toolIcon" src={Vectors.forward_plane} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="backward_plane">
+            </ToolButton>
+            <ToolButton tool="backward_plane">
                 <img className="toolIcon" src={Vectors.backward_plane} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="unspecified_plane">
+            </ToolButton>
+            <ToolButton tool="unspecified_plane">
                 <img className="toolIcon" src={Vectors.unspecified_plane} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="dative">
+            </ToolButton>
+            <ToolButton tool="dative">
                 <img className="toolIcon" src={Vectors.dative} alt=""/>
-            </ ToolButtons>
-            <ToolButtons tool="intermediate">
+            </ToolButton>
+            <ToolButton tool="intermediate">
                 <img className="toolIcon" src={Vectors.intermediate} alt=""/>
-            </ ToolButtons>
+            </ToolButton>
             </div>
         </ToolWindow>
 

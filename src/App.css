@@ -18,10 +18,7 @@ html, body{
 
 }
 
-.toolIcon {
-    width: 1.5rem;
-    height: 1.5rem;
-}
+
 
 .card-header {
     background-color: white;
@@ -42,6 +39,11 @@ html, body{
 
 .btn:hover {
     background: #e0e1e2 none;
+}
+
+.btn:focus{
+    outline: none;
+    box-shadow: none;
 }
 
 .canvasArea {
@@ -79,7 +81,4 @@ html, body{
 
 .headerCol {
     padding: 0;
-}
-
-.accordion {
 }

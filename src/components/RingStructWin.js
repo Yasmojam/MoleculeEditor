@@ -1,30 +1,33 @@
 import React from "react";
-import ToolButtons from "./ToolButtons";
-import Vectors from "./assets/Vectors";
+import ToolButton from "./ToolButton";
+import Vectors from "../assets/Vectors";
 import ToolWindow from "./ToolWindow";
 
+/**
+ * Component which represents ring structure menu
+ * */
 const RingStructWin = () => {
     return (
         <ToolWindow heading="Ring Structures">
             <div className="toolWinContainer">
-            <ToolButtons tool="benzene">
+            <ToolButton tool="benzene">
                 <img className="toolIcon" src={Vectors.benzene} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="cyclohexane">
+            </ToolButton>
+            <ToolButton tool="cyclohexane">
                 <img className="toolIcon" src={Vectors.cyclohexane} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="cyclopropane">
+            </ToolButton>
+            <ToolButton tool="cyclopropane">
                 <img className="toolIcon" src={Vectors.cyclopropane} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="cyclobutane">
+            </ToolButton>
+            <ToolButton tool="cyclobutane">
                 <img className="toolIcon" src={Vectors.cyclobutane} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="cyclooctane">
+            </ToolButton>
+            <ToolButton tool="cyclooctane">
                 <img className="toolIcon" src={Vectors.cyclooctane} alt=""/>
-            </ToolButtons>
-            <ToolButtons tool="cyclopentane">
+            </ToolButton>
+            <ToolButton tool="cyclopentane">
                 <img className="toolIcon" src={Vectors.cyclopentane} alt=""/>
-            </ToolButtons>
+            </ToolButton>
                 </div>
         </ToolWindow>
     )

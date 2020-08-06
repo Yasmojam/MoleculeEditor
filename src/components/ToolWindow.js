@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
+import "./ToolWindow.css";
 
 const ToolWindow = (props) => {
 
@@ -20,22 +21,26 @@ const ToolWindow = (props) => {
 
     return (
         <Accordion defaultActiveKey="0">
-        <Card style={{border:"2px solid #707070"}}>
+        <Card
+            // style={{border:"2px solid #707070"}}
+        >
                 <Accordion.Toggle
                     onMouseDown={iconToggle}
                     as={Card.Header}
                     eventKey="0"
-                    style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        paddingLeft: "1rem",
-                        paddingRight: "1rem",
-                        backgroundColor: "white",
-                        fontFamily: 'Lato, sans-serif',
-                        fontWeight:"bold",
-                        fontSize:"16px"}}>
+                    className="openAccordion"
+                    // style={{
+                    //     display: "flex",
+                    //     justifyContent: "space-between",
+                    //     paddingLeft: "1rem",
+                    //     paddingRight: "1rem",
+                    //     backgroundColor: "white",
+                    //     fontFamily: 'Lato, sans-serif',
+                    //     fontWeight:"bold",
+                    //     fontSize:"16px"}}
+                        >
                     <div>{props.heading}</div>
-                    <div style={{color:"#9e9e9e"}}>{toggleIcon}</div>
+                    <div className="toggleArrow">{toggleIcon}</div>
             </Accordion.Toggle>
 
             <Accordion.Collapse eventKey="0">

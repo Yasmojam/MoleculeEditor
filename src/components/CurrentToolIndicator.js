@@ -1,6 +1,9 @@
 import React from "react";
 import {useSelectedTool} from "./ToolContexProvider";
 
+/**
+ * Component which represents the selected tool indicator
+ * */
 const CurrentToolIndicator = () => {
     const selectedTool = useSelectedTool().tool;
 
