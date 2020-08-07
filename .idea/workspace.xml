@@ -19,33 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Lots of refactoring.">
-      <change afterPath="$PROJECT_DIR$/src/components/DrawingArea.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HeaderButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ToolButton.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ToolWindow.css" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="More refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bond.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AtomsWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BondWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChargeWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChargeWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CurrentToolIndicator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CurrentToolIndicator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawingArea.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LongToolWindow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReactionWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RingStructWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RingStructWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolContexProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolContexProvider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolWindow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolWindow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596747090955</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="More refactoring">
+      <created>1596757846289</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1596757846289</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +433,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Can now highlight bond ends and snap bonds to bond ends." />
     <MESSAGE value="Added clear canvas functionality to header button." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
@@ -475,7 +457,8 @@
     <MESSAGE value="Added current tool indicator." />
     <MESSAGE value="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore." />
     <MESSAGE value="Lots of refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of refactoring." />
+    <MESSAGE value="More refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="More refactoring" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">

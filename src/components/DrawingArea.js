@@ -89,7 +89,7 @@ const DrawingArea = () => {
      * Function which adds atom to list of atoms to be rendered to canvas.
      */
     const atomRenderToCanvas = (atomicNum: Number) => {
-        const newAtomRenders = atomRenders.slice()
+        let newAtomRenders = atomRenders.slice()
 
         const coord =
             {
@@ -101,17 +101,20 @@ const DrawingArea = () => {
         if (atomRenders.length > 0){
             for (let atom of atomRenders){
                 if (atom.coord.x === coord.x && atom.coord.y === coord.y){
+                    console.log("match")
                     atomRenders[atomRenders.indexOf(atom)] = new Atom(atomicNum, coord);
+                    newAtomRenders = atomRenders;
                     return;
                 }
-                else{
-                    newAtomRenders.push(
-                        new Atom(atomicNum, coord)
-                    )
-                }
             }
+            console.log("not match")
+            newAtomRenders.push(
+                new Atom(atomicNum, coord)
+            )
+
         }
         else {
+            console.log("less than 0")
             newAtomRenders.push(
                 new Atom(atomicNum, coord)
             )
