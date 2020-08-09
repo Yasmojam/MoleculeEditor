@@ -21,8 +21,6 @@ class Bond {
         this._endAtomVis = endAtomVis;
         this._bondOrder = bondOrder;
         this._bondType = bondType;
-        this._startAtomVis = startAtomVis;
-        this._endAtomVis = endAtomVis;
         this._stretchedSnapped = stretchedSnapped;
 
 

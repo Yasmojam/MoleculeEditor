@@ -35,7 +35,7 @@ const DrawingArea = () => {
 
     const selectedTool = useSelectedTool().tool;
 
-    const snappableDistance = 15;
+    const snappableDistance = 10;
 
     useEffect(() => {
         console.log("Atom coords:");

@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="More refactoring">
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Atoms are now replacable">
+      <change afterPath="$PROJECT_DIR$/graph.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bond.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawingArea.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -413,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596757846289</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Atoms are now replacable">
+      <created>1596759715708</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1596759715708</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added clear canvas functionality to header button." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
     <MESSAGE value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
@@ -458,7 +466,8 @@
     <MESSAGE value="No longer manually encoding svg paths for icons as these are not being used on the konva canvas anymore." />
     <MESSAGE value="Lots of refactoring." />
     <MESSAGE value="More refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="More refactoring" />
+    <MESSAGE value="Atoms are now replacable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atoms are now replacable" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
@@ -516,10 +525,10 @@
     </state>
     <state x="747" y="222" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595520997382" />
     <state x="747" y="222" key="RollbackChangesDialog/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596111660308" />
-    <state x="217" y="203" width="998" height="708" key="SettingsEditor" timestamp="1596380154036">
+    <state x="649" y="130" width="998" height="708" key="SettingsEditor" timestamp="1596802591049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="217" y="203" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596380154036" />
+    <state x="649" y="130" width="998" height="708" key="SettingsEditor/1920.3.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1596802591049" />
     <state width="506" height="446" key="SwitcherDM" timestamp="1596732864242">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
