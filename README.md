@@ -1,9 +1,9 @@
-#Molecule editor.
+# Molecule editor.
 Molecule editor. is a chemical structure sketcher web application made using React JS. It uses the React Konva library 
 to draw SVG paths to the canvas and React Bootstrap for styling. Molecule editor. is responsive to screen size so is
 compatible with most devices.  
 
-##Current Features
+## Current Features
 * Compatible with desktop and mobile devices
 * Drawing: 
     * Bonds: 
@@ -29,7 +29,7 @@ compatible with most devices.
     <img src="https://imgur.com/M9OjgKG.png" alt="bondend_hl"/>
     </p>
 * Tool menus can be collapsed for more compact view
-###Instructions
+### Instructions
 <p align="center">
 <img src="https://imgur.com/HSfGpWH.png" alt="screenshot"/>
 </p>
@@ -66,7 +66,7 @@ This window indicates the currently selected tool.
 The canvas is the drawing area.
 
 
-####In Development
+#### In Development
 * Bonds: dative, unspecified plane
 * Drawing Ring Structures
 * Adding charges/radicals/dipoles to atoms
