@@ -19,11 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Atoms are now replacable">
-      <change afterPath="$PROJECT_DIR$/graph.svg" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms.">
+      <change afterPath="$PROJECT_DIR$/screenshot.clip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManual/atom_highlight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManual/bond_end_highlight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManual/bond_highlight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManual/highlights.clip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userManual/screenshot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Bond.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Bond.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DrawingArea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DrawingArea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596759715708</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms.">
+      <created>1596983460053</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1596983460053</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +453,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each." />
     <MESSAGE value="Refactored DrawingArea.js so fewer chunks of repeating code. Bond path builder now takes parameters of start and end coord objects instead of separate x,y for each. Preview now erases properly when mouse is clicked." />
     <MESSAGE value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
     <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
@@ -467,7 +477,8 @@
     <MESSAGE value="Lots of refactoring." />
     <MESSAGE value="More refactoring" />
     <MESSAGE value="Atoms are now replacable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atoms are now replacable" />
+    <MESSAGE value="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms." />
+    <option name="LAST_COMMIT_MESSAGE" value="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
