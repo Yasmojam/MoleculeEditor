@@ -462,7 +462,10 @@ const DrawingArea = () => {
         }
     }, [bondRenders])
 
-    // log Atoms
+    /**
+     * Hook which shortens surrounding bonds on newly added atom and logs all atom renders.
+     * Triggers when atomRenders state is updated.
+     * */
     useEffect(() => {
         if (atomRenders.length > 0) {
             // Update bond lengths

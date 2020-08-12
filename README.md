@@ -5,6 +5,7 @@ compatible with most devices.
 
 ##Current Features
 * Compatible with desktop and mobile devices
+* Offline functionality 
 * Drawing: 
     * Bonds: 
         * Add bonds:
