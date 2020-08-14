@@ -43,7 +43,7 @@ const Header = () => {
                         </HeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="clear" toolTip="clear">
+                        <HeaderButton tool="clear" toolTip="clear canvas">
                             clear
                         </HeaderButton>
                         </Nav.Item>

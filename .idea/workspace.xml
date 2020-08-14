@@ -19,21 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Updated readme">
-      <change afterPath="$PROJECT_DIR$/src/components/UnavailableHeaderButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UnavailableToolButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AtomsWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AtomsWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BondWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BondWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ChargeWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ChargeWin.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added unavailable button components for header buttons and menu buttons. Also added tool tips.">
       <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HeaderButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HeaderButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ReactionWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ReactionWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RingStructWin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RingStructWin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ToolButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToolButton.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +127,7 @@
       <workItem from="1597242244832" duration="736000" />
       <workItem from="1597249511196" duration="2151000" />
       <workItem from="1597325053875" duration="1020000" />
-      <workItem from="1597404856555" duration="4902000" />
+      <workItem from="1597404856555" duration="5545000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -450,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597153066228</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Added unavailable button components for header buttons and menu buttons. Also added tool tips.">
+      <created>1597438033153</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1597438033153</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removed broken zoom from DrawingArea.js and added tool names to ReactionWin.js ToolButtons." />
     <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
     <MESSAGE value="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord." />
     <MESSAGE value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
@@ -495,7 +488,8 @@
     <MESSAGE value="Atoms are now replacable" />
     <MESSAGE value="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms." />
     <MESSAGE value="Updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated readme" />
+    <MESSAGE value="Added unavailable button components for header buttons and menu buttons. Also added tool tips." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added unavailable button components for header buttons and menu buttons. Also added tool tips." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
