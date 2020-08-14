@@ -38,7 +38,7 @@ const Header = () => {
                         </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="erase" toolTip="erase">
+                        <HeaderButton tool="erase entity" toolTip="erase">
                             erase
                         </HeaderButton>
                         </Nav.Item>
