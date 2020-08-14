@@ -12,3 +12,11 @@
     width: 1.5rem;
     height: 1.5rem;
 }
+
+.btn:disabled{
+    opacity: 0.4;
+}
+
+.btn:disabled:hover{
+    background: white;
+}

@@ -1,7 +1,7 @@
 import ToolWindow from "./ToolWindow";
-import ToolButton from "./ToolButton";
 import Vectors from "../assets/Vectors";
 import React from "react";
+import UnavailableToolButton from "./UnavailableToolButton";
 
 /**
  * Component which represents the charge menu
@@ -10,27 +10,28 @@ const ChargeWin = () => {
     return (
         <ToolWindow heading="Charge">
             <div className="toolWinContainer">
-            <ToolButton tool="radical">
+            <UnavailableToolButton tool="radical" toolTip="radical">
                 <img className="toolIcon" src={Vectors.radical} alt=""/>
-            </ToolButton>
-            <ToolButton tool="minus">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="minus" toolTip="minus">
                 <img className="toolIcon" src={Vectors.minus} alt=""/>
-            </ToolButton>
-            <ToolButton tool="plus">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="plus" toolTip="plus">
                 <img className="toolIcon" src={Vectors.plus} alt=""/>
-            </ToolButton>
-            <ToolButton tool="neg_dipole">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="neg_dipole" toolTip="negative dipole">
                 <img className="toolIcon" src={Vectors.neg_dipole} alt=""/>
-            </ToolButton>
-            <ToolButton tool="pos_dipole">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="pos_dipole" toolTip="positive dipole">
                 <img className="toolIcon" src={Vectors.pos_dipole} alt=""/>
-            </ToolButton>
-            <ToolButton tool="dipole">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="dipole" toolTip="dipole">
                 <img className="toolIcon" src={Vectors.dipole} alt=""/>
-            </ToolButton>
+            </UnavailableToolButton>
             </div>
         </ToolWindow>
     )
 }
+
 
 export default ChargeWin;

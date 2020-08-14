@@ -1,7 +1,7 @@
 import React from "react";
-import ToolButton from "./ToolButton";
 import Vectors from "../assets/Vectors";
 import ToolWindow from "./ToolWindow";
+import UnavailableToolButton from "./UnavailableToolButton";
 
 /**
  * Component which represents ring structure menu
@@ -10,24 +10,24 @@ const RingStructWin = () => {
     return (
         <ToolWindow heading="Ring Structures">
             <div className="toolWinContainer">
-            <ToolButton tool="benzene">
+            <UnavailableToolButton tool="benzene" toolTip="benzene">
                 <img className="toolIcon" src={Vectors.benzene} alt=""/>
-            </ToolButton>
-            <ToolButton tool="cyclohexane">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="cyclohexane" toolTip="cyclohexane">
                 <img className="toolIcon" src={Vectors.cyclohexane} alt=""/>
-            </ToolButton>
-            <ToolButton tool="cyclopropane">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="cyclopropane" toolTip="cyclopropane">
                 <img className="toolIcon" src={Vectors.cyclopropane} alt=""/>
-            </ToolButton>
-            <ToolButton tool="cyclobutane">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="cyclobutane" toolTip="cyclobutane">
                 <img className="toolIcon" src={Vectors.cyclobutane} alt=""/>
-            </ToolButton>
-            <ToolButton tool="cyclooctane">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="cyclooctane" toolTip="cyclooctane">
                 <img className="toolIcon" src={Vectors.cyclooctane} alt=""/>
-            </ToolButton>
-            <ToolButton tool="cyclopentane">
+            </UnavailableToolButton>
+            <UnavailableToolButton tool="cyclopentane" toolTip="cyclopentane">
                 <img className="toolIcon" src={Vectors.cyclopentane} alt=""/>
-            </ToolButton>
+            </UnavailableToolButton>
                 </div>
         </ToolWindow>
     )

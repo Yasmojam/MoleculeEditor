@@ -4,6 +4,7 @@ import HeaderButton from "./HeaderButton";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "./Header.css";
+import UnavailableHeaderButton from "./UnavailableHeaderButton";
 
 /**
  * Component which represents web application header
@@ -27,42 +28,42 @@ const Header = () => {
                          // style={{display:"flex", flexWrap:"wrap", justifyContent:"center"}}
                     >
                     <Nav.Item>
-                        <HeaderButton tool="undo">
+                        <UnavailableHeaderButton tool="undo" >
                             undo
-                        </HeaderButton>
+                        </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="redo">
+                        <UnavailableHeaderButton tool="redo">
                             redo
-                        </HeaderButton>
+                        </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="erase">
+                        <HeaderButton tool="erase" toolTip="erase">
                             erase
                         </HeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="clear">
+                        <HeaderButton tool="clear" toolTip="clear">
                             clear
                         </HeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="transform">
+                        <UnavailableHeaderButton tool="transform">
                             <img className="toolIconHeader" src={Vectors.transform} alt=""/>
-                        </HeaderButton>
+                        </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="selection">
+                        <UnavailableHeaderButton tool="selection">
                             <img className="toolIconHeader" src={Vectors.selection} alt=""/>
-                        </HeaderButton>
+                        </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="T">
+                        <UnavailableHeaderButton tool="T">
                             T
-                        </HeaderButton>
+                        </UnavailableHeaderButton>
                         </Nav.Item>
                         <Nav.Item>
-                        <HeaderButton tool="export">
+                        <HeaderButton tool="export" toolTip="Export to .png">
                             Export .png
                         </HeaderButton>
                         </Nav.Item>

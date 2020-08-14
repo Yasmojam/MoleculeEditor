@@ -2,6 +2,8 @@ import React from "react";
 import {useSelectedTool} from "./ToolContexProvider";
 import Button from "react-bootstrap/Button";
 import "./ToolButton.css";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 /**
  * Component which represents a tool menu button
@@ -16,6 +18,7 @@ const ToolButton = (props) => {
     }
 
     return (
+        <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip-disabled">{props.toolTip}</Tooltip>}>
         <Button
                 className="menuButton"
                 variant="outline-secondary"
@@ -23,6 +26,7 @@ const ToolButton = (props) => {
                 onClick={() => {clickHandler(props.tool)}}>
             {props.children}
         </Button>
+        </OverlayTrigger>
     )
 }
 
