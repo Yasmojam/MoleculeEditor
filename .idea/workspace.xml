@@ -19,8 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Added unavailable button components for header buttons and menu buttons. Also added tool tips.">
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+    <list default="true" id="f5fee5b3-1d22-486e-96e5-2e7d73c532cb" name="Default Changelist" comment="Changed erase button tool tip to &quot;erase entity&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot.clip" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/screenshot.clip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManual/atom_highlight.png" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/atom_highlight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManual/bond_end_highlight.png" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/bond_end_highlight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManual/bond_highlight.png" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/bond_highlight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManual/highlights.clip" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/highlights.clip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userManual/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/userManualImages/screenshot.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +133,7 @@
       <workItem from="1597242244832" duration="736000" />
       <workItem from="1597249511196" duration="2151000" />
       <workItem from="1597325053875" duration="1020000" />
-      <workItem from="1597404856555" duration="5545000" />
+      <workItem from="1597404856555" duration="6249000" />
     </task>
     <task id="LOCAL-00001" summary="Started working on the UI">
       <created>1591800909960</created>
@@ -444,7 +450,21 @@
       <option name="project" value="LOCAL" />
       <updated>1597438033153</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Changed clear button tool tip to &quot;clear canvas&quot;">
+      <created>1597438596283</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1597438596283</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Changed erase button tool tip to &quot;erase entity&quot;">
+      <created>1597438636012</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1597438636012</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,8 +484,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implemented atoms from atom buttons window rendering to the canvas." />
-    <MESSAGE value="Allows atoms to be snapped to and highlight on mouse over. Fixed bug where switching between atom tools would render atom in previously clicked coord." />
     <MESSAGE value="Created separate states for tracking atom, bond, all coordinates. Next commit will replace all coord history where necessary." />
     <MESSAGE value="Midpoint tracking and snaping. Entire bond highlighting in progress. Next commit the entire bond highlight will rotate at same angle as bond slope." />
     <MESSAGE value="Can now highlight bond from end to end and the bond. Snap to midpoint." />
@@ -489,7 +507,9 @@
     <MESSAGE value="Change snap distance to 10px so that it is easier to highlight bonds with attached atoms." />
     <MESSAGE value="Updated readme" />
     <MESSAGE value="Added unavailable button components for header buttons and menu buttons. Also added tool tips." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unavailable button components for header buttons and menu buttons. Also added tool tips." />
+    <MESSAGE value="Changed clear button tool tip to &quot;clear canvas&quot;" />
+    <MESSAGE value="Changed erase button tool tip to &quot;erase entity&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed erase button tool tip to &quot;erase entity&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Deployment" timestamp="1591800827115">
