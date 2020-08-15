@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "991dabf70f2a25291896fcb48189a64b",
+    "revision": "52e0d74babb173d0d3112cc70697da18",
     "url": "/MoleculeEditor/index.html"
   },
   {
-    "revision": "9feea434e85893f1e5a7",
-    "url": "/MoleculeEditor/static/css/main.18ae871c.chunk.css"
+    "revision": "9c6539bfad93fadcf368",
+    "url": "/MoleculeEditor/static/css/main.0fb0a4d6.chunk.css"
   },
   {
-    "revision": "46b2f800e571b386650c",
-    "url": "/MoleculeEditor/static/js/2.234b6318.chunk.js"
+    "revision": "94deb226d93bf5e3b00a",
+    "url": "/MoleculeEditor/static/js/2.0f67bf39.chunk.js"
   },
   {
     "revision": "d1f552577fbd0859131edd51f65f75d8",
-    "url": "/MoleculeEditor/static/js/2.234b6318.chunk.js.LICENSE.txt"
+    "url": "/MoleculeEditor/static/js/2.0f67bf39.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9feea434e85893f1e5a7",
-    "url": "/MoleculeEditor/static/js/main.f96a7e6e.chunk.js"
+    "revision": "9c6539bfad93fadcf368",
+    "url": "/MoleculeEditor/static/js/main.9302db82.chunk.js"
   },
   {
     "revision": "6dd87314851bb93a85f0",
