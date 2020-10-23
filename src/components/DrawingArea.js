@@ -680,6 +680,7 @@ const DrawingArea = () => {
      * Function which erases entity if it is snapped to with eraser on.
      */
     const eraseEntity = (coord: Object) => {
+        console.log("Erased.")
         for (let atom of atomRenders){
             if (atom.coord.x === coord.x && atom.coord.y === coord.y){
                 const indexRemove = atomRenders.indexOf(atom);
@@ -733,7 +734,7 @@ const DrawingArea = () => {
                 setBondCoordsHistory([...bondCoordsHistory, currentCoord]);
             }
             // Erase bond
-            if (selectedTool === "erase"){
+            if (selectedTool === "erase entity"){
                 eraseEntity(snappableCoord(currentCoord));
             }
             setCanvasClickHistory([...canvasClickHistory, currentCoord]);
