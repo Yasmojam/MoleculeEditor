@@ -3,6 +3,8 @@ Molecule editor. is a chemical structure sketcher web application made using Rea
 to draw SVG paths to the canvas and React Bootstrap for styling. Molecule editor. is responsive to screen size so is
 compatible with most devices.  
 
+Available at: https://yasmojam.github.io/MoleculeEditor/
+
 ## Current Features
 * Compatible with desktop and mobile devices
 * Offline functionality 
